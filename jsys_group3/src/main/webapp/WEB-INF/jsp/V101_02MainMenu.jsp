@@ -27,7 +27,7 @@
 		                <a href="managementPage.jsp" class="btn btn-primary btn-lg mb-3">管理</a>
 	                </div>
 	                <div class="mb-3">
-		                <a href="listPage.jsp" class="btn btn-primary btn-lg">一覧</a>
+		                <a href="listPage.jsp" class="btn btn-primary btn-lg">集計</a>
 	                </div>
 	            </div>
 	        </div>
