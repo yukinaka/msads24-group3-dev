@@ -8,16 +8,37 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>ログイン画面</title>
+		
+		<!-- Temp.jspをinclude -->
+		<%@ include file="Temp.jsp" %>
+		
 	</head>
 	
-	<body style="text-align: center">
-		<h2>ログイン画面</h2>
-		
-		<form action="/jsys/jsysFC" method="post">
-			従業員番号<input type="text" name="employeeId" value="<c:out value="${ param.employeeId }"></c:out>"><br>
-			パスワード<input type="password" name="password"><br>
-			<button type="submit" name="buttonId" value="V101_01_01">ログイン</button><br>
-		</form>
+	<body>
+	
+		<!-- LoginNavbar.jspをinclude -->
+		<%@ include file="LoginNavbar.jsp" %>
+	
+		<!-- メインコンテンツ -->
+	    <div class="container">
+	        <div class="login-container">
+	            <h2 class="text-center">ログイン</h2>
+	            <form action="loginServlet" method="post">
+	                <div class="mb-3">
+	                    <label for="username" class="form-label">従業員番号</label>
+	                    <input type="text" class="form-control" id="username" name="username" required>
+	                </div>
+	                <div class="mb-3">
+	                    <label for="password" class="form-label">パスワード</label>
+	                    <input type="password" class="form-control" id="password" name="password" required>
+	                </div>
+	                <button type="submit" class="btn btn-primary w-100">ログイン</button>
+	            </form>
+	        </div>
+	    </div>
+	    
+	   <!-- Footer.jspをinclude -->
+		<%@ include file="Footer.jsp" %>
 		
 	</body>
 </html>
