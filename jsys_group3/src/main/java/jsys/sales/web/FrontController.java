@@ -35,7 +35,7 @@ public class FrontController extends HttpServlet {
 		// パラメータ未送信または空文字の場合
 		if (buttonId == null || buttonId.equals("")) {
 			// TODO 1 プロトタイピング作成演習：得意先管理メニュー画面のbuttonIdをデフォルトとして設定してください。
-			buttonId = "V101_01_01";
+			buttonId = "V302_01";
 
 		}
 		// リクエスト種別の判定
@@ -73,6 +73,10 @@ public class FrontController extends HttpServlet {
 
 			case "V301_01_01":
 				page = "V301_01OrderSummaryWithinPeriod.jsp";
+				break;
+
+			case "V302_01":
+				page = "V302_01ProductOrderSummary.jsp";
 				break;
 		}
 
