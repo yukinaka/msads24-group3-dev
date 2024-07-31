@@ -1,3 +1,4 @@
+
 /**
  * All Rights Reserved, Copyright(c) Fujitsu Learning Media Limited
  *
@@ -35,7 +36,7 @@ public class FrontController extends HttpServlet {
 		// パラメータ未送信または空文字の場合
 		if (buttonId == null || buttonId.equals("")) {
 			// TODO 1 プロトタイピング作成演習：得意先管理メニュー画面のbuttonIdをデフォルトとして設定してください。
-			buttonId = "V101_01_02";
+			buttonId = "V101_03";
 
 		}
 		// リクエスト種別の判定
@@ -73,6 +74,30 @@ public class FrontController extends HttpServlet {
 
 			case "V301_01_01":
 				page = "V301_01OrderSummaryWithinPeriod.jsp";
+				break;
+
+			case "V101_03":
+				page = "V101_03CustomerManagementMenu.jsp";
+				break;
+
+			case "V101_04":
+				page = "V101_04CustomerSummaryMenu.jsp";
+				break;
+
+			case "V221_01":
+				page = "V221_01CustomerDeletionConfirmation.jsp";
+				break;
+
+			case "V221_02":
+				page = "V221_02CustomerDeletionCompletion.jsp";
+				break;
+
+			case "V222_02":
+				page = "V222_02CustomerRestorationCompletion.jsp";
+				break;
+
+			case "V223_01":
+				page = "V223_01CustomerRestorationConfirmation.jsp";
 				break;
 		}
 
