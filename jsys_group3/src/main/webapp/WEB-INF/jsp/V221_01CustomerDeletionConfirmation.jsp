@@ -4,7 +4,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>削除確認画面</title>
+    <title>得意先削除確認</title>
     <!-- Bootstrap CSSを追加 -->
     <%@ include file="Temp.jsp" %>
 </head>
@@ -14,7 +14,7 @@
 <%@ include file="Navbar.jsp" %>
 
 <div class="container text-center mt-5">
-    <h2>削除確認画面</h2>
+    <h2>得意先削除確認</h2>
     <p>以下の得意先を削除します。よろしいですか？</p>
 
     <table class="table table-bordered w-50 mx-auto">
@@ -24,16 +24,31 @@
                 <td>Aストア</td>
             </tr>
             <tr>
-                <th scope="row">電話番号</th>
+                <th scope="row">電話番号1</th>
                 <td>045-128-3581</td>
             </tr>
             <tr>
-                <th scope="row">郵便番号</th>
+                <th scope="row">電話番号2</th>
+                <td>045-128-3582</td>
+            </tr>
+            <tr>
+                <th scope="row">電話番号3</th>
+                <td>045-128-3583</td>
+            </tr>
+            <tr>
+                <th scope="row">郵便番号1</th>
                 <td>220-0001</td>
             </tr>
             <tr>
-                <th scope="row">住所</th>
+                <th scope="row">住所1</th>
                 <td>横浜市西区北幸2-1</td>
+            </tr>
+            <tr>
+                <th scope="row">郵便番号2</th>
+                <td>220-0002</td>
+            <tr>
+                <th scope="row">住所2</th>
+                <td>横浜市西区北幸2-2</td>
             </tr>
             <tr>
                 <th scope="row">割引率</th>

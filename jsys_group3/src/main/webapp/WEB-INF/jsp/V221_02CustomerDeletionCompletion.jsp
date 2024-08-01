@@ -4,7 +4,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>削除完了画面</title>
+    <title>得意先削除完了</title>
     <!-- Bootstrap CSSを追加 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <%@ include file="Temp.jsp" %>
