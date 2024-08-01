@@ -19,7 +19,7 @@
 
 <div class="container mt-5">
  <div class="text-center">
-   <h2>登録確認画面</h2>
+   <h2>登録確認</h2>
    <p>以下の得意先を登録します。よろしいですか？</p>
    <div class="row justify-content-center">
      <div class="col-md-6">
@@ -29,16 +29,32 @@
            <td><c:out value="${ requestScope.customer.custName }" default = "Aストア"/></td>
          </tr>
          <tr>
-           <th>電話番号</th>
-           <td><c:out value="${ requestScope.customer.telNo }" default = "045-128-3581"/></td>
+           <th>電話番号1</th>
+           <td><c:out value="${ requestScope.customer.telNo1 }" default = "045-128-3581"/></td>
          </tr>
          <tr>
-           <th>郵便番号</th>
-           <td><c:out value="${ requestScope.customer.postalCode }" default = "220-0001"/></td>
+           <th>電話番号2</th>
+           <td><c:out value="${ requestScope.customer.telNo2 }" default = "045-128-3582"/></td>
          </tr>
          <tr>
-           <th>住所</th>
-           <td><c:out value="${ requestScope.customer.address }" default = "横浜市西区北幸２－１"/></td>
+           <th>電話番号3</th>
+           <td><c:out value="${ requestScope.customer.telNo3 }" default = "045-128-3583"/></td>
+         </tr>
+         <tr>
+           <th>郵便番号1</th>
+           <td><c:out value="${ requestScope.customer.postalCode1 }" default = "220-0001"/></td>
+         </tr>
+         <tr>
+           <th>住所1</th>
+           <td><c:out value="${ requestScope.customer.address1 }" default = "横浜市西区北幸２－１"/></td>
+         </tr>
+         <tr>
+           <th>郵便番号2</th>
+           <td><c:out value="${ requestScope.customer.postalCode2 }" default = "220-0002"/></td>
+         </tr>
+         <tr>
+           <th>住所2</th>
+           <td><c:out value="${ requestScope.customer.address2 }" default = "横浜市西区北幸２－５"/></td>
          </tr>
          <tr>
            <th>割引率</th>

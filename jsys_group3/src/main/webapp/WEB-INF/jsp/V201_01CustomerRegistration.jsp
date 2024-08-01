@@ -26,7 +26,7 @@
 
     <%-- 見出し --%>
     <div class="container mt-5">
-        <h2 class="text-center">得意先登録入力画面</h2>
+        <h2 class="text-center">得意先登録入力</h2>
 
         <%-- エラーメッセージ領域 --%>
         <%--
@@ -38,28 +38,55 @@
         <%-- フォーム領域 --%>
         <div class="text-center mt-3">
             <form action="/jsys/V201_02CustomerRegistrationConfirmation" method="post">
+            	<font color="red">エラーメッセージ</font>
+            	<br>
                 <div class="form-group row">
                     <label for="custName" class="col-sm-4 col-form-label text-right">得意先名：</label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control" id="custName" name="custName" maxlength="32" title="得意先名は32文字以内で入力してください。">
                     </div>
                 </div>
+                
                 <div class="form-group row">
-                    <label for="telNo" class="col-sm-4 col-form-label text-right">電話番号：</label>
+                    <label for="telNo" class="col-sm-4 col-form-label text-right">電話番号1：</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" id="telNo" name="telNo" pattern="^[0-9]{13}$" title="電話番号は数字13桁で入力してください。">
+                        <input type="text" class="form-control" id="telNo1" name="telNo1" pattern="^[0-9]{13}$" title="電話番号は数字13桁で入力してください。">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="postalCode" class="col-sm-4 col-form-label text-right">郵便番号：</label>
+                    <label for="telNo" class="col-sm-4 col-form-label text-right">電話番号2：</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" id="postalCode" name="postalCode" pattern="^[0-9]{7}$" title="郵便番号は7桁で入力してください。">
+                        <input type="text" class="form-control" id="telNo2" name="telNo2" pattern="^[0-9]{13}$" title="電話番号は数字13桁で入力してください。">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="address" class="col-sm-4 col-form-label text-right">住所：</label>
+                    <label for="telNo" class="col-sm-4 col-form-label text-right">電話番号3：</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" id="address" name="address" maxlength="40" title="住所は40文字以内で入力してください。">
+                        <input type="text" class="form-control" id="telNo3" name="telNo3" pattern="^[0-9]{13}$" title="電話番号は数字13桁で入力してください。">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="postalCode" class="col-sm-4 col-form-label text-right">郵便番号1：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="postalCode1" name="postalCode1" pattern="^[0-9]{7}$" title="郵便番号は7桁で入力してください。">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="address" class="col-sm-4 col-form-label text-right">住所1：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="address1" name="address1" maxlength="40" title="住所は40文字以内で入力してください。">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="postalCode" class="col-sm-4 col-form-label text-right">郵便番号2：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="postalCode2" name="postalCode2" pattern="^[0-9]{7}$" title="郵便番号は7桁で入力してください。">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="address" class="col-sm-4 col-form-label text-right">住所2：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="address2" name="address2" maxlength="40" title="住所は40文字以内で入力してください。">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -68,8 +95,6 @@
                         <input type="text" class="form-control" id="discountRate" name="discountRate" pattern="^[1-9]?[0-9]$" title="割引率は0~99までの整数値で入力してください。">
                     </div>
                 </div>
-                <br>ここにメッセージを表示
-                <br>
                 <button type="submit" class="btn btn-primary mt-3">登録</button>
             </form>
         </div>
