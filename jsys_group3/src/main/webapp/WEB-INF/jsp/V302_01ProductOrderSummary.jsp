@@ -22,7 +22,7 @@
 		<div class="container">
 		
 			<div class="text-center">
-				<h2>商品別受注集計画面</h2>
+				<h2>商品別受注集計</h2>
 			</div>
 			
 			<%-- エラーメッセージテキストエリア --%>
@@ -34,9 +34,9 @@
 			datalistを利用して入力可能プルダウンを作成 --%>
 			
 			<div class="text-center">
-				<form action="./jsysFC" method="post">
-					<div class="form-group">
-						<label for="CustomerCodeName">得意先コード・得意先名：</label>
+				<form action="./jsysFC" method="post" class="form-inline justify-content-center">
+					<div class="form-group mr-2">
+						<label for="CustomerCodeName" class="mr-2">得意先コード・得意先名：</label>
 						<input list="CustomerCodeNameList" id="CustomerCodeName" name="CustomerCodeName" class="form-control" />
 						<datalist id="CustomerCodeNameList">
 							<option value="KA0001 Aストア"></option>
