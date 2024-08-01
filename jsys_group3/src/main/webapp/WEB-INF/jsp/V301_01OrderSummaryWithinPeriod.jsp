@@ -17,7 +17,7 @@
 	<body>
 	
 		<!-- Navbar.jspをinclude -->
-		<%@ include file="Navbar.jsp" %>
+		<%@ include file="V400_05Navbar.jsp" %>
 		
 		<div class="container text-center">
         <h2>期間内の受注集計</h2>

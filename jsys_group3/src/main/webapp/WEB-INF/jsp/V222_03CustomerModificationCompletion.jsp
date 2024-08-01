@@ -16,7 +16,7 @@
 <body>
 
 <!-- Navbar.jspをinclude -->
-<%@ include file="Navbar.jsp" %>
+<%@ include file="V400_04Navbar.jsp" %>
 
 <div class="container d-flex flex-column justify-content-center align-items-center min-vh-100 mt-5">
   <div class="text-center">

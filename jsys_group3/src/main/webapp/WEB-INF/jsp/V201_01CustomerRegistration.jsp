@@ -22,7 +22,7 @@
 
 <body>
     <!-- Navbar.jspをinclude -->
-    <%@ include file="Navbar.jsp" %>
+    <%@ include file="V400_03Navbar.jsp" %>
 
     <%-- 見出し --%>
     <div class="container mt-5">

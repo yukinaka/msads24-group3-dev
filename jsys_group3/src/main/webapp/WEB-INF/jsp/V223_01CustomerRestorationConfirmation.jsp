@@ -12,7 +12,7 @@
 <body>
 
 <!-- Navbar.jspをinclude -->
-<%@ include file="Navbar.jsp" %>
+<%@ include file="V400_04Navbar.jsp" %>
 
 <div class="container text-center mt-5">
     <h2>得意先復元確認</h2>

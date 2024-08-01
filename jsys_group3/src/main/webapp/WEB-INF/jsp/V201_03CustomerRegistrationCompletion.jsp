@@ -11,7 +11,7 @@
 </head>
 <body>
     <!-- Navbar.jspをinclude -->
-    <%@ include file="Navbar.jsp" %>
+    <%@ include file="V400_04Navbar.jsp" %>
 
     <div class="container mt-5 text-center">
         <h2>登録が完了しました。</h2>

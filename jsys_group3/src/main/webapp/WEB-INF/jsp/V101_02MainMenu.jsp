@@ -16,7 +16,7 @@
 	
 	<body>
 		<!-- Navbar.jspをinclude -->
-		<%@ include file="Navbar.jsp" %>
+		<%@ include file="V400_02Navbar.jsp" %>
 	
 		<!-- メインコンテンツ -->
 	    <div class="container text-center">

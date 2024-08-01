@@ -12,7 +12,7 @@
 <body>
 
 <!-- Navbar.jspをinclude -->
-<%@ include file="Navbar.jsp" %>
+<%@ include file="V400_04Navbar.jsp" %>
 
 <div class="container text-center mt-5">
     <h3 class="my-5">復元が完了しました。</h3>

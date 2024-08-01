@@ -10,7 +10,7 @@
 </head>
 <body>
     <!-- Navbar.jspをinclude -->
-    <%@ include file="Navbar.jsp" %>
+    <%@ include file="V400_05Navbar.jsp" %>
     
     <div class="container text-center">
         <h2 class="my-4">得意先別集計メニュー</h2>
