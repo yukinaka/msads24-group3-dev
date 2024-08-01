@@ -34,16 +34,32 @@
               <td>Aストア</td>
             </tr>
             <tr>
-              <th>電話番号</th>
+              <th>電話番号1</th>
               <td>0451283581</td>
             </tr>
             <tr>
-              <th>郵便番号</th>
+              <th>電話番号2</th>
+              <td></td>
+            </tr>
+            <tr>
+              <th>電話番号3</th>
+              <td></td>
+            </tr>
+            <tr>
+              <th>郵便番号1</th>
               <td>2200001</td>
             </tr>
             <tr>
-              <th>住所</th>
+              <th>住所1</th>
               <td>横浜市西区北幸2-1</td>
+            </tr>
+            <tr>
+              <th>郵便番号2</th>
+              <td></td>
+            </tr>
+            <tr>
+              <th>住所2</th>
+              <td></td>
             </tr>
             <tr>
               <th>割引率</th>

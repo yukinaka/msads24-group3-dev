@@ -42,15 +42,31 @@
               <input type="text" class="form-control" id="customerName" name="customerName" maxlength="32" title="得意先名は32文字以内で入力してください。" required>
             </div>
             <div class="mb-3">
-              <label for="phoneNumber" class="form-label">電話番号</label>
+              <label for="phoneNumber" class="form-label">電話番号1</label>
+              <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" pattern="^[0-9]{13}$" title="電話番号は数字13桁で入力してください。" required>
+            </div>
+             <div class="mb-3">
+              <label for="phoneNumber" class="form-label">電話番号2</label>
+              <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" pattern="^[0-9]{13}$" title="電話番号は数字13桁で入力してください。" required>
+            </div>
+             <div class="mb-3">
+              <label for="phoneNumber" class="form-label">電話番号3</label>
               <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" pattern="^[0-9]{13}$" title="電話番号は数字13桁で入力してください。" required>
             </div>
             <div class="mb-3">
-              <label for="postalCode" class="form-label">郵便番号</label>
+              <label for="postalCode" class="form-label">郵便番号1</label>
               <input type="text" class="form-control" id="postalCode" name="postalCode" pattern="^[0-9]{7}$" title="郵便番号は7桁で入力してください。" required>
             </div>
             <div class="mb-3">
-              <label for="address" class="form-label">住所</label>
+              <label for="address" class="form-label">住所1</label>
+              <input type="text" class="form-control" id="address" name="address" maxlength="40" title="住所は40文字以内で入力してください。" required>
+            </div>
+            <div class="mb-3">
+              <label for="postalCode" class="form-label">郵便番号2</label>
+              <input type="text" class="form-control" id="postalCode" name="postalCode" pattern="^[0-9]{7}$" title="郵便番号は7桁で入力してください。" required>
+            </div>
+            <div class="mb-3">
+              <label for="address" class="form-label">住所2</label>
               <input type="text" class="form-control" id="address" name="address" maxlength="40" title="住所は40文字以内で入力してください。" required>
             </div>
             <div class="mb-3">
