@@ -20,7 +20,14 @@
 
 <div class="container mt-5">
   <h2 class="text-center">得意先変更</h2>
-
+  
+<br>  
+<div style="text-align:center" >
+<font color="red">
+<h4>エラーメッセージエリア</h4>
+</font>
+</div>
+<br> 
   <form action="" method="post">
     <div class="row justify-content-center">
       <div class="col-md-8 col-lg-6">
@@ -50,10 +57,7 @@
               <label for="discountRate" class="form-label">割引率</label>
               <input type="text" class="form-control" id="discountRate" name="discountRate" pattern="^[0-9]{1,2}$" title="割引率は0~99までの整数値で入力してください。" required>
             </div>
-            <div class="mb-3">
-              <label for="message" class="form-label">メッセージエリア</label>
-              <input type="text" class="form-control" id="message" name="message">
-            </div>
+            
             <div class="text-center">
               <button type="submit" class="btn btn-primary">変更</button>
             </div>
