@@ -19,17 +19,15 @@
 		<%@ include file="Navbar.jsp" %>
 	
 		<!-- メインコンテンツ -->
-	    <div class="container">
+	    <div class="container text-center">
 	        <div class="main-menu-container">
-	            <h2 class="text-center mb-3">メインメニュー</h2>
-	            <div class="d-flex justify-content-center flex-column align-items-center">
-	            	<div class="mb-3">
-		                <a href="managementPage.jsp" class="btn btn-primary btn-lg mb-3">管理</a>
-	                </div>
-	                <div class="mb-3">
-		                <a href="listPage.jsp" class="btn btn-primary btn-lg">集計</a>
-	                </div>
-	            </div>
+	            <h2 class="my-4">メインメニュー</h2>
+
+		        <div class="btn-group-vertical">
+		            <button type="button" class="btn btn-primary my-2">得意先管理</button>
+		            <button type="button" class="btn btn-secondary my-2">得意先別集計</button>
+		        </div>
+		        
 	        </div>
 	    </div>
 	    
