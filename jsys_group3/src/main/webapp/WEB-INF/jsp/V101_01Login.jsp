@@ -23,6 +23,11 @@
 	    <div class="container">
 	        <div class="login-container">
 	            <h2 class="text-center">ログイン</h2>
+	            
+	            <div style="text-align: center; color: red;">
+		        	<h4>エラーメッセージエリア</h4>
+		        </div> 
+	            
 	            <form action="loginServlet" method="post">
 	                <div class="mb-3">
 	                    <label for="username" class="form-label">従業員番号</label>

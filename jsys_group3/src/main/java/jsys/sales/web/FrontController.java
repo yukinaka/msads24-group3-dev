@@ -35,19 +35,58 @@ public class FrontController extends HttpServlet {
 		// パラメータ未送信または空文字の場合
 		if (buttonId == null || buttonId.equals("")) {
 			// TODO 1 プロトタイピング作成演習：得意先管理メニュー画面のbuttonIdをデフォルトとして設定してください。
-			buttonId = "V101_01_01";
+			buttonId = "V101_02";
 
 		}
 		// リクエスト種別の判定
 		switch (buttonId) {
 		// TODO 2 プロトタイピング作成演習：得意先検索各種画面遷移に関連するcaseを追加してください。
-
-			case "V101_01_01":
+			case "V101_01":
 				page = "V101_01Login.jsp";
 				break;
 
-			case "V101_01_02":
+			case "V101_02":
 				page = "V101_02MainMenu.jsp";
+				break;
+
+			case "V101_03":
+				page = "V101_03CustomerManagementMenu.jsp";
+				break;
+
+			case "V101_04":
+				page = "V101_04CustomerSummaryMenu.jsp";
+				break;
+
+			case "V201_01":
+				page = "V201_01CustomerRegistration.jsp";
+				break;
+
+			case "V201_02":
+				page = "V201_02CustomerRegistrationConfirmation.jsp";
+				break;
+
+			case "V201_03":
+				page = "V201_03CustomerRegistrationCompletion.jsp";
+				break;
+
+			case "V221_01":
+				page = "V221_01CustomerDeletionConfirmation.jsp";
+				break;
+
+			case "V221_02":
+				page = "V221_02CustomerDeletionCompletion.jsp";
+				break;
+
+			case "V222_02":
+				page = "V222_02CustomerRestorationCompletion.jsp";
+				break;
+
+			case "V223_01":
+				page = "V223_01CustomerRestorationConfirmation.jsp";
+				break;
+
+			case "V301_01":
+				page = "V301_01OrderSummaryWithinPeriod.jsp";
 				break;
 
 			case "V200_01_01":
@@ -69,10 +108,6 @@ public class FrontController extends HttpServlet {
 			case "V201_01_02":
 				action = new CustomerFindAction();
 				page = action.execute(request);
-				break;
-
-			case "V301_01_01":
-				page = "V301_01OrderSummaryWithinPeriod.jsp";
 				break;
 		}
 
