@@ -124,3 +124,4 @@ public class FrontController extends HttpServlet {
 		doPost(request, response);
 	}
 }
+
