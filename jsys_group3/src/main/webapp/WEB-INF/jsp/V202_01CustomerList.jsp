@@ -47,7 +47,16 @@
                 <thead>
                     <tr>
                         <th>得意先コード</th>
-                        <th>得意先名</th>
+                        <th>
+                        	<div class="btn-group" role="group">
+							    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
+							        data-bs-toggle="dropdown" aria-expanded="false">得意先名</button>
+							    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+							      <li><a class="dropdown-item" href="#nest_button_group">昇順</a></li>
+							      <li><a class="dropdown-item" href="#nest_button_group">降順</a></li>
+							    </ul>
+							  </div>
+                        </th>
                         <th>電話番号</th>
                         <th>郵便番号</th>
                         <th>住所</th>
@@ -66,8 +75,38 @@
                         <td>HA0001</td>
                     </tr>
                 </tbody>
+                <tbody>
+                    <tr>
+                        <td><a href="#">KA0002</a></td>
+                        <td>Bストア</td>
+                        <td>045-128-3581</td>
+                        <td>220-0001</td>
+                        <td>横浜市西区北幸2-1</td>
+                        <td style="text-align:right">0%</td>
+                        <td>HA0001</td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td><a href="#">KA0005</a></td>
+                        <td>Eストア</td>
+                        <td>045-128-3581</td>
+                        <td>220-0001</td>
+                        <td>横浜市西区北幸2-1</td>
+                        <td style="text-align:right">0%</td>
+                        <td>HA0001</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
+        
+        <div class="container-fluid">
+		  <div class="row justify-content-between">
+		  	<div class="col order-3 my-box" style="text-align: right;"><a href="#">次ページ</a></div>
+		    <div class="col order-2 my-box" style="text-align: center;">2/3ページ</div>
+		    <div class="col order-1 my-box" style="text-align: left: ;"><a href="#">前ページ</a></div>
+		  </div>
+		</div>
 
 
     </div>

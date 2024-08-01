@@ -12,6 +12,15 @@
 		<!-- Temp.jspをinclude -->
 		<%@ include file="Temp.jsp" %>
 		
+			
+		<style>
+			.form-group {
+			    display: flex;
+			    align-items: center;
+			    gap: 10px; /* 要素間のスペースを追加 */
+			}
+		</style>
+		
 	</head>
 	
 	<body>
@@ -24,18 +33,16 @@
 
         <form action="/jsys/jsysFC" method="post" class="my-4">
             <div class="form-row justify-content-center">
-                <div class="form-group col-md-4">
-                    <label for="firstDay">From:</label>
-                    <input type="date" class="form-control" id="firstDay" name="firstDay">
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="LastDay">To:</label>
-                    <input type="date" class="form-control" id="LastDay" name="LastDay">
-                </div>
+                
+                <div class="form-group">
+		            <input type="date" class="form-control" id="firstDay" name="firstDay">～
+		            <input type="date" class="form-control" id="lastDay" name="lastDay">
+		            <button type="submit" class="btn btn-primary" name="buttonId" value="V301_01">集計</button>
+		        </div>
             </div>
-            <button type="submit" class="btn btn-primary" name="buttonId" value="V301_01_01">集計</button>
+	        
         </form>
-
+        
         <h4 class="text-danger">エラーメッセージエリア</h4>
 
         <table class="table table-bordered table-striped mt-4">
