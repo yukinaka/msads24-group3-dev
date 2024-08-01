@@ -15,7 +15,7 @@
 </head>
 <body>
 <!-- Navbar.jspをinclude -->
-<%@ include file="Navbar.jsp" %>
+<%@ include file="V400_04Navbar.jsp" %>
 
 <div class="container mt-5">
  <div class="text-center">
@@ -63,7 +63,7 @@
        </table>
        <div class="mt-3">
          <button class="btn btn-primary">はい</button>
-         <button class="btn btn-secondary">いいえ</button>
+         <button class="btn btn-secondary">キャンセル</button>
        </div>
      </div>
    </div>

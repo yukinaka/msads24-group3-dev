@@ -17,7 +17,7 @@
 	<body>
 	
 		<!-- Navbar.jspをinclude -->
-		<%@ include file="Navbar.jsp" %>
+		<%@ include file="V400_05Navbar.jsp" %>
 		
 		<div class="container">
 		

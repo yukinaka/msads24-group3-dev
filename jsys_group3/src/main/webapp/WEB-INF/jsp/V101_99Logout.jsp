@@ -15,7 +15,7 @@
 </head>
 <body>
     <!-- Navbar.jspをinclude -->
-    <%@ include file="Navbar.jsp" %>
+    <%@ include file="V400_01Navbar.jsp" %>
 
     <div class="container text-center">
         <h2 class="my-4">ログアウト</h2>

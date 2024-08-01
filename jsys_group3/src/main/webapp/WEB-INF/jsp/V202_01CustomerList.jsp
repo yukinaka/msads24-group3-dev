@@ -14,7 +14,7 @@
 <body>
 
     <!-- Navbar.jspをinclude -->
-    <%@ include file="Navbar.jsp" %>
+    <%@ include file="V400_03Navbar.jsp" %>
 
     <div class="container mt-4">
         <h2 class="text-center">得意先一覧</h2>

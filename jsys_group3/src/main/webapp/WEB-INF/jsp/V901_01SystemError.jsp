@@ -15,7 +15,7 @@
 </head>
 <body>
     <!-- Navbar.jspをinclude -->
-    <%@ include file="Navbar.jsp" %>
+    <%@ include file="V400_91Navbar.jsp" %>
 
     <div class="container text-center mt-5">
         <h2 class="display-4">システムエラー</h2>

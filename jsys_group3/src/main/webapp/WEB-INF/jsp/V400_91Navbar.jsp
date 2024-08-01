@@ -5,7 +5,7 @@
 <header>
 	<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
 	 	<div class="container-fluid ms-5">
-	    	<a class="navbar-brand fst-italic" href="#">販売支援システム（得意先別集計）</a>
+	    	<a class="navbar-brand fst-italic" href="#">販売支援システム</a>
 	    	
 	    	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 		        <span class="navbar-toggler-icon"></span>
@@ -21,9 +21,12 @@
 		        </ul>
 		    </div>
 	        
-            <!-- ユーザー情報 -->
+            <!-- ユーザー情報とログアウトボタン -->
             <div class="d-flex align-items-center ms-5">
                 <span class="user-info me-3">ログイン中: <strong>従業員番号</strong></span>
+                <form action="logoutServlet" method="post" class="d-inline">
+                    <button type="submit" class="btn btn-outline-light">ログアウト</button>
+                </form>
             </div>
 	    </div>			
 	
