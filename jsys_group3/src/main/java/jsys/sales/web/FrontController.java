@@ -43,7 +43,10 @@ public class FrontController extends HttpServlet {
 		// TODO 2 プロトタイピング作成演習：得意先検索各種画面遷移に関連するcaseを追加してください。
 
 			case "V101_01_01":
-				page = "V101_01Login.jsp";
+				//page = "V901_01SystemError.jsp";
+				//page = "V101_99Logout.jsp";
+				page = "V202_01CustomerList.jsp";
+				//page="V211_01CustomerDetails.jsp";
 				break;
 
 			case "V101_01_02":
