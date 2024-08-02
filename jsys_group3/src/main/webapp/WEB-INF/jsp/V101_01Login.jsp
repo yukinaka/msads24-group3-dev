@@ -7,7 +7,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>ログイン画面</title>
+		<title>ログイン</title>
 		
 		<!-- Temp.jspをinclude -->
 		<%@ include file="Temp.jsp" %>
@@ -15,29 +15,25 @@
 	</head>
 	
 	<body>
-	
-		<!-- LoginNavbar.jspをinclude -->
+		<!-- Navbar.jspをinclude -->
 		<%@ include file="V400_01Navbar.jsp" %>
 	
 		<!-- メインコンテンツ -->
-	    <div class="container">
-	        <div class="login-container">
-	            <h2 class="text-center">ログイン</h2>
-	            
-		        <h4 class="text-center text-danger mb-3">エラーメッセージエリア</h4>
-	            
-	            <form action="loginServlet" method="post">
-	                <div class="mb-3">
-	                    <label for="username" class="form-label">従業員番号</label>
-	                    <input type="text" class="form-control" id="username" name="username" required>
-	                </div>
-	                <div class="mb-3">
-	                    <label for="password" class="form-label">パスワード</label>
-	                    <input type="password" class="form-control" id="password" name="password" required>
-	                </div>
-	                <button type="submit" class="btn btn-primary w-100">ログイン</button>
-	            </form>
-	        </div>
+	    <div class="container mt-5">
+	        <h2 class="text-center">ログイン</h2>
+	     	<h4 class="text-center text-danger mb-3">エラーメッセージエリア</h4>
+	        
+	        <form action="loginServlet" method="post">
+	            <div class="mb-3">
+	                <label for="username" class="form-label">従業員番号</label>
+	                <input type="text" class="form-control" id="username" name="username" required>
+	            </div>
+	            <div class="mb-3">
+	                <label for="password" class="form-label">パスワード</label>
+	                <input type="password" class="form-control" id="password" name="password" required>
+	            </div>
+	            <button type="submit" class="btn btn-primary w-100">ログイン</button>
+	        </form>
 	    </div>
 	    
 	   <!-- Footer.jspをinclude -->
