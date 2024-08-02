@@ -16,7 +16,7 @@
 
 <div class="container text-center mt-5">
     <h3 class="my-5">復元が完了しました。</h3>
-    <button type="button" class="btn btn-primary" name="buttonId" value="back">戻る</button>
+    <button type="button" class="btn btn-primary" name="buttonId" value="back">得意先一覧へ戻る</button>
 </div>
 
 <br>

@@ -15,9 +15,6 @@
 		            <li class="nav-item">
 		                <a class="nav-link active" aria-current="page" href="#">メインメニュー</a>
 		            </li>
-		            <li class="nav-item">
-		                <a class="nav-link" href="#">ヘルプ</a>
-		            </li>
 		        </ul>
 		    </div>
 	        

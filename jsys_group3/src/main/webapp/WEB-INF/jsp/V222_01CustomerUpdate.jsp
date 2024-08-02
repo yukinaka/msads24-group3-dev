@@ -32,26 +32,29 @@
     <div class="row justify-content-center">
       <div class="col-md-8 col-lg-6">
         <div class="card p-4">
+        <div class="form-group-row">
           <div class="card-body">
             <div class="mb-3">
               <label for="customerCode" class="form-label">得意先コード</label>
-              <input type="text" class="form-control" id="customerCode" name="customerCode" required>
+              <input type="text" class="form-control" id="customerCode" name="customerCode" value="KA6000" required>
             </div>
             <div class="mb-3">
               <label for="customerName" class="form-label">得意先名</label>
-              <input type="text" class="form-control" id="customerName" name="customerName" maxlength="32" title="得意先名は32文字以内で入力してください。" required>
+              <input type="text" class="form-control" id="customerName" name="customerName" maxlength="32" title="得意先名は32文字以内で入力してください。" value="KA商事" required>
             </div>
             <div class="mb-3">
               <label for="phoneNumber" class="form-label">電話番号1</label>
-              <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" pattern="^[0-9]{13}$" title="電話番号は数字13桁で入力してください。" required>
+              <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" pattern="^[0-9]{5}$" title="電話番号は数字13桁で入力してください。" value="000" required>
+              <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" pattern="^[0-9]{5}$" title="電話番号は数字13桁で入力してください。" value="000" required>
+              <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" pattern="^[0-9]{5}$" title="電話番号は数字13桁で入力してください。" value="000" required>
             </div>
              <div class="mb-3">
               <label for="phoneNumber" class="form-label">電話番号2</label>
-              <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" pattern="^[0-9]{13}$" title="電話番号は数字13桁で入力してください。" required>
+              <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" pattern="^[0-9]{13}$" title="電話番号は数字13桁で入力してください。"value="KA6000"  >
             </div>
              <div class="mb-3">
               <label for="phoneNumber" class="form-label">電話番号3</label>
-              <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" pattern="^[0-9]{13}$" title="電話番号は数字13桁で入力してください。" required>
+              <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" pattern="^[0-9]{13}$" title="電話番号は数字13桁で入力してください。" >
             </div>
             <div class="mb-3">
               <label for="postalCode" class="form-label">郵便番号1</label>

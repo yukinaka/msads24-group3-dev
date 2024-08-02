@@ -16,7 +16,7 @@
     <div class="container mt-5 text-center">
         <h2>登録が完了しました。</h2>
         <br>
-        <a href="戻るリンク先" class="btn btn-primary">戻る</a>
+        <a href="戻るリンク先" class="btn btn-primary">登録画面へ戻る</a>
     </div>
 
     <!-- Footer.jspをinclude -->

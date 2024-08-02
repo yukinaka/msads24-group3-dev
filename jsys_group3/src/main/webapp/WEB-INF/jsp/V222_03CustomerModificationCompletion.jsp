@@ -21,7 +21,7 @@
 <div class="container d-flex flex-column justify-content-center align-items-center min-vh-100 mt-5">
   <div class="text-center">
     <h2 class="mb-4">変更が完了しました。</h2>
-    <a href="previousPage.jsp" class="btn btn-primary">戻る</a>
+    <a href="previousPage.jsp" class="btn btn-primary">得意先一覧へ戻る</a>
   </div>
 </div>
 
