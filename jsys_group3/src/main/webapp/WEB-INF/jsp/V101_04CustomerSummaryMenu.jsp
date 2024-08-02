@@ -16,8 +16,8 @@
         <h2 class="my-4">得意先別集計メニュー</h2>
 
         <div class="btn-group-vertical">
-            <button type="button" class="btn btn-primary my-2">期間内受注集計</button>
-            <button type="button" class="btn btn-secondary my-2">商品別受注集計</button>
+            <button type="button" class="btn btn-info my-2">期間内受注集計</button>
+            <button type="button" class="btn btn-info my-2">商品別受注集計</button>
         </div>
     </div>
     

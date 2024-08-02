@@ -24,8 +24,8 @@
 	            <h2 class="my-4">メインメニュー</h2>
 
 		        <div class="btn-group-vertical">
-		            <button type="button" class="btn btn-primary my-2">得意先管理</button>
-		            <button type="button" class="btn btn-secondary my-2">得意先別集計</button>
+		            <button type="button" class="btn btn-info my-2">得意先管理</button>
+		            <button type="button" class="btn btn-info my-2">得意先別集計</button>
 		        </div>
 		        
 	        </div>

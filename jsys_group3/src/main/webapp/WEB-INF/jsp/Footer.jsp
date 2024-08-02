@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <!-- フッター -->
-<footer class="footer">
+<footer class="footer fixed-bottom">
 	<div class="container">
 	    <p class="mb-0">&copy; <span id="current-year"></span> げんきdeいちばん社. All rights reserved.</p>
 	</div>

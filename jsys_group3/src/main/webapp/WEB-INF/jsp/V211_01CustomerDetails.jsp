@@ -61,7 +61,7 @@
                         </tr>
                         <tr>
                             <th scope="row">割引率</th>
-                            <td class="text-right">0%</td>
+                            <td class="text-start">0%</td>
                         </tr>
                         <tr>
                             <th scope="row">最終更新者</th>
@@ -74,7 +74,7 @@
                     <form action="/jsys/jsysFC" method="post">
                         <button type="submit" class="btn btn-secondary mr-2" name="buttonId" value="99">前画面へ戻る</button>
                         <button type="submit" class="btn btn-primary mr-2" name="buttonId" value="99">変更</button>
-                        <button type="submit" class="btn btn-danger" name="buttonId" value="99">削除</button>
+                        <button type="submit" class="btn btn-success" name="buttonId" value="99">復元</button>
                     </form>
                 </div>
             </div>
