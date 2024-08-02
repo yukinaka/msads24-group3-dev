@@ -43,7 +43,7 @@
 
 
         <div class="table-responsive">
-            <table class="table table-bordered text-center">
+            <table class="table table-bordered text-start">
                 <thead>
                     <tr>
                         <th>得意先コード</th>

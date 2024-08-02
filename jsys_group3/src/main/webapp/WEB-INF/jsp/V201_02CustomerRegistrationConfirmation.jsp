@@ -20,25 +20,29 @@
 <div class="container mt-5">
  <div class="text-center">
    <h2>登録確認</h2>
+   <div class="text-center mt-3">
    <p>以下の得意先を登録します。よろしいですか？</p>
+   </div>
    <div class="row justify-content-center">
-     <div class="col-md-6">
-       <table class="table table-bordered">
+     <div class="col-md-8">
+     <div class="table-responsive">
+       <table class="text-start table table-bordered">
+        <tbody>
          <tr>
-           <th>登録先名</th>
-           <td><c:out value="${ requestScope.customer.custName }" default = "Aストア"/></td>
+           <th style="text-align: left;">登録先名</th>
+           <td style="text-align: left;">Aストア</td>
          </tr>
          <tr>
            <th>電話番号1</th>
-           <td><c:out value="${ requestScope.customer.telNo1 }" default = "045-128-3581"/></td>
+          <td>0451283581</td>
          </tr>
          <tr>
            <th>電話番号2</th>
-           <td><c:out value="${ requestScope.customer.telNo2 }" default = "045-128-3582"/></td>
+           <td></td>
          </tr>
          <tr>
            <th>電話番号3</th>
-           <td><c:out value="${ requestScope.customer.telNo3 }" default = "045-128-3583"/></td>
+           <td></td>
          </tr>
          <tr>
            <th>郵便番号1</th>
@@ -60,6 +64,7 @@
            <th>割引率</th>
            <td><c:out value="${ requestScope.customer.discountRate }" default = "0%"/></td>
          </tr>
+          </tbody>
        </table>
        <div class="mt-3">
          <button class="btn btn-primary">はい</button>
