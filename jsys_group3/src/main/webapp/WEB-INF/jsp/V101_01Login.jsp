@@ -24,9 +24,7 @@
 	        <div class="login-container">
 	            <h2 class="text-center">ログイン</h2>
 	            
-	            <div style="text-align: center; color: red;">
-		        	<h4>エラーメッセージエリア</h4>
-		        </div> 
+		        <h4 class="text-center text-danger mb-3">エラーメッセージエリア</h4>
 	            
 	            <form action="loginServlet" method="post">
 	                <div class="mb-3">

@@ -14,13 +14,15 @@
     <%@ include file="V400_03Navbar.jsp" %>
 
     <div class="container text-center">
-        <h2 class="my-4">得意先管理メニュー</h2>
-
-        <div class="btn-group-vertical">
-            <button type="button" class="btn btn-primary my-2">登録</button>
-            <button type="button" class="btn btn-secondary my-2">一覧</button>
-        </div>
-    </div>
+	    <div class="management-conter">
+	        <h2 class="my-4">得意先管理メニュー</h2>
+	
+	        <div class="btn-group-vertical">
+	            <button type="button" class="btn btn-info my-2">登録</button>
+	            <button type="button" class="btn btn-info my-2">一覧</button>
+	        </div>
+	    </div>
+ 	</div>
     
     <br>
 

@@ -27,10 +27,10 @@
         <div class="d-flex justify-content-center mb-4">
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="検索" aria-label="Search">
-                <button class="btn btn-primary" type="submit">検索</button>
+                <button class="btn btn-primary text-nowrap" type="submit">検索</button>
                 <div class="form-check ms-3">
                     <input class="form-check-input" type="checkbox" id="ckbutton">
-                    <label class="form-check-label" for="ckbutton">
+                    <label class="form-check-label text-nowrap" for="ckbutton">
                        削除済み項目も含める
                     </label>
                 </div>
@@ -97,16 +97,49 @@
                         <td>HA0001</td>
                     </tr>
                 </tbody>
+                <tbody>
+                    <tr>
+                        <td><a href="#">KA0006</a></td>
+                        <td>Fストア</td>
+                        <td>045-128-3581</td>
+                        <td>220-0001</td>
+                        <td>横浜市西区北幸2-1</td>
+                        <td style="text-align:right">0%</td>
+                        <td>HA0001</td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td><a href="#">KA0007</a></td>
+                        <td>Gストア</td>
+                        <td>045-128-3581</td>
+                        <td>220-0001</td>
+                        <td>横浜市西区北幸2-1</td>
+                        <td style="text-align:right">0%</td>
+                        <td>HA0001</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
         
-        <div class="container-fluid">
-		  <div class="row justify-content-between">
-		  	<div class="col order-3 my-box" style="text-align: right;"><a href="#">次ページ</a></div>
-		    <div class="col order-2 my-box" style="text-align: center;">2/3ページ</div>
-		    <div class="col order-1 my-box" style="text-align: left: ;"><a href="#">前ページ</a></div>
-		  </div>
-		</div>
+		
+		<nav aria-label="...">
+		  <ul class="pagination justify-content-center my-3">
+		    <li class="page-item disabled">
+		      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">前ページ</a>
+		    </li>
+		    <li class="page-item active" aria-current="page">
+		      <a class="page-link" href="#">1</a></li>
+		    <li class="page-item">
+		      <a class="page-link" href="#">2</a>
+		    </li>
+		    <li class="page-item">
+		      <a class="page-link" href="#">3</a></li>
+		    <li class="page-item">
+		      <a class="page-link" href="#">次ページ</a>
+		    </li>
+		  </ul>
+		</nav>
 
 
     </div>

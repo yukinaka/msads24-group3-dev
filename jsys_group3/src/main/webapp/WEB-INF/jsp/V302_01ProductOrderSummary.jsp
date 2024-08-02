@@ -9,8 +9,7 @@
 		<!-- Temp.jspをinclude -->
 		<%@ include file="Temp.jsp" %>
 		
-		<!-- ブートストラップのCSSをインクルード -->
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 		
 	</head>
 	
@@ -19,24 +18,15 @@
 		<!-- Navbar.jspをinclude -->
 		<%@ include file="V400_05Navbar.jsp" %>
 		
-		<div class="container">
+		<div class="container mt-5 text-center">
 		
-			<div class="text-center">
-				<h2>商品別受注集計</h2>
-			</div>
+			<h2>商品別受注集計</h2>
 			
-			<%-- エラーメッセージテキストエリア --%>
-			<div class="text-center text-danger">
-				<h4>エラーメッセージエリア</h4>
-			</div>
-			
-			<%-- 得意先コード・得意先名で集計検索 
-			datalistを利用して入力可能プルダウンを作成 --%>
-			
-			<div class="text-center">
-				<form action="./jsysFC" method="post" class="form-inline justify-content-center">
-					<div class="form-group mr-2">
-						<label for="CustomerCodeName" class="mr-2">得意先コード・得意先名：</label>
+			<form action="/jsys/jsysFC" method="post" class="my-4">
+	            <div class="form-row justify-content-center">
+	                
+	                <div class="form-group">
+						<label for="CustomerCodeName" class="form-label text-nowrap">得意先コード・得意先名を入力し、選択してください。</label>
 						<input list="CustomerCodeNameList" id="CustomerCodeName" name="CustomerCodeName" class="form-control" />
 						<datalist id="CustomerCodeNameList">
 							<option value="KA0001 Aストア"></option>
@@ -46,16 +36,27 @@
 							<option value="KA0005 Eストア"></option>
 							<option value="KA0006 Fストア"></option>
 						</datalist>
-					</div>
-					<button type="submit" class="btn btn-primary">集計</button>
-				</form>
-			</div>
+			            <button type="submit" class="btn btn-primary text-nowrap mt-4" name="buttonId" value="V301_01">集計</button>
+			        </div>
+	            </div>
+		        
+	        </form>
+	        
+			<br>
+	        <br>
+	        <br>
+	        <br>
+	        <br>
+	        <br>
+	        <br>
+	        <br>
+	        <br>
+	        
+			<h4 class="text-danger">エラーメッセージエリア</h4>
 			
-
-			
-			<table class="table table-bordered table-striped table-hover mt-4">
-	 			<thead class="thead-dark">
-	 				<tr>
+			<table class="table table-bordered table-striped mt-4">
+	            <thead>
+	                <tr>
 						<th>商品コード</th>
 						<th>商品名</th>
 						<th>合計数量</th>
@@ -71,13 +72,13 @@
 						<td>50</td>
 						<td>5000</td>
 					</tr>
-					<tr>
+					<tr style="background-color: aqua;">
 						<td colspan="3"></td>
 						<td>総計：</td>
 						<td>10000</td>
 					</tr>
 				</tbody>
-			</table>
+	        </table>
 		
 		</div>
 		

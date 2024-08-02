@@ -63,7 +63,7 @@
             </tr>
             <tr>
               <th>割引率</th>
-              <td>0</td>
+              <td>0%</td>
             </tr>
           </tbody>
         </table>
