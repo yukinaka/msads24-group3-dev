@@ -26,86 +26,122 @@
 
     <%-- 見出し --%>
     <div class="container mt-5">
-        <h2 class="text-center">得意先登録入力</h2>
-
-        <%-- エラーメッセージ領域 --%>
-        <%--
-        <div class="text-center text-danger font-weight-bold">
-            <c:out value="${ requestScope.errorMessage }" />
-        </div>
-        --%>
+        <h2 class="text-center">得意先登録</h2>
+        <h4 class="text-center text-danger mb-3">エラーメッセージエリア</h4>
 
         <%-- フォーム領域 --%>
-        <div class="text-center mt-3">
-            <form action="/jsys/V201_02CustomerRegistrationConfirmation" method="post">
-            	<font color="red">エラーメッセージ</font>
-            	<br>
-                <div class="form-group row">
-                    <label for="custName" class="col-sm-4 col-form-label text-right">得意先名：</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" id="custName" name="custName" maxlength="32" title="得意先名は32文字以内で入力してください。">
-                    </div>
-                </div>
-                
-                <div class="form-group row">
-                    <label for="telNo" class="col-sm-4 col-form-label text-right">電話番号1：</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" id="telNo1" name="telNo1" pattern="^[0-9]{13}$" title="電話番号は数字13桁で入力してください。">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="telNo" class="col-sm-4 col-form-label text-right">電話番号2：</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" id="telNo2" name="telNo2" pattern="^[0-9]{13}$" title="電話番号は数字13桁で入力してください。">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="telNo" class="col-sm-4 col-form-label text-right">電話番号3：</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" id="telNo3" name="telNo3" pattern="^[0-9]{13}$" title="電話番号は数字13桁で入力してください。">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="postalCode" class="col-sm-4 col-form-label text-right">郵便番号1：</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" id="postalCode1" name="postalCode1" pattern="^[0-9]{7}$" title="郵便番号は7桁で入力してください。">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="address" class="col-sm-4 col-form-label text-right">住所1：</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" id="address1" name="address1" maxlength="40" title="住所は40文字以内で入力してください。">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="postalCode" class="col-sm-4 col-form-label text-right">郵便番号2：</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" id="postalCode2" name="postalCode2" pattern="^[0-9]{7}$" title="郵便番号は7桁で入力してください。">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="address" class="col-sm-4 col-form-label text-right">住所2：</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" id="address2" name="address2" maxlength="40" title="住所は40文字以内で入力してください。">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="discountRate" class="col-sm-4 col-form-label text-right">割引率：</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" id="discountRate" name="discountRate" pattern="^[1-9]?[0-9]$" title="割引率は0~99までの整数値で入力してください。">
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary mt-3">登録</button>
-            </form>
-        </div>
+        <form action="/jsys/V201_02CustomerRegistrationConfirmation" method="post">
+        
+            <div class="row row-cols-auto mb-3">
+			    <div class="col-10">
+			    	<label for="telNo1" class="text-left form-label">得意先名</label>
+	                <div class="input-group mb-3">
+		                <input type="text" class="form-control" id="custName" name="custName" maxlength="32" title="得意先名は32文字以内で入力してください。">
+					</div>
+			    </div>
+			 </div>
+            
+            <div class="row row-cols-auto mb-3">
+			    <div class="col-7">
+			    	<label for="telNo1" class="text-left form-label">電話番号1</label>
+	                <div class="input-group mb-3">
+		                <input type="text" class="form-control" id="telNo1" name="telNo1" pattern="^[0-9]{3}$">
+		    			<span class="input-group-text">-</span>
+		                <input type="text" class="form-control" id="telNo1" name="telNo1" pattern="^[0-9]{4}$">
+		    			<span class="input-group-text">-</span>
+		                <input type="text" class="form-control" id="telNo1" name="telNo1" pattern="^[0-9]{4}$">
+					</div>
+			    </div>
+			</div>
+            
+            <div class="row row-cols-auto mb-3">
+			    <div class="col-7">
+			    	<label for="telNo1" class="text-left form-label">電話番号2</label>
+	                <div class="input-group mb-3">
+		                <input type="text" class="form-control" id="telNo1" name="telNo1" pattern="^[0-9]{3}$">
+		    			<span class="input-group-text">-</span>
+		                <input type="text" class="form-control" id="telNo1" name="telNo1" pattern="^[0-9]{4}$">
+		    			<span class="input-group-text">-</span>
+		                <input type="text" class="form-control" id="telNo1" name="telNo1" pattern="^[0-9]{4}$">
+					</div>
+			    </div>
+			</div>
+            
+            <div class="row row-cols-auto mb-3">
+			    <div class="col-7">
+			    	<label for="telNo1" class="text-left form-label">電話番号3</label>
+	                <div class="input-group mb-3">
+		                <input type="text" class="form-control" id="telNo1" name="telNo1" pattern="^[0-9]{3}$">
+		    			<span class="input-group-text">-</span>
+		                <input type="text" class="form-control" id="telNo1" name="telNo1" pattern="^[0-9]{4}$">
+		    			<span class="input-group-text">-</span>
+		                <input type="text" class="form-control" id="telNo1" name="telNo1" pattern="^[0-9]{4}$">
+					</div>
+			    </div>
+			</div>
+            
+            <div class="row row-cols-auto">
+			    <div class="col-3">
+			    	<label for="telNo1" class="text-left form-label">郵便番号1</label>
+	                <div class="input-group mb-2">
+		                <input type="text" class="form-control" id="telNo1" name="telNo1" pattern="^[0-9]{3}$">
+		    			<span class="input-group-text">-</span>
+		                <input type="text" class="form-control" id="telNo1" name="telNo1" pattern="^[0-9]{4}$">
+					</div>
+			    </div>
+			</div>
+        
+            <div class="row row-cols-auto mb-3">
+			    <div class="col-10">
+			    	<label for="telNo1" class="text-left form-label">住所1</label>
+	                <div class="input-group mb-3">
+	                	<input type="text" class="form-control" id="address1" name="address1" maxlength="40" title="住所は40文字以内で入力してください。">
+					</div>
+			    </div>
+			 </div>
+			 
+            <div class="row row-cols-auto">
+			    <div class="col-3">
+			    	<label for="telNo1" class="text-left form-label">郵便番号2</label>
+	                <div class="input-group mb-2">
+		                <input type="text" class="form-control" id="telNo1" name="telNo1" pattern="^[0-9]{3}$">
+		    			<span class="input-group-text">-</span>
+		                <input type="text" class="form-control" id="telNo1" name="telNo1" pattern="^[0-9]{4}$">
+					</div>
+			    </div>
+			</div>
+        
+            <div class="row row-cols-auto mb-3">
+			    <div class="col-10">
+			    	<label for="telNo1" class="text-left form-label">住所2</label>
+	                <div class="input-group mb-3">
+	                	<input type="text" class="form-control" id="address1" name="address1" maxlength="40" title="住所は40文字以内で入力してください。">
+					</div>
+			    </div>
+			 </div>
+        
+            <div class="row row-cols-auto mb-3">
+			    <div class="col-2">
+			    	<label for="telNo1" class="text-left form-label">割引率</label>
+	                <div class="input-group mb-3">
+	                	<input type="text" class="form-control" id="discountRate" name="discountRate" pattern="^[1-9]?[0-9]$" title="割引率は0~99までの整数値で入力してください。">
+	                	<span class="input-group-text">%</span>
+					</div>
+			    </div>
+			 </div>
+			 
+            <div class="text-center">
+			    <button type="submit" class="btn btn-primary mb-5">登録</button>
+            </div>
+        </form>
     </div>
+    
+    <br>
+    <br>
+    <br>
 
     <!-- Footer.jspをinclude -->
     <%@ include file="Footer.jsp" %>
 
-    <!-- Bootstrap JSと依存するPopper.jsとjQueryを追加 -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

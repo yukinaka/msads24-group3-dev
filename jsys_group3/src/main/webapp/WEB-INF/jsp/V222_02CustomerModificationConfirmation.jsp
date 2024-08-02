@@ -27,7 +27,7 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="table-responsive">
-        <table class="table table-bordered table-striped">
+        <table class="table table-striped table-bordered border-light">
           <tbody>
             <tr>
               <th>得意先名</th>
