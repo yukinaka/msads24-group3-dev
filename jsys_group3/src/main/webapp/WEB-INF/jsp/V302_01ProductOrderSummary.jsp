@@ -1,5 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
 <%@ taglib uri = "jakarta.tags.core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -9,8 +12,6 @@
 		<!-- Temp.jspをinclude -->
 		<%@ include file="Temp.jsp" %>
 		
-
-		
 	</head>
 	
 	<body>
@@ -19,7 +20,6 @@
 		<%@ include file="V400_05Navbar.jsp" %>
 		
 		<div class="container mt-5 text-center">
-		
 			<h2>商品別受注集計</h2>
 			
 			<form action="/jsys/jsysFC" method="post" class="my-4">

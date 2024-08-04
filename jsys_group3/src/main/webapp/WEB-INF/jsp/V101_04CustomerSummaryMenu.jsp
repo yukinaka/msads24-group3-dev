@@ -25,8 +25,6 @@
 	        </div>
 	    </div>
 	    
-	    <br>
-	
 	    <!-- Footer.jspをinclude -->
 	    <%@ include file="Footer.jsp" %>
 	
