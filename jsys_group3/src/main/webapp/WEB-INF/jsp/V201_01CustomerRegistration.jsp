@@ -1,4 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%>
+
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
 
 <!DOCTYPE html>
@@ -7,6 +9,9 @@
     <meta charset="UTF-8">
     <title>得意先登録</title>
 
+    <!-- Temp.jspをinclude -->
+    <%@ include file="Temp.jsp" %>
+
     <%-- 埋め込みスタイルシート（入力規則違反はピンクで表示） --%>
     <style type="text/css">
         input:invalid {
@@ -14,10 +19,6 @@
         }
     </style>
 
-    <!-- Temp.jspをinclude -->
-    <%@ include file="Temp.jsp" %>
-    <!-- Bootstrap CSSを追加 -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -42,7 +43,7 @@
 			 </div>
             
             <div class="row row-cols-auto mb-3">
-			    <div class="col-7">
+			    <div class="col-6">
 			    	<label for="telNo1" class="text-left form-label">電話番号1</label>
 	                <div class="input-group mb-3">
 		                <input type="text" class="form-control" id="telNo1" name="telNo1" pattern="^[0-9]{3}$">
@@ -55,7 +56,7 @@
 			</div>
             
             <div class="row row-cols-auto mb-3">
-			    <div class="col-7">
+			    <div class="col-6">
 			    	<label for="telNo1" class="text-left form-label">電話番号2</label>
 	                <div class="input-group mb-3">
 		                <input type="text" class="form-control" id="telNo1" name="telNo1" pattern="^[0-9]{3}$">
@@ -68,7 +69,7 @@
 			</div>
             
             <div class="row row-cols-auto mb-3">
-			    <div class="col-7">
+			    <div class="col-6">
 			    	<label for="telNo1" class="text-left form-label">電話番号3</label>
 	                <div class="input-group mb-3">
 		                <input type="text" class="form-control" id="telNo1" name="telNo1" pattern="^[0-9]{3}$">
@@ -135,10 +136,6 @@
             </div>
         </form>
     </div>
-    
-    <br>
-    <br>
-    <br>
 
     <!-- Footer.jspをinclude -->
     <%@ include file="Footer.jsp" %>

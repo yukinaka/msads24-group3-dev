@@ -20,6 +20,7 @@
     </style>
 
 </head>
+
 <body>
 
 	<!-- Navbar.jspをinclude -->
@@ -42,7 +43,7 @@
 			 </div>
             
             <div class="row row-cols-auto mb-3">
-			    <div class="col-7">
+			    <div class="col-6">
 			    	<label for="telNo1" class="text-left form-label">電話番号1</label>
 	                <div class="input-group mb-3">
 		                <input type="text" class="form-control" id="telNo1" name="telNo1" value="045" pattern="^[0-9]{2-3}$">
@@ -55,7 +56,7 @@
 			</div>
             
             <div class="row row-cols-auto mb-3">
-			    <div class="col-7">
+			    <div class="col-6">
 			    	<label for="telNo1" class="text-left form-label">電話番号2</label>
 	                <div class="input-group mb-3">
 		                <input type="text" class="form-control" id="telNo1" name="telNo1" pattern="^[0-9]{2-3}$">
@@ -68,7 +69,7 @@
 			</div>
             
             <div class="row row-cols-auto mb-3">
-			    <div class="col-7">
+			    <div class="col-6">
 			    	<label for="telNo1" class="text-left form-label">電話番号3</label>
 	                <div class="input-group mb-3">
 		                <input type="text" class="form-control" id="telNo1" name="telNo1" pattern="^[0-9]{2-3}$">
@@ -135,10 +136,6 @@
             </div>
         </form>
 	</div>
-	
-	<br>
-    <br>
-    <br>
 	
 	<!-- Footer.jspをinclude -->
 	<%@ include file="Footer.jsp" %>

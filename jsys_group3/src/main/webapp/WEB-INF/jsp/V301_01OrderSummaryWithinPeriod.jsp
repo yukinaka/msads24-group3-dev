@@ -12,7 +12,6 @@
 		<!-- Temp.jspをinclude -->
 		<%@ include file="Temp.jsp" %>
 		
-			
 		<style>
 			.form-group {
 			    display: flex;
@@ -43,27 +42,6 @@
 		        
 	        </form>
 	       
-	       
-	       
-	<form>
-        <label for="date-input">日付を選択:</label>
-        <input type="date" id="date-input">
-    </form>
-
-    <script>
-        function setLastDayOfPreviousMonth() {
-            // 現在の日付を取得
-            let today = new Date();
-            // 先月の月末を計算
-            let lastDayOfPrevMonth = new Date(today.getFullYear(), today.getMonth(), 0);
-            // 年月日の形式で値を取得
-            let formattedDate = lastDayOfPrevMonth.toISOString().split('T')[0];
-            // カレンダー入力フォームに設定
-            document.getElementById('date-input').value = formattedDate;
-        }
-        // ページ読み込み時に自動的に設定
-        window.onload = setLastDayOfPreviousMonth;
-    </script>
 	        
 	        <h4 class="text-danger">エラーメッセージエリア</h4>
 	        
@@ -105,8 +83,23 @@
 	        </table>
 	    </div>
     
-    <!-- Footer.jspをinclude -->
+    	<!-- Footer.jspをinclude -->
 		<%@ include file="Footer.jsp" %>
+
+	    <script>
+	        function setLastDayOfPreviousMonth() {
+	            // 現在の日付を取得
+	            let today = new Date();
+	            // 先月の月末を計算
+	            let lastDayOfPrevMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+	            // 年月日の形式で値を取得
+	            let formattedDate = lastDayOfPrevMonth.toISOString().split('T')[0];
+	            // カレンダー入力フォームに設定
+	            document.getElementById('lastDay').value = formattedDate;
+	        }
+	        // ページ読み込み時に自動的に設定
+	        window.onload = setLastDayOfPreviousMonth;
+	    </script>
 		
 	</body>
 </html>
