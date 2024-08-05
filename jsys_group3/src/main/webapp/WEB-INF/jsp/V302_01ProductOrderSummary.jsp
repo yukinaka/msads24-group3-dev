@@ -54,7 +54,7 @@
 	        
 			<h4 class="text-danger">エラーメッセージエリア</h4>
 			
-			<table class="table table-bordered table-striped mt-4">
+			<table class="table table-bordered text-start table-striped mt-4">
 	            <thead>
 	                <tr>
 						<th>商品コード</th>
@@ -74,7 +74,7 @@
 					</tr>
 					<tr style="background-color: aqua;">
 						<td colspan="3"></td>
-						<td>総計：</td>
+						<td>総計</td>
 						<td>10000</td>
 					</tr>
 				</tbody>

@@ -73,7 +73,7 @@
 	                    <form action="/jsys/jsysFC" method="post">
 	                        <button type="submit" class="btn btn-secondary mr-2" name="buttonId" value="99">前画面へ戻る</button>
 	                        <button type="submit" class="btn btn-primary mr-2" name="buttonId" value="99">変更</button>
-	                        <button type="submit" class="btn btn-success" name="buttonId" value="99">復元</button>
+	                        <button type="submit" class="btn btn-danger" name="buttonId" value="99">削除</button>
 	                    </form>
 	                </div>
 	            </div>
