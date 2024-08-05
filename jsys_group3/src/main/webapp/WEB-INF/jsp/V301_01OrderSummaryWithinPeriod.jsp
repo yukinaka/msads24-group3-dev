@@ -87,18 +87,26 @@
 		<%@ include file="Footer.jsp" %>
 
 	    <script>
-	        function setLastDayOfPreviousMonth() {
+	        function setDayOfPreviousMonth() {
 	            // 現在の日付を取得
 	            let today = new Date();
 	            // 先月の月末を計算
-	            let lastDayOfPrevMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+	            today.setMonth(today.getMonth(), 0);
 	            // 年月日の形式で値を取得
-	            let formattedDate = lastDayOfPrevMonth.toISOString().split('T')[0];
+	            let formattedDate = today.toISOString().split('T')[0];
 	            // カレンダー入力フォームに設定
 	            document.getElementById('lastDay').value = formattedDate;
+	            
+	            // 先月の初日を計算
+	            today.setMonth(today.getMonth(), 1);
+	            // 年月日の形式で値を取得
+	            formattedDate = today.toISOString().split('T')[0];
+	            // カレンダー入力フォームに設定
+	            document.getElementById('firstDay').value = formattedDate;
+	            
 	        }
 	        // ページ読み込み時に自動的に設定
-	        window.onload = setLastDayOfPreviousMonth;
+	        window.onload = setDayOfPreviousMonth;
 	    </script>
 		
 	</body>
