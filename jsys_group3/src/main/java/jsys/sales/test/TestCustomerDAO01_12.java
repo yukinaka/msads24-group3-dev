@@ -5,12 +5,13 @@ package jsys.sales.test;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import jsys.sales.dao.ConnectionManager;
 import jsys.sales.dao.CustomerDAO;
 import jsys.sales.entity.Customer;
 
-public class TestCustomerDAO01_03 {
+public class TestCustomerDAO01_12 {
 
 	/**
 	 * @param args
@@ -29,18 +30,25 @@ public class TestCustomerDAO01_03 {
 		try {
 			CustomerDAO custDAO = new CustomerDAO(con);
 
-			Customer customer = new Customer();
+			String custCode = "DD";
+			ArrayList<Customer> custList = custDAO.findCustomerByCode(custCode);
 
-			customer.setCustCode("KA0100");
-			customer.setCustName("Sストア");
-//			customer.setTelNo1("045-128-3581");
-			customer.setPostalCode1("220-0001");
-			customer.setAddress1("横浜市西区北幸2-1");
-			customer.setDiscountRate(0);
+			if (custList == null) {
+				System.out.println("戻り値：" + custList);
+			} else {
 
-			boolean result = custDAO.insertCustomer(customer);
-
-			System.out.println("戻り値：" + result);
+				for (Customer cust : custList) {
+					System.out.println("得意先コード：" + cust.getCustCode());
+					System.out.println("得意先名：" + cust.getCustName());
+					System.out.println("電話番号１：" + cust.getTelNo1());
+					System.out.println("郵便番号１：" + cust.getPostalCode1());
+					System.out.println("住所１：" + cust.getAddress1());
+					System.out.println("得意先コード：" + cust.getCustCode());
+					System.out.println("割引率：" + cust.getDiscountRate());
+					System.out.println("最終更新者：" + cust.getLastUpdateBy());
+					System.out.println();
+				}
+			}
 
 		} catch (SQLException e) {
 			System.out.println("SQLExceptionがスローされました。");
