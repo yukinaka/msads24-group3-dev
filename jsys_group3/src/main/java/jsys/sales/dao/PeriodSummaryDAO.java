@@ -51,9 +51,9 @@ public class PeriodSummaryDAO {
 
 			while (res.next()) {
 				periodSummary = new PeriodSummary();
-				periodSummary.setCustCode(res.getString("custCode"));
-				periodSummary.setCustName(res.getString("custName"));
-				periodSummary.setTotalPricePerCust(res.getInt("totalPricePerCust"));
+				periodSummary.setCustCode(res.getString("customer_code"));
+				periodSummary.setCustName(res.getString("customer_Name"));
+				periodSummary.setTotalPricePerCust(res.getInt("total_price"));
 
 				periodSummaryList.add(periodSummary);
 			}
