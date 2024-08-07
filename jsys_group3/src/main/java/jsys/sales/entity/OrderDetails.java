@@ -42,7 +42,71 @@ public class OrderDetails implements Serializable{
 	 * @param orderNum 受注明細件数
 	 * @param orderPrice 受注合計金額
 	 */
-	public OrderDetails(String orderNo, String itemCode) {
-
+	public OrderDetails(String orderNo, String itemCode, int orderNum, int orderPrice) {
+		orderNo = this.orderNo;
+		itemCode = this.itemCode;
+		orderNum  = this.orderNum;
+		orderPrice = this.orderPrice;
 	}
+
+	/**
+	 * orderNoを取得する。
+	 * @return orderNo
+	 */
+	public String getOrderNo() {
+		return orderNo;
+	}
+	/**
+	 * orderNoを設定する。
+	 * @param orderNo
+	 */
+	public void setOrderNo(String orderNo) {
+		this.orderNo = orderNo;
+	}
+
+	/**
+	 * itemCodeを取得する。
+	 * @return itemCode
+	 */
+	public String getItemCode() {
+		return itemCode;
+	}
+	/**
+	 * itemCodeを設定する。
+	 * @param itemCode
+	 */
+	public void setItemCode(String itemCode) {
+		this.itemCode = itemCode;
+	}
+
+	/**
+	 * orderNumを取得する。
+	 * @return orderNum
+	 */
+	public int getOrderNum() {
+		return orderNum;
+	}
+	/**
+	 * orderNumを設定する。
+	 * @param orderNum
+	 */
+	public void setOrderNum(int orderNum) {
+		this.orderNum = orderNum;
+	}
+
+	/**
+	 * orderPriceを取得する。
+	 * @return orderPrice
+	 */
+	public int getOrderPrice() {
+		return orderPrice;
+	}
+	/**
+	 * orderPriceを設定する。
+	 * @param orderPrice
+	 */
+	public void setOrderPrice(int orderPrice) {
+		this.orderPrice = orderPrice;
+	}
+
 }
