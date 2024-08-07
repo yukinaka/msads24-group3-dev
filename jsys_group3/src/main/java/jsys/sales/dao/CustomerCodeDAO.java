@@ -74,6 +74,7 @@ public class CustomerCodeDAO {
 		try {
 
 			stmt = con.prepareStatement(sql);
+			stmt.setInt(1, customerCode);
 			int count = stmt.executeUpdate();
 
 			/*検索結果判断*/
