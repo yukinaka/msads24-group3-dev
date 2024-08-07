@@ -40,7 +40,7 @@ public class ProductSummaryDAO {
 
 		PreparedStatement stmt = null;
 		ResultSet res = null;
-		ArrayList<ProductSummary> productSummaryList = new ArrayList<>();
+		ArrayList<ProductSummary> productSummaryList = null;
 
 		try {
 			stmt = con.prepareStatement(sql);
@@ -50,12 +50,14 @@ public class ProductSummaryDAO {
 			ProductSummary productSummary=null;
 
 			while (res.next()) {
+				if(productSummaryList==null) {
+					productSummaryList = new ArrayList<>();
+				}
 				productSummary = new ProductSummary();
-				productSummary.setItemCode(res.getString("itemCode"));
-				productSummary.setItemName(res.getString("itemName"));
-				productSummary.setItemPrice(res.getInt("itemPrice"));
-				productSummary.setTotalNum(res.getInt("TotalNum"));
-				productSummary.setTotalPricePerItem(res.getInt("totalPricePerItem"));
+				productSummary.setItemCode(res.getString("item_code"));
+				productSummary.setItemName(res.getString("item_name"));
+				productSummary.setItemPrice(res.getInt("price"));
+				productSummary.setTotalNum(res.getInt("total_num"));
 
 				productSummaryList.add(productSummary);
 			}
