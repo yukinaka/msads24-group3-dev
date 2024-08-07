@@ -82,7 +82,7 @@ public class CustomerDAO {
 		String sql = "select * from customer";
 		PreparedStatement stmt = null;
 		ResultSet res = null;
-		ArrayList<Customer> customerList = new ArrayList<>();
+		ArrayList<Customer> customerList = null;
 		Customer customer = null;
 
 		try {
@@ -90,10 +90,14 @@ public class CustomerDAO {
 			stmt = con.prepareStatement(sql);
 			res = stmt.executeQuery();
 
-			customer = new Customer();
 
 			/*検索結果格納ループ*/
 			while(res.next()) {
+				if (customerList==null) {
+					customerList = new ArrayList<>();
+				}
+
+				customer = new Customer();
 
 				customer.setCustCode(res.getString("customer_code"));
 				customer.setCustName(res.getString("customer_name"));
@@ -138,7 +142,7 @@ public class CustomerDAO {
 		String sql = "select * from customer where customer_code like ?";
 		PreparedStatement stmt = null;
 		ResultSet res = null;
-		ArrayList<Customer> customerList = new ArrayList<>();
+		ArrayList<Customer> customerList = null;
 		Customer customer = null;
 
 		try {
@@ -147,10 +151,14 @@ public class CustomerDAO {
 			stmt.setString(1, "%" + custCode + "%");
 			res = stmt.executeQuery();
 
-			customer = new Customer();
 
 			/*検索結果格納ループ*/
 			while(res.next()) {
+				if (customerList==null) {
+					customerList = new ArrayList<>();
+				}
+
+				customer = new Customer();
 
 				customer.setCustCode(res.getString("customer_code"));
 				customer.setCustName(res.getString("customer_name"));
@@ -195,7 +203,7 @@ public class CustomerDAO {
 		String sql = "select * from customer where customer_name like ?";
 		PreparedStatement stmt = null;
 		ResultSet res = null;
-		ArrayList<Customer> customerList = new ArrayList<>();
+		ArrayList<Customer> customerList = null;
 		Customer customer = null;
 
 		try {
@@ -208,6 +216,9 @@ public class CustomerDAO {
 
 			/*検索結果格納ループ*/
 			while(res.next()) {
+				if (customerList==null) {
+					customerList = new ArrayList<>();
+				}
 
 				customer.setCustCode(res.getString("customer_code"));
 				customer.setCustName(res.getString("customer_name"));

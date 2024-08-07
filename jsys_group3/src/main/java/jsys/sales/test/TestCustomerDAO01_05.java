@@ -10,7 +10,7 @@ import jsys.sales.dao.ConnectionManager;
 import jsys.sales.dao.CustomerDAO;
 import jsys.sales.entity.Customer;
 
-public class TestCustomerDAO01_03 {
+public class TestCustomerDAO01_05 {
 
 	/**
 	 * @param args
@@ -31,9 +31,9 @@ public class TestCustomerDAO01_03 {
 
 			Customer customer = new Customer();
 
-			customer.setCustCode("KA0100");
+			customer.setCustCode("KA0144");
 			customer.setCustName("Sストア");
-//			customer.setTelNo1("045-128-3581");
+			customer.setTelNo1("045-128-3581");
 			customer.setPostalCode1("220-0001");
 			customer.setAddress1("横浜市西区北幸2-1");
 			customer.setDiscountRate(0);
