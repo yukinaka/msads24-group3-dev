@@ -34,7 +34,42 @@ public class CustomerDAO {
 	 * @throws SQLException データベースエラー
 	 */
 	public boolean insertCustomer(Customer customer) throws SQLException {
-		return true;
+
+		String sql = "INSERT INTO customer VALUES(?,?,?,?,?,?,?,?,?,?,false,?)";
+		PreparedStatement stmt = null;
+
+		try {
+
+			stmt = con.prepareStatement(sql);
+
+			stmt.setString(1, customer.getCustCode());
+			stmt.setString(2, customer.getCustName());
+			stmt.setString(3, customer.getTelNo1());
+			stmt.setString(4, customer.getTelNo2());
+			stmt.setString(5, customer.getTelNo3());
+			stmt.setString(6, customer.getPostalCode1());
+			stmt.setString(7, customer.getAddress1());
+			stmt.setString(8, customer.getPostalCode2());
+			stmt.setString(9, customer.getAddress2());
+			stmt.setInt(10, customer.getDiscountRate());
+			stmt.setString(11, customer.getLastUpdateBy());
+
+			int count = stmt.executeUpdate();
+
+			/*登録完了判断*/
+			if(count == 1) {
+				return true;
+			}
+
+		}finally {
+
+			if(stmt != null) {
+				stmt.close();
+			}
+
+		}
+
+		return false;
 	}
 
 	/**
@@ -43,7 +78,53 @@ public class CustomerDAO {
 	 * @throws SQLException データベースエラー
 	 */
 	public ArrayList<Customer> findAllCustomer() throws SQLException {
-		return null;
+
+		String sql = "select * from customer";
+		PreparedStatement stmt = null;
+		ResultSet res = null;
+		ArrayList<Customer> customerList = new ArrayList<>();
+		Customer customer = null;
+
+		try {
+
+			stmt = con.prepareStatement(sql);
+			res = stmt.executeQuery();
+
+			customer = new Customer();
+
+			/*検索結果格納ループ*/
+			while(res.next()) {
+
+				customer.setCustCode(res.getString("customer_code"));
+				customer.setCustName(res.getString("customer_name"));
+				customer.setTelNo1(res.getString("customer_telno1"));
+				customer.setTelNo2(res.getString("customer_telno2"));
+				customer.setTelNo3(res.getString("customer_telno3"));
+				customer.setPostalCode1(res.getString("customer_postalcode1"));
+				customer.setAddress1(res.getString("customer_address1"));
+				customer.setPostalCode2(res.getString("customer_postalcode2"));
+				customer.setAddress2(res.getString("customer_address2"));
+				customer.setDiscountRate(res.getInt("discount_rate"));
+				customer.setDeleteFlag(res.getBoolean("delete_flag"));
+				customer.setLastUpdateBy(res.getString("last_update_by"));
+
+				customerList.add(customer);
+
+			}
+
+		}finally {
+
+			if(res != null) {
+				res.close();
+			}
+			if(stmt != null) {
+				stmt.close();
+			}
+
+		}
+
+		return customerList;
+
 	}
 
 	/**
@@ -53,7 +134,54 @@ public class CustomerDAO {
 	 * @throws SQLException データベースエラー
 	 */
 	public ArrayList<Customer> findCustomerByCode(String custCode) throws SQLException {
-		return null;
+
+		String sql = "select * from customer where customer_code like ?";
+		PreparedStatement stmt = null;
+		ResultSet res = null;
+		ArrayList<Customer> customerList = new ArrayList<>();
+		Customer customer = null;
+
+		try {
+
+			stmt = con.prepareStatement(sql);
+			stmt.setString(1, "%" + custCode + "%");
+			res = stmt.executeQuery();
+
+			customer = new Customer();
+
+			/*検索結果格納ループ*/
+			while(res.next()) {
+
+				customer.setCustCode(res.getString("customer_code"));
+				customer.setCustName(res.getString("customer_name"));
+				customer.setTelNo1(res.getString("customer_telno1"));
+				customer.setTelNo2(res.getString("customer_telno2"));
+				customer.setTelNo3(res.getString("customer_telno3"));
+				customer.setPostalCode1(res.getString("customer_postalcode1"));
+				customer.setAddress1(res.getString("customer_address1"));
+				customer.setPostalCode2(res.getString("customer_postalcode2"));
+				customer.setAddress2(res.getString("customer_address2"));
+				customer.setDiscountRate(res.getInt("discount_rate"));
+				customer.setDeleteFlag(res.getBoolean("delete_flag"));
+				customer.setLastUpdateBy(res.getString("last_update_by"));
+
+				customerList.add(customer);
+
+			}
+
+		}finally {
+
+			if(res != null) {
+				res.close();
+			}
+			if(stmt != null) {
+				stmt.close();
+			}
+
+		}
+
+		return customerList;
+
 	}
 
 	/**
@@ -63,7 +191,54 @@ public class CustomerDAO {
 	 * @throws SQLException データベースエラー
 	 */
 	public ArrayList<Customer> findCustomerByName(String custName) throws SQLException {
-		return null;
+
+		String sql = "select * from customer where customer_name like ?";
+		PreparedStatement stmt = null;
+		ResultSet res = null;
+		ArrayList<Customer> customerList = new ArrayList<>();
+		Customer customer = null;
+
+		try {
+
+			stmt = con.prepareStatement(sql);
+			stmt.setString(1, "%" + custName + "%");
+			res = stmt.executeQuery();
+
+			customer = new Customer();
+
+			/*検索結果格納ループ*/
+			while(res.next()) {
+
+				customer.setCustCode(res.getString("customer_code"));
+				customer.setCustName(res.getString("customer_name"));
+				customer.setTelNo1(res.getString("customer_telno1"));
+				customer.setTelNo2(res.getString("customer_telno2"));
+				customer.setTelNo3(res.getString("customer_telno3"));
+				customer.setPostalCode1(res.getString("customer_postalcode1"));
+				customer.setAddress1(res.getString("customer_address1"));
+				customer.setPostalCode2(res.getString("customer_postalcode2"));
+				customer.setAddress2(res.getString("customer_address2"));
+				customer.setDiscountRate(res.getInt("discount_rate"));
+				customer.setDeleteFlag(res.getBoolean("delete_flag"));
+				customer.setLastUpdateBy(res.getString("last_update_by"));
+
+				customerList.add(customer);
+
+			}
+
+		}finally {
+
+			if(res != null) {
+				res.close();
+			}
+			if(stmt != null) {
+				stmt.close();
+			}
+
+		}
+
+		return customerList;
+
 	}
 
 	/**
@@ -73,7 +248,49 @@ public class CustomerDAO {
 	 * @throws SQLException データベースエラー
 	 */
 	public Customer findCustomerByUniqueName(String custName) throws SQLException {
-		return null;
+
+		String sql = "select * from customer where customer_name = ?";
+		PreparedStatement stmt = null;
+		ResultSet res = null;
+		Customer customer = null;
+
+		try {
+
+			stmt = con.prepareStatement(sql);
+			stmt.setString(1, custName);
+			res = stmt.executeQuery();
+
+			if(res.next()) {
+
+				customer = new Customer();
+
+				customer.setCustCode(res.getString("customer_code"));
+				customer.setCustName(res.getString("customer_name"));
+				customer.setTelNo1(res.getString("customer_telno1"));
+				customer.setTelNo2(res.getString("customer_telno2"));
+				customer.setTelNo3(res.getString("customer_telno3"));
+				customer.setPostalCode1(res.getString("customer_postalcode1"));
+				customer.setAddress1(res.getString("customer_address1"));
+				customer.setPostalCode2(res.getString("customer_postalcode2"));
+				customer.setAddress2(res.getString("customer_address2"));
+				customer.setDiscountRate(res.getInt("discount_rate"));
+				customer.setDeleteFlag(res.getBoolean("delete_flag"));
+				customer.setLastUpdateBy(res.getString("last_update_by"));
+
+			}
+
+		}finally {
+
+			if(res != null) {
+				res.close();
+			}
+			if(stmt != null) {
+				stmt.close();
+			}
+
+		}
+
+		return customer;
 	}
 
 	/**
@@ -83,7 +300,31 @@ public class CustomerDAO {
 	 * @throws SQLException データベースエラー
 	 */
 	public boolean deleteCustomer(String custCode) throws SQLException {
-		return true;
+
+		String sql = "update customer set delete_flag = true where customer_code = ?";
+		PreparedStatement stmt = null;
+
+		try {
+
+			stmt = con.prepareStatement(sql);
+			stmt.setString(1, custCode);
+			int count = stmt.executeUpdate();
+
+			/*削除完了判断*/
+			if(count == 1) {
+				return true;
+			}
+
+		}finally {
+
+			if(stmt != null) {
+				stmt.close();
+			}
+
+		}
+
+		return false;
+
 	}
 
 	/**
@@ -93,7 +334,30 @@ public class CustomerDAO {
 	 * @throws SQLException データベースエラー
 	 */
 	public boolean restCustomer(String custCode) throws SQLException {
-		return true;
+		String sql = "update customer set delete_flag = false where customer_code = ?";
+		PreparedStatement stmt = null;
+
+		try {
+
+			stmt = con.prepareStatement(sql);
+			stmt.setString(1, custCode);
+			int count = stmt.executeUpdate();
+
+			/*削除完了判断*/
+			if(count == 1) {
+				return true;
+			}
+
+		}finally {
+
+			if(stmt != null) {
+				stmt.close();
+			}
+
+		}
+
+		return false;
+
 	}
 
 	/**
@@ -103,51 +367,48 @@ public class CustomerDAO {
 	 * @throws SQLException データベースエラー
 	 */
 	public boolean updateCustomer(Customer customer) throws SQLException {
-		return true;
+
+		String sql = "update customer set customer_name = ?,"
+				+ " customer_telno1 = ?, customer_telno2 = ?, customer_telno3 = ?,"
+				+ " customer_postalcode1 = ?, customer_address1 = ?, customer_postalcode2 = ?, customer_address2 = ?,"
+				+ " discount_rate = ?, delete_flag = ?, last_update_by = ?"
+				+ " where customer_code = ?";
+		PreparedStatement stmt = null;
+
+		try {
+
+			stmt = con.prepareStatement(sql);
+
+			stmt.setString(1, customer.getCustName());
+			stmt.setString(2, customer.getTelNo1());
+			stmt.setString(3, customer.getTelNo2());
+			stmt.setString(4, customer.getTelNo3());
+			stmt.setString(5, customer.getPostalCode1());
+			stmt.setString(6, customer.getAddress1());
+			stmt.setString(7, customer.getPostalCode2());
+			stmt.setString(8, customer.getAddress2());
+			stmt.setInt(9, customer.getDiscountRate());
+			stmt.setBoolean(10, customer.isDeleteFlag());
+			stmt.setString(11, customer.getLastUpdateBy());
+			stmt.setString(12, customer.getCustCode());
+
+			int count = stmt.executeUpdate();
+
+			/*更新完了判断*/
+			if(count == 1) {
+				return true;
+			}
+
+		}finally {
+
+			if(stmt != null) {
+				stmt.close();
+			}
+
+		}
+
+		return false;
+
 	}
-
-//	/**
-//	 * 引数で指定された得意先コードをもとに得意先テーブルから該当する得意先情報をあいまい検索し、ArrayList一致する得意先を1件検索する
-//	 * @param custCode 得意先コード
-//	 * @return 得意先オブジェクト
-//	 * @throws SQLException SQLException
-//	 */
-//	 public Customer findCustomer(String custCode) throws SQLException {
-//
-//		String sql = "SELECT customer_code, customer_name, customer_telno, customer_postalcode, customer_address, discount_rate, delete_flag "
-//				+ "FROM customer WHERE customer_code = ?";
-//		PreparedStatement stmt = null;
-//		ResultSet res = null;
-//		Customer object = null;
-//
-//		/**
-//		 * try-catch
-//		 */
-//		try {
-//			stmt = con.prepareStatement(sql);
-//			stmt.setString(1, custCode);
-//			res = stmt.executeQuery();
-//
-//			if (res.next() && !res.getBoolean("delete_flag")) {
-//
-//				object = new Customer(
-//						res.getString("customer_code"),
-//						res.getString("customer_name"),
-//						res.getString("customer_telno"),
-//						res.getString("customer_postalcode"),
-//						res.getString("customer_address"),
-//						res.getInt("discount_rate"));
-//			}
-//
-//		} finally {
-//			if (res!=null) res.close();
-//			if (stmt!=null) stmt.close();
-//		}
-//
-//		return object;
-//
-//	}
-
-
 
 }
