@@ -20,7 +20,7 @@ public class CustomerFindLogic {
 			con = ConnectionManager.getConnection();
 
 			CustomerDAO customerDAO = new CustomerDAO(con);
-			customer = customerDAO.findCustomer(custCode);
+//			customer = customerDAO.findCustomer(custCode);
 
 			if (customer==null) {
 				throw new SalesBusinessException("該当する取引先コードは存在しません。");
