@@ -1,13 +1,14 @@
+/**
+ * @author J22_油井清子（2024/8/7）
+ */
 package jsys.sales.dao;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
-
-import jsys.sales.entity.;
+import jsys.sales.entity.PeriodSummary;
 
 /**
  * 期間内受注集計テーブルの情報を操作する
@@ -26,36 +27,38 @@ public class PeriodSummaryDAO {
 
 	/**
 	 *
-	 * @param customer 得意先オブジェクト
+	 * @param　firstDay, firstDay				//***********************************************
 	 * @return 実行結果
 	 * @throws SQLException データベースエラー
 	 */
-	public ArrayList<PeriodSummary> orderSummaryWithinPeriod(Date firstDay, Date lastDay) throws SQLException {
+	public ArrayList<PeriodSummary> orderSummaryWithinPeriod(java.sql.Date firstDay, java.sql.Date lastDay) throws SQLException {
 
-		String sql =
-
+		String sql ="select orders.customer_code, customer.customer_name, SUM(orders.total_price) as total_price "
+				+ "from orders inner join customer on orders.customer_code = customer.customer_code "
+				+ "where orders.order_date between ? and ? "
+				+ "group by customer_code;";
 
 		PreparedStatement stmt = null;
 		ResultSet res = null;
-		Customer customer = null;
+		ArrayList<PeriodSummary> periodSummaryList = new ArrayList<>();
 
 		try {
-			// PreparedStatementの作成
 			stmt = con.prepareStatement(sql);
-			// パラメータの設定
-			stmt.setString(1,custCode);
-
-			// SQL文の実行
+			stmt.setDate(1,firstDay);
+			stmt.setDate(2,lastDay);
 			res = stmt.executeQuery();
-			// 結果セットから情報を取り出す
-			if (res.next()) {
-				// Customerオブジェクトの生成
-				customer = new Customer(res.getString("customer_code"), res.getString("customer_name"),res.getString("customer_telno"), res.getString("customer_postalcode"),res.getString("customer_address"),res.getInt("discount_rate"));
+			PeriodSummary periodSummary=null;
 
+			while (res.next()) {
+				periodSummary = new PeriodSummary();
+				periodSummary.setCustCode(res.getString("custCode"));
+				periodSummary.setCustName(res.getString("custName"));
+				periodSummary.setTotalPricePerCust(res.getInt("totalPricePerCust"));
+
+				periodSummaryList.add(periodSummary);
 			}
-
 		} finally {
-			// クローズ処理
+
 			if (res != null) {
 				res.close();
 			}
@@ -63,8 +66,6 @@ public class PeriodSummaryDAO {
 				stmt.close();
 			}
 		}
-
-		return customer;
+		return periodSummaryList;
 	}
-
 }
