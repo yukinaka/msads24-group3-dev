@@ -7,10 +7,10 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import jsys.sales.dao.ConnectionManager;
-import jsys.sales.dao.CustomerDAO;
-import jsys.sales.entity.Customer;
+import jsys.sales.dao.EmployeeDAO;
+import jsys.sales.entity.Employee;
 
-public class TestCustomerDAO01_29 {
+public class TestEmployeeDAO01_04 {
 
 	/**
 	 * @param args
@@ -27,29 +27,21 @@ public class TestCustomerDAO01_29 {
 		}
 		// ここからテストを行う。
 		try {
+			EmployeeDAO  empDAO = new EmployeeDAO(con);
 
-			CustomerDAO custDAO = new CustomerDAO(con);
+			Employee employee = new Employee();
 
-			Customer customer = new Customer();
+			employee.setEmpNo("H20001");
+			employee.setEmpName("安藤直也");
+			employee.setPassword("zy0001");
+			Employee findEmployee = empDAO.findEmployee("H20001");
 
-			customer.setCustName("Sストア");
-			customer.setTelNo1("0451283581");
-			customer.setTelNo2("");
-			customer.setTelNo3("");
-			customer.setPostalCode1("2200001");
-			customer.setAddress1("");
-			customer.setPostalCode2("");
-			customer.setAddress2("横浜市西区北幸2-1");
-			customer.setDiscountRate(0);
-			customer.setDeleteFlag(false);
-			customer.setLastUpdateBy("H20001");
-			customer.setCustCode("KA0100");
+			System.out.println("戻り値：" + findEmployee.getEmpNo());
+			System.out.println("戻り値：" + findEmployee.getEmpName());
+			System.out.println("戻り値：" + findEmployee.getPassword());
 
-			boolean result = custDAO.updateCustomer(customer);
 
-			System.out.println("戻り値:"+result);
-
-		} catch (SQLException e) {
+		}catch (SQLException e) {
 			System.out.println("SQLExceptionがスローされました。");
 			e.printStackTrace();
 		} finally {
@@ -61,8 +53,6 @@ public class TestCustomerDAO01_29 {
 				e.printStackTrace();
 			}
 		}
-
-
 
 	}
 
