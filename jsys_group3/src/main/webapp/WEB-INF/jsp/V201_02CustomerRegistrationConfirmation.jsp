@@ -58,7 +58,7 @@
 		            </tr>
 		            <tr>
 		                <th scope="row">割引率</th>
-					 	<td><c:out value="${ requestScope.customer.discountRate }" default = "0%"/></td>
+					 	<td><c:out value="${ requestScope.customer.discountRate }" /></td>
 		            </tr>
 		        </tbody>
 		    </table>
