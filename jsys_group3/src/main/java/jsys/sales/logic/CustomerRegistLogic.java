@@ -55,6 +55,7 @@ public class CustomerRegistLogic {
 			}
 
 		}catch(SQLException e) {
+			e.printStackTrace();
 
 			throw new SalesSystemException("システムエラーが発生しました。");
 
@@ -112,7 +113,13 @@ public class CustomerRegistLogic {
 			con.commit();
 
 		}catch(SQLException e) {
+			e.printStackTrace();
 
+			try {
+				con.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
 			throw new SalesSystemException("システムエラーが発生しました。");
 
 		}finally {

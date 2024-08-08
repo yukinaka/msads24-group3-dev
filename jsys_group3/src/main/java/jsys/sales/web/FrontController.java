@@ -128,28 +128,77 @@ public class FrontController extends HttpServlet {
 			case "V200_01_01":
 				page = "V200_01CustomerManagementMenu.jsp";
 				break;
-
-			case "V201_01_01":
-				page = "V200_01CustomerManagementMenu.jsp";
-				break;
+//
+//			case "V201_01_01":
+//				page = "V200_01CustomerManagementMenu.jsp";
+//				break;
 
 			case "V200_01_02":
 				page = "V201_01CustomerFindView.jsp";
 				break;
 
-			case "V201_02_01":
-				page = "V201_01CustomerFindView.jsp";
-				break;
+//			case "V201_02_01":
+//				page = "V201_01CustomerFindView.jsp";
+//				break;
 
 			case "V201_01_02":
 				action = new CustomerFindAction();
 				page = action.execute(request);
 				break;
 
+
+
 			case "V101_01_01":
 				action = new LoginAction();
 				page = action.execute(request);
 				break;
+
+			case "V101_02_01":
+				page = "V101_03CustomerManagementMenu.jsp";
+				break;
+
+			case "V101_02_02":
+				page = "V101_04CustomerSummaryMenu.jsp";
+				break;
+
+			case "V101_03_01":
+				page = "V201_01CustomerRegistration.jsp";
+				break;
+
+			case "V101_03_02":
+				page = "V202_01CustomerList.jsp";
+				break;
+
+			case "V101_04_01":
+				page = "V301_01OrderSummaryWithinPeriod.jsp";
+				break;
+
+			case "V101_04_02":
+				page = "V302_01ProductOrderSummary.jsp";
+				break;
+
+			case "V201_01_01":
+				action = new CustomerRegistCheckAction();
+				page = action.execute(request);
+				break;
+
+			case "V201_02_01":
+				action = new CustomerRegistAction();
+				page = action.execute(request);
+				break;
+
+			case "V201_02_02":
+				page = "V201_01CustomerRegistration.jsp";
+				break;
+
+			case "V201_03_01":
+				page = "V201_01CustomerRegistration.jsp";
+				break;
+
+//			case "V101_03_02":
+//				action = new LoginAction();
+//				page = action.execute(request);
+//				break;
 		}
 
 		// 結果画面に転送

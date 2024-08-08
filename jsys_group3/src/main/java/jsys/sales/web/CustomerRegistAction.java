@@ -17,14 +17,16 @@ public class CustomerRegistAction implements ActionIF{
 
 	public String execute(HttpServletRequest request){
 
-		String page = "V201_02CustomerRegistrationConfirmation";
+		String page = "V201_03CustomerRegistrationCompletion.jsp";
 		try {
 			HttpSession session = request.getSession(false);
+			Employee loginEmployee;
+
 			if(session==null) {
 				throw new SalesSystemException("セッションが無効です。");
 			}else {
 
-				Employee loginEmployee = (Employee)session.getAttribute("loginEmployee");
+				loginEmployee = (Employee)session.getAttribute("loginEmployee");
 				if(loginEmployee == null) {
 					throw new SalesSystemException("ログイン情報が存在しません。");
 				}
@@ -49,14 +51,14 @@ public class CustomerRegistAction implements ActionIF{
 			customer.setPostalCode2(postalCode2);
 			customer.setAddress2(address2);
 			customer.setDiscountRate(Integer.parseInt(discountRate));
+			customer.setLastUpdateBy(loginEmployee.getEmpNo());
 
 			CustomerRegistLogic logic = new CustomerRegistLogic();
 			logic.insertCustomer(customer);
 			request.setAttribute("customer", customer);
 
 		} catch (SalesSystemException e) {
-
-			//rollback
+			e.printStackTrace();
 
 			request.setAttribute("errorMessage", e.getMessage());
 			page = "V901_01SystemError.jsp";

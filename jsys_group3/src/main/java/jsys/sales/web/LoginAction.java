@@ -15,7 +15,7 @@ public class LoginAction implements ActionIF {
 	@Override
 	public String execute(HttpServletRequest request) {
 
-		String page = "V201_01CustomerRegistration.jsp";
+		String page = "V101_02MainMenu.jsp";
 
 		try {
 			String empNo = request.getParameter("empNo");
