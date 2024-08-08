@@ -19,9 +19,14 @@
 	    <div class="container mt-5">
 	        <h2 class="text-center">得意先一覧</h2>
 	        
-	        <div class="text-center text-danger mt-4">
-	            エラーメッセージエリア<br>
-	        </div>
+	   		<%-- エラーメッセージがある場合、出力 --%>
+	     	<h4 class="text-center text-danger mb-3">
+				<c:out value="${requestScope.errorMessage}"/>
+				<c:forEach var="message" items="${requestScope.errorMessageList}">
+					<c:out value="${message}"/><br>
+				</c:forEach>
+	     	</h4> 	      
+	     	  
 	       <br>
 	        
 	        <div class="d-flex justify-content-center mb-4">

@@ -13,14 +13,16 @@
 		    <div class="collapse navbar-collapse" id="navbarNav">
 		        <ul class="navbar-nav">
 		            <li class="nav-item">
-		                <a class="nav-link" aria-current="page" href="#">メインメニュー</a>
+		                <form action="/jsys_group3/jsysFC" method="post">
+		                	<button type="submit" class="btn btn-primary" name="buttonId" value="V101_02">メインメニュー</button>
+		                </form>
 		            </li>
 		        </ul>
 		    </div>
 	        
             <!-- ユーザー情報とログアウトボタン -->
             <div class="d-flex align-items-center ms-5">
-                <span class="user-info me-3">ログイン中: <strong>従業員番号</strong></span>
+                <span class="user-info me-3">ログイン中: <strong><c:out value="${ sessionScope.loginEmployee.empNo }" /></strong></span>
                 <form action="logoutServlet" method="post" class="d-inline">
                     <button type="submit" class="btn btn-outline-light">ログアウト</button>
                 </form>

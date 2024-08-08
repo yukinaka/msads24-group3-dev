@@ -3,6 +3,8 @@
  */
 package jsys.sales.web;
 
+import java.util.ArrayList;
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jsys.sales.common.SalesBusinessException;
@@ -42,23 +44,46 @@ public class CustomerRegistCheckAction implements ActionIF{
 			String address2 = request.getParameter("address2");
 			String discountRate = request.getParameter("discountRate");
 
-//			String telNo1 = request.getParameter("telNo1");
-//			String telNo2 = request.getParameter("telNo2");
-//			String telNo3 = request.getParameter("telNo3");
-//			String postalCode1 = request.getParameter("postalCode1");
-//			String address1 = request.getParameter("address1");
-//			String postalCode2 = request.getParameter("postalCode2");
-//			String address2 = request.getParameter("address2");
-//			String discountRate = request.getParameter("discountRate");
+			ArrayList<String> errorMessageList = new ArrayList<>();
 
-			if (custName == null || custName.equals("")) {
-				throw new SalesBusinessException("得意先名が未入力です。");
+			if (telNo2.equals("--")) {
+				telNo2 = null;
+			} else {
+
+				if (!telNo2.matches("^[0-9]{2,4}-[0-9]{3,4}-[0-9]{3,4}$")) {
+					errorMessageList.add("電話番号2が不正です。");
+				}
 			}
-			if (telNo1 == null || telNo1.equals("")) {
-				throw new SalesBusinessException("電話番号1が未入力です。");
+
+			if (telNo3.equals("--")) {
+				telNo3 = null;
+			} else {
+
+				if (!telNo2.matches("^[0-9]{2,4}-[0-9]{3,4}-[0-9]{3,4}$")) {
+					errorMessageList.add("電話番号3が不正です。");
+				}
 			}
-			if (discountRate == null || discountRate.equals("")) {
-				throw new SalesBusinessException("割引率が未入力です。");
+
+			if (postalCode1.equals("-")) {
+				postalCode1 = null;
+			} else {
+
+				if (!postalCode1.matches("^[0-9]{3}-[0-9]{4}$")) {
+					errorMessageList.add("郵便番号1が不正です。");
+				}
+			}
+
+			if (postalCode2.equals("-")) {
+				postalCode2 = null;
+			} else {
+
+				if (!postalCode2.matches("^[0-9]{3}-[0-9]{4}$")) {
+					errorMessageList.add("郵便番号2が不正です。");
+				}
+			}
+
+			if (!errorMessageList.isEmpty()) {
+				throw new SalesBusinessException(errorMessageList);
 			}
 
 			Customer customer = new Customer();
@@ -82,7 +107,8 @@ public class CustomerRegistCheckAction implements ActionIF{
 			// 業務エラー発生時
 			// エラーメッセージの格納
 			request.setAttribute("errorMessage", e.getMessage());
-			// 遷移先ページ名の設定
+			request.setAttribute("errorMessageList", e.getMessageList());
+			// 遷移先ページ名の設定0
 			page = "V201_01CustomerRegistration.jsp";
 		} catch (SalesSystemException e) {
 			e.printStackTrace();

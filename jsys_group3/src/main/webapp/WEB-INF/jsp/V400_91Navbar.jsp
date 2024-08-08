@@ -20,7 +20,7 @@
 	        
             <!-- ユーザー情報とログアウトボタン -->
             <div class="d-flex align-items-center ms-5">
-                <span class="user-info me-3">ログイン中: <strong>従業員番号</strong></span>
+                <span class="user-info me-3">ログイン中: <strong><c:out value="${ sessionScope.loginEmployee.empNo }" /></strong></span>
                 <form action="logoutServlet" method="post" class="d-inline">
                     <button type="submit" class="btn btn-outline-light">ログアウト</button>
                 </form>
