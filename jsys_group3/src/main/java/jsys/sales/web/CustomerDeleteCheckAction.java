@@ -2,35 +2,32 @@
  * @author J22_油井清子（2024/8/8）
  */
 package jsys.sales.web;
-
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jsys.sales.common.SalesSystemException;
 import jsys.sales.entity.Customer;
 import jsys.sales.entity.Employee;
-import jsys.sales.logic.CustomerRegistLogic;
 
 /**
- *得意先情報の登録を行う
+ *得意先情報の削除確認を行う
  */
-public class CustomerRegistAction implements ActionIF{
+public class CustomerDeleteCheckAction implements ActionIF{
 	/**
-	 *登録完了ページへの遷移を実行する
+	 *削除確認ページへの遷移を実行する
 	 * @param request　リクエストオブジェクト
 	 * @return 遷移先ページ
 	 */
 	public String execute(HttpServletRequest request){
 
-		String page = "V201_03CustomerRegistrationCompletion.jsp";
+		String page = "V221_01CustomerDeletionConfirmation.jsp";
+
 		try {
 			HttpSession session = request.getSession(false);
-			Employee loginEmployee;
-
 			if(session==null) {
 				throw new SalesSystemException("セッションが無効です。");
 			}else {
 
-				loginEmployee = (Employee)session.getAttribute("loginEmployee");
+				Employee loginEmployee = (Employee)session.getAttribute("loginEmployee");
 				if(loginEmployee == null) {
 					throw new SalesSystemException("ログイン情報が存在しません。");
 				}
@@ -55,10 +52,7 @@ public class CustomerRegistAction implements ActionIF{
 			customer.setPostalCode2(postalCode2);
 			customer.setAddress2(address2);
 			customer.setDiscountRate(Integer.parseInt(discountRate));
-			customer.setLastUpdateBy(loginEmployee.getEmpNo());
-
-			CustomerRegistLogic logic = new CustomerRegistLogic();
-			logic.insertCustomer(customer);
+			request.setAttribute("customer", customer);
 
 		} catch (SalesSystemException e) {
 			request.setAttribute("errorMessage", e.getMessage());

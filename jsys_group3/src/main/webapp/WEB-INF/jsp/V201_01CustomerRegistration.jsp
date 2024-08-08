@@ -44,7 +44,7 @@ pageEncoding="UTF-8"%>
 			    <div class="col-10">
 			    	<label for="telNo1" class="text-left form-label">得意先名</label>
 	                <div class="input-group mb-3">
-		                <input type="text" class="form-control" id="custName" name="custName" maxlength="32" title="得意先名は32文字以内で入力してください。">
+		                <input type="text" class="form-control" id="custName" name="custName" maxlength="32" title="得意先名は32文字以内で入力してください。" required>
 					</div>
 			    </div>
 			 </div>
@@ -53,11 +53,11 @@ pageEncoding="UTF-8"%>
 			    <div class="col-6">
 			    	<label for="telNo1" class="text-left form-label">電話番号1</label>
 	                <div class="input-group mb-3">
-		                <input type="text" class="form-control" id="telNo1" name="telNo1-1" pattern="^[0-9]{3}$">
+		                <input type="text" class="form-control" id="telNo1" name="telNo1-1" maxlength="4" pattern="^[0-9]{2,4}$" title="数値2～4桁で入力してください。" required>
 		    			<span class="input-group-text">-</span>
-		                <input type="text" class="form-control" id="telNo1" name="telNo1-2" pattern="^[0-9]{4}$">
+		                <input type="text" class="form-control" id="telNo1" name="telNo1-2" maxlength="4" pattern="^[0-9]{3,4}$" title="数値3～4桁で入力してください。" required>
 		    			<span class="input-group-text">-</span>
-		                <input type="text" class="form-control" id="telNo1" name="telNo1-3" pattern="^[0-9]{4}$">
+		                <input type="text" class="form-control" id="telNo1" name="telNo1-3" maxlength="4" pattern="^[0-9]{3,4}$" title="数値3～4桁で入力してください。" required>
 					</div>
 			    </div>
 			</div>
@@ -66,11 +66,11 @@ pageEncoding="UTF-8"%>
 			    <div class="col-6">
 			    	<label for="telNo1" class="text-left form-label">電話番号2</label>
 	                <div class="input-group mb-3">
-		                <input type="text" class="form-control" id="telNo2" name="telNo2-1" pattern="^[0-9]{3}$">
+		                <input type="text" class="form-control" id="telNo2" name="telNo2-1" maxlength="4" pattern="^[0-9]{2,4}$" title="数値2～4桁で入力してください。">
 		    			<span class="input-group-text">-</span>
-		                <input type="text" class="form-control" id="telNo2" name="telNo2-2" pattern="^[0-9]{4}$">
+		                <input type="text" class="form-control" id="telNo2" name="telNo2-2" maxlength="4" pattern="^[0-9]{3,4}$" title="数値3～4桁で入力してください。">
 		    			<span class="input-group-text">-</span>
-		                <input type="text" class="form-control" id="telNo2" name="telNo2-3" pattern="^[0-9]{4}$">
+		                <input type="text" class="form-control" id="telNo2" name="telNo2-3" maxlength="4" pattern="^[0-9]{3,4}$" title="数値3～4桁で入力してください。">
 					</div>
 			    </div>
 			</div>
@@ -79,11 +79,11 @@ pageEncoding="UTF-8"%>
 			    <div class="col-6">
 			    	<label for="telNo1" class="text-left form-label">電話番号3</label>
 	                <div class="input-group mb-3">
-		                <input type="text" class="form-control" id="telNo3" name="telNo3-1" pattern="^[0-9]{3}$">
+		                <input type="text" class="form-control" id="telNo3" name="telNo3-1" maxlength="4" pattern="^[0-9]{2,4}$" title="数値2～4桁で入力してください。">
 		    			<span class="input-group-text">-</span>
-		                <input type="text" class="form-control" id="telNo3" name="telNo3-2" pattern="^[0-9]{4}$">
+		                <input type="text" class="form-control" id="telNo3" name="telNo3-2" maxlength="4" pattern="^[0-9]{3,4}$" title="数値3～4桁で入力してください。">
 		    			<span class="input-group-text">-</span>
-		                <input type="text" class="form-control" id="telNo3" name="telNo3-3" pattern="^[0-9]{4}$">
+		                <input type="text" class="form-control" id="telNo3" name="telNo3-3" maxlength="4" pattern="^[0-9]{3,4}$" title="数値3～4桁で入力してください。">
 					</div>
 			    </div>
 			</div>
@@ -92,9 +92,9 @@ pageEncoding="UTF-8"%>
 			    <div class="col-3">
 			    	<label for="telNo1" class="text-left form-label">郵便番号1</label>
 	                <div class="input-group mb-2">
-		                <input type="text" class="form-control" id="postalCode1" name="postalCode1-1" pattern="^[0-9]{3}$">
+		                <input type="text" class="form-control" id="postalCode1" name="postalCode1-1" maxlength="3" pattern="^[0-9]{3}$" title="数値3桁で入力してください。">
 		    			<span class="input-group-text">-</span>
-		                <input type="text" class="form-control" id="postalCode1" name="postalCode1-2" pattern="^[0-9]{4}$">
+		                <input type="text" class="form-control" id="postalCode1" name="postalCode1-2" maxlength="4" pattern="^[0-9]{4}$" title="数値4桁で入力してください。">
 					</div>
 			    </div>
 			</div>
@@ -112,9 +112,9 @@ pageEncoding="UTF-8"%>
 			    <div class="col-3">
 			    	<label for="telNo1" class="text-left form-label">郵便番号2</label>
 	                <div class="input-group mb-2">
-		                <input type="text" class="form-control" id="postalCode2" name="postalCode2-1" pattern="^[0-9]{3}$">
+		                <input type="text" class="form-control" id="postalCode2" name="postalCode2-1" maxlength="3" pattern="^[0-9]{3}$" title="数値3桁で入力してください。">
 		    			<span class="input-group-text">-</span>
-		                <input type="text" class="form-control" id="postalCode2" name="postalCode2-2" pattern="^[0-9]{4}$">
+		                <input type="text" class="form-control" id="postalCode2" name="postalCode2-2" maxlength="4" pattern="^[0-9]{4}$" title="数値4桁で入力してください。">
 					</div>
 			    </div>
 			</div>
@@ -132,7 +132,7 @@ pageEncoding="UTF-8"%>
 			    <div class="col-2">
 			    	<label for="telNo1" class="text-left form-label">割引率</label>
 	                <div class="input-group mb-3">
-	                	<input type="text" class="form-control" id="discountRate" name="discountRate" pattern="^[1-9]?[0-9]$" title="割引率は0~99までの整数値で入力してください。">
+	                	<input type="text" class="form-control" id="discountRate" name="discountRate" maxlength="2" pattern="^[1-9]?[0-9]$" title="割引率は0~99までの整数値で入力してください。" required>
 	                	<span class="input-group-text">%</span>
 					</div>
 			    </div>

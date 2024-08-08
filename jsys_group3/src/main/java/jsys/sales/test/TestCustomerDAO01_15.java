@@ -11,7 +11,7 @@ import jsys.sales.dao.ConnectionManager;
 import jsys.sales.dao.CustomerDAO;
 import jsys.sales.entity.Customer;
 
-public class TestCustomerDAO01_14 {
+public class TestCustomerDAO01_15 {
 
 	/**
 	 * @param args
@@ -30,7 +30,7 @@ public class TestCustomerDAO01_14 {
 		try {
 			CustomerDAO custDAO = new CustomerDAO(con);
 
-			String custName = "A";
+			String custName = "ストア";
 			ArrayList<Customer> custList = custDAO.findCustomerByName(custName);
 
 			if (custList == null) {
@@ -39,7 +39,6 @@ public class TestCustomerDAO01_14 {
 
 				for (Customer cust : custList) {
 					System.out.println("得意先名：" + cust.getCustName());
-					System.out.println();
 				}
 			}
 

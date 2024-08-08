@@ -1,5 +1,5 @@
 /**
- * @author J22_油井清子（2024/8/8）
+ * @author J11_宮澤奈保子（2024/8/8）
  */
 package jsys.sales.web;
 
@@ -8,33 +8,41 @@ import jakarta.servlet.http.HttpSession;
 import jsys.sales.common.SalesSystemException;
 import jsys.sales.entity.Customer;
 import jsys.sales.entity.Employee;
-import jsys.sales.logic.CustomerRegistLogic;
 
 /**
- *得意先情報の登録を行う
+ * 得意先復元の入力チェックを行う
  */
-public class CustomerRegistAction implements ActionIF{
+public class CustomerRestCheckAction implements ActionIF {
+
 	/**
-	 *登録完了ページへの遷移を実行する
-	 * @param request　リクエストオブジェクト
-	 * @return 遷移先ページ
+	 * 復元確認アクション
+	 * @param request HttpServletRequestオブジェクト
+	 * @return 遷移ページ
 	 */
-	public String execute(HttpServletRequest request){
+	@Override
+	public String execute(HttpServletRequest request) {
 
-		String page = "V201_03CustomerRegistrationCompletion.jsp";
+		String page = "V223_01CustomerRestorationConfirmation.jsp";
+
 		try {
-			HttpSession session = request.getSession(false);
-			Employee loginEmployee;
 
-			if(session==null) {
+			HttpSession session = request.getSession(false);
+
+			/*セッション判断*/
+			if(session == null) {
 				throw new SalesSystemException("セッションが無効です。");
 			}else {
 
-				loginEmployee = (Employee)session.getAttribute("loginEmployee");
+				Employee loginEmployee = (Employee)session.getAttribute("loginEmployee");
+
+				/*ログイン情報判断*/
 				if(loginEmployee == null) {
 					throw new SalesSystemException("ログイン情報が存在しません。");
 				}
+
 			}
+
+			//値を取得する
 			String custName = request.getParameter("custName");
 			String telNo1 = request.getParameter("telNo1");
 			String telNo2 = request.getParameter("telNo2");
@@ -45,6 +53,7 @@ public class CustomerRegistAction implements ActionIF{
 			String address2 = request.getParameter("address2");
 			String discountRate = request.getParameter("discountRate");
 
+			//値をセットする
 			Customer customer = new Customer();
 			customer.setCustName(custName);
 			customer.setTelNo1(telNo1);
@@ -55,15 +64,21 @@ public class CustomerRegistAction implements ActionIF{
 			customer.setPostalCode2(postalCode2);
 			customer.setAddress2(address2);
 			customer.setDiscountRate(Integer.parseInt(discountRate));
-			customer.setLastUpdateBy(loginEmployee.getEmpNo());
 
-			CustomerRegistLogic logic = new CustomerRegistLogic();
-			logic.insertCustomer(customer);
+			// 処理結果の格納
+			request.setAttribute("customer", customer);
 
-		} catch (SalesSystemException e) {
+		}catch(SalesSystemException e) {
+
+			// エラーメッセージの格納
 			request.setAttribute("errorMessage", e.getMessage());
+			// 遷移先ページ名の設定
 			page = "V901_01SystemError.jsp";
+
 		}
+
 		return page;
+
 	}
+
 }
