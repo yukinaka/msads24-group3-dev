@@ -25,45 +25,45 @@
 		        <tbody>
 		            <tr>
 		                <th scope="row">得意先名</th>
-		                <td>Aストア</td>
+		                <td><c:out value="${ requestScope.customer.custName }"></td>
 		            </tr>
 		            <tr>
 		                <th scope="row">電話番号1</th>
-		                <td>045-128-3581</td>
+		                <td><c:out value="${ requestScope.customer.telNo1 }"></td>
 		            </tr>
 		            <tr>
 		                <th scope="row">電話番号2</th>
-		                <td>045-128-3582</td>
+		                <td><c:out value="${ requestScope.customer.telNo2 }"></td>
 		            </tr>
 		            <tr>
 		                <th scope="row">電話番号3</th>
-		                <td>045-128-3583</td>
+		                <td><c:out value="${ requestScope.customer.telNo3 }"></td>
 		            </tr>
 		            <tr>
 		                <th scope="row">郵便番号1</th>
-		                <td>220-0001</td>
+		                <td><c:out value="${ requestScope.customer.postalCode1 }"></td>
 		            </tr>
 		            <tr>
 		                <th scope="row">住所1</th>
-		                <td>横浜市西区北幸２－１</td>
+		                <td><c:out value="${ requestScope.customer.address1 }"></td>
 		            </tr>
 		            <tr>
 		                <th scope="row">郵便番号2</th>
-		                <td>220-0002</td>
+		                <td><c:out value="${ requestScope.customer.postalCode2 }"></td>
 		            <tr>
 		                <th scope="row">住所2</th>
-		                <td>横浜市西区北幸２－２</td>
+		                <td><c:out value="${ requestScope.customer.address2 }"></td>
 		            </tr>
 		            <tr>
 		                <th scope="row">割引率</th>
-		                <td>0%</td>
+		                <td><c:out value="${ requestScope.customer.discountRate }">%</td>
 		            </tr>
 		        </tbody>
 		    </table>
 		
 		    <div class="mt-3">
-		        <button type="button" class="btn btn-danger mr-2" name="buttonId" value="delete">はい</button>
-		        <button type="button" class="btn btn-secondary" name="buttonId" value="cancel">キャンセル</button>
+		        <button type="button" class="btn btn-danger mr-2" name="buttonId" value="V221_01_01">はい</button>
+		        <button type="button" class="btn btn-secondary" name="buttonId" value="V221_01_02">キャンセル</button>
 		    </div>
 		</div>
 		
