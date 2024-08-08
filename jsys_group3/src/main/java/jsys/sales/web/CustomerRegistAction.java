@@ -52,12 +52,8 @@ public class CustomerRegistAction implements ActionIF{
 
 			CustomerRegistLogic logic = new CustomerRegistLogic();
 			logic.insertCustomer(customer);
-			request.setAttribute("customer", customer);
 
 		} catch (SalesSystemException e) {
-
-			//rollback
-
 			request.setAttribute("errorMessage", e.getMessage());
 			page = "V901_01SystemError.jsp";
 		}

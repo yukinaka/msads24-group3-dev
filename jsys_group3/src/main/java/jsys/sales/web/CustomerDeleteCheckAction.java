@@ -39,7 +39,6 @@ public class CustomerDeleteCheckAction implements ActionIF{
 			String address2 = request.getParameter("address2");
 			String discountRate = request.getParameter("discountRate");
 
-
 			Customer customer = new Customer();
 			customer.setCustName(custName);
 			customer.setTelNo1(telNo1);

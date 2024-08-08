@@ -65,21 +65,13 @@ public class CustomerRegistCheckAction implements ActionIF{
 
 			CustomerRegistLogic logic = new CustomerRegistLogic();
 			logic.CheckCustomer(customer);
-
-			// 処理結果の格納
 			request.setAttribute("customer", customer);
 
 		} catch (SalesBusinessException e) {
-			// 業務エラー発生時
-			// エラーメッセージの格納
 			request.setAttribute("errorMessage", e.getMessage());
-			// 遷移先ページ名の設定
 			page = "V201_01CustomerRegistration";
 		} catch (SalesSystemException e) {
-			// システムエラー発生時
-			// エラーメッセージの格納
 			request.setAttribute("errorMessage", e.getMessage());
-			// 遷移先ページ名の設定
 			page = "V901_01SystemError.jsp";
 		}
 		return page;
