@@ -78,7 +78,7 @@ public class CustomerRegistLogic {
 	 * @throws SalesBusinessException 業務エラー
 	 * @throws SalesSystemException システムエラー
 	 */
-	public void insertCustomer(Customer customer) throws SalesBusinessException, SalesSystemException {
+	public void insertCustomer(Customer customer) throws SalesSystemException {
 
 		Connection con = null;
 		int custCode = 0;
@@ -128,5 +128,6 @@ public class CustomerRegistLogic {
 		}
 
 	}
+
 
 }
