@@ -25,7 +25,7 @@ public class CustomerCodeDAO {
 
 	/**
 	 * 得意先に割り当てるコードを取得する。
-	 * @return 実行結果
+	 * @return 得意先採番コード
 	 * @throws SQLException データベースエラー
 	 */
 	public int findCustomerCode() throws SQLException {
@@ -62,7 +62,7 @@ public class CustomerCodeDAO {
 
 	/**
 	 * 得意先に割り当てるコードを更新する。
-	 * @param customerCode
+	 * @param customerCode 得意先採番コード
 	 * @return 実行結果
 	 * @throws SQLException データベースエラー
 	 */
