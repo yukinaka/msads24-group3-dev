@@ -42,7 +42,7 @@ public class CustomerCodeDAO {
 
 			/*検索結果判断*/
 			if(res.next()) {
-				customerCode = res.getInt("customer_numbering");
+				customerCode = res.getInt("customer_code");
 			}
 
 		}finally {

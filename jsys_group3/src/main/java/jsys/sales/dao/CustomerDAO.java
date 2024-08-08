@@ -212,13 +212,14 @@ public class CustomerDAO {
 			stmt.setString(1, "%" + custName + "%");
 			res = stmt.executeQuery();
 
-			customer = new Customer();
 
 			/*検索結果格納ループ*/
 			while(res.next()) {
 				if (customerList==null) {
 					customerList = new ArrayList<>();
 				}
+
+				customer = new Customer();
 
 				customer.setCustCode(res.getString("customer_code"));
 				customer.setCustName(res.getString("customer_name"));
