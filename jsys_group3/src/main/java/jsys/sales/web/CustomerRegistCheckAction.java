@@ -17,7 +17,11 @@ import jsys.sales.logic.CustomerRegistLogic;
  *得意先情報登録の入力チェックを行う
  */
 public class CustomerRegistCheckAction implements ActionIF{
-
+	/**
+	 *登録確認ページへの遷移を実行する
+	 * @param request　リクエストオブジェクト
+	 * @return 遷移先ページ
+	 */
 	public String execute(HttpServletRequest request){
 
 		String page = "V201_02CustomerRegistrationConfirmation.jsp";
@@ -104,8 +108,6 @@ public class CustomerRegistCheckAction implements ActionIF{
 			request.setAttribute("customer", customer);
 
 		} catch (SalesBusinessException e) {
-			// 業務エラー発生時
-			// エラーメッセージの格納
 			request.setAttribute("errorMessage", e.getMessage());
 			request.setAttribute("errorMessageList", e.getMessageList());
 			// 遷移先ページ名の設定0
@@ -115,7 +117,6 @@ public class CustomerRegistCheckAction implements ActionIF{
 			// システムエラー発生時
 			// エラーメッセージの格納
 			request.setAttribute("errorMessage", e.getMessage());
-			// 遷移先ページ名の設定
 			page = "V901_01SystemError.jsp";
 		}
 		return page;
