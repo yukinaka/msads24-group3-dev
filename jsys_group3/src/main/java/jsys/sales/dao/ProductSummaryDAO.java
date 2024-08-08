@@ -25,12 +25,11 @@ public class ProductSummaryDAO {
 	}
 
 	/**
-	 *
-	 * @param　custCode 得意先コード
-	 * @return 実行結果
+	 * 引数で指定された得意先コードをもとに受注テーブル・受注明細テーブル・商品テーブルから該当する集計情報を検索し、取得した集計オブジェクトをArrayListに格納して返す
+	 * @param custCode 得意先コード
+	 * @return 商品別集計オブジェクトが格納されたArrayList
 	 * @throws SQLException データベースエラー
 	 */
-
 	public ArrayList<ProductSummary> productOrderSummary(String custCode) throws SQLException {
 
 		String sql ="select order_details.item_code, item.item_name, sum(order_details.order_num) as total_num, item.price "

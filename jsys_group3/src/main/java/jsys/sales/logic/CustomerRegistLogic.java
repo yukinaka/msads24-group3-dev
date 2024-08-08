@@ -55,6 +55,7 @@ public class CustomerRegistLogic {
 			}
 
 		}catch(SQLException e) {
+			e.printStackTrace();
 
 			throw new SalesSystemException("システムエラーが発生しました。");
 
@@ -78,7 +79,7 @@ public class CustomerRegistLogic {
 	 * @throws SalesBusinessException 業務エラー
 	 * @throws SalesSystemException システムエラー
 	 */
-	public void insertCustomer(Customer customer) throws SalesBusinessException, SalesSystemException {
+	public void insertCustomer(Customer customer) throws SalesSystemException {
 
 		Connection con = null;
 		int custCode = 0;
@@ -112,7 +113,13 @@ public class CustomerRegistLogic {
 			con.commit();
 
 		}catch(SQLException e) {
+			e.printStackTrace();
 
+			try {
+				con.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
 			throw new SalesSystemException("システムエラーが発生しました。");
 
 		}finally {
@@ -128,5 +135,6 @@ public class CustomerRegistLogic {
 		}
 
 	}
+
 
 }

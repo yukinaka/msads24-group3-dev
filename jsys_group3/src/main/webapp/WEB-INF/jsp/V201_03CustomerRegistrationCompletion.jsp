@@ -17,7 +17,11 @@
 	
 	    <div class="container mt-5 text-center">
 	        <h4 class="my-5">登録が完了しました。</h4>
-	        <button type="button" class="btn btn-primary" name="buttonId" value="back">登録画面へ戻る</button>
+	        
+	        <form action="/jsys_group3/jsysFC" method="post">
+	        	<button type="submit" class="btn btn-primary" name="buttonId" value="V201_03_01">登録画面へ戻る</button>
+	     	</form>
+	     	
 	    </div>
 	
 	    <!-- Footer.jspをinclude -->
