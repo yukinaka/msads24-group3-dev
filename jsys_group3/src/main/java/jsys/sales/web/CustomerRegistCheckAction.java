@@ -37,14 +37,23 @@ public class CustomerRegistCheckAction implements ActionIF{
 			}
 
 			String custName = request.getParameter("custName");		//CustomerFindViewのnameの名前
-			String telNo1 = request.getParameter("telNo1");
-			String telNo2 = request.getParameter("telNo2");
-			String telNo3 = request.getParameter("telNo3");
-			String postalCode1 = request.getParameter("postalCode1");
+			String telNo1 = request.getParameter("telNo1-1") + "-" + request.getParameter("telNo1-2") + "-" + request.getParameter("telNo1-3");
+			String telNo2 = request.getParameter("telNo2-1") + "-" + request.getParameter("telNo2-2") + "-" + request.getParameter("telNo2-3");
+			String telNo3 = request.getParameter("telNo3-1") + "-" + request.getParameter("telNo3-2") + "-" + request.getParameter("telNo3-3");
+			String postalCode1 = request.getParameter("postalCode1-1") + "-" + request.getParameter("postalCode1-2");
 			String address1 = request.getParameter("address1");
-			String postalCode2 = request.getParameter("postalCode2");
+			String postalCode2 = request.getParameter("postalCode2-1") + "-" + request.getParameter("postalCode2-2");
 			String address2 = request.getParameter("address2");
 			String discountRate = request.getParameter("discountRate");
+
+//			String telNo1 = request.getParameter("telNo1");
+//			String telNo2 = request.getParameter("telNo2");
+//			String telNo3 = request.getParameter("telNo3");
+//			String postalCode1 = request.getParameter("postalCode1");
+//			String address1 = request.getParameter("address1");
+//			String postalCode2 = request.getParameter("postalCode2");
+//			String address2 = request.getParameter("address2");
+//			String discountRate = request.getParameter("discountRate");
 
 			if (custName == null || custName.equals("")) {
 				throw new SalesBusinessException("得意先名が未入力です。");
@@ -68,13 +77,19 @@ public class CustomerRegistCheckAction implements ActionIF{
 			customer.setDiscountRate(Integer.parseInt(discountRate));
 
 			CustomerRegistLogic logic = new CustomerRegistLogic();
-			logic.CheckCustomer(customer);
+			logic.checkCustomer(customer);
+
+			// 処理結果の格納
 			request.setAttribute("customer", customer);
 
 		} catch (SalesBusinessException e) {
 			request.setAttribute("errorMessage", e.getMessage());
+			// 遷移先ページ名の設定
 			page = "V201_01CustomerRegistration.jsp";
 		} catch (SalesSystemException e) {
+			e.printStackTrace();
+			// システムエラー発生時
+			// エラーメッセージの格納
 			request.setAttribute("errorMessage", e.getMessage());
 			page = "V901_01SystemError.jsp";
 		}

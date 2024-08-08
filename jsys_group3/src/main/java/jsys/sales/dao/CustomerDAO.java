@@ -133,7 +133,7 @@ public class CustomerDAO {
 
 	/**
 	 * 引数で指定された得意先コードをもとに得意先テーブルから該当する得意先情報をあいまい検索し、一致した得意先オブジェクトをArrayListに格納して返す
-	 * @param custCode
+	 * @param custCode 得意先コード
 	 * @return 得意先オブジェクトが格納されたArrayList
 	 * @throws SQLException データベースエラー
 	 */
@@ -194,7 +194,7 @@ public class CustomerDAO {
 
 	/**
 	 * 引数で指定された得意先名をもとに得意先テーブルから該当する得意先情報をあいまい検索し、一致した得意先オブジェクトをArrayListに格納して返す
-	 * @param custName
+	 * @param custName 得意先名
 	 * @return 得意先オブジェクトが格納されたArrayList
 	 * @throws SQLException データベースエラー
 	 */
@@ -212,13 +212,14 @@ public class CustomerDAO {
 			stmt.setString(1, "%" + custName + "%");
 			res = stmt.executeQuery();
 
-			customer = new Customer();
 
 			/*検索結果格納ループ*/
 			while(res.next()) {
 				if (customerList==null) {
 					customerList = new ArrayList<>();
 				}
+
+				customer = new Customer();
 
 				customer.setCustCode(res.getString("customer_code"));
 				customer.setCustName(res.getString("customer_name"));
@@ -254,7 +255,7 @@ public class CustomerDAO {
 
 	/**
 	 * 引数で指定された得意先名をもとに得意先テーブルから該当する得意先情報を完全一致検索し、一致した得意先オブジェクトを返す
-	 * @param custName
+	 * @param custName 得意先名
 	 * @return 得意先オブジェクト
 	 * @throws SQLException データベースエラー
 	 */
@@ -306,7 +307,7 @@ public class CustomerDAO {
 
 	/**
 	 * 引数で指定された得意先コードに完全一致する得意先情報を得意先テーブルから論理削除する
-	 * @param custCode
+	 * @param custCode 得意先コード
 	 * @return 実行結果
 	 * @throws SQLException データベースエラー
 	 */
@@ -340,7 +341,7 @@ public class CustomerDAO {
 
 	/**
 	 * 引数で指定された得意先コードに完全一致する得意先情報を得意先テーブルから論理復元する
-	 * @param custCode
+	 * @param custCode 得意先コード
 	 * @return 実行結果
 	 * @throws SQLException データベースエラー
 	 */

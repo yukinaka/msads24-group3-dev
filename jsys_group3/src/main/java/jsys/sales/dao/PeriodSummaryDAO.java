@@ -26,9 +26,10 @@ public class PeriodSummaryDAO {
 	}
 
 	/**
-	 *
-	 * @param　firstDay, firstDay				//***********************************************
-	 * @return 実行結果
+	 * 引数で指定された集計期間をもとに受注テーブル・得意先テーブルから該当する集計情報を検索し、取得した集計オブジェクトをArrayListに格納して返す
+	 * @param firstDay 集計初日
+	 * @param lastDay 集計最終日
+	 * @return 期間内別集計オブジェクトが格納されたArrayList
 	 * @throws SQLException データベースエラー
 	 */
 	public ArrayList<PeriodSummary> orderSummaryWithinPeriod(Date firstDay, Date lastDay) throws SQLException {

@@ -22,10 +22,13 @@
 	    <div class="container text-center mt-5">
 	        <h2 class="my-4">得意先管理メニュー</h2>
 	
-	        <div class="btn-group-vertical">
-	            <button type="button" class="btn btn-info my-2">登録</button>
-	            <button type="button" class="btn btn-info my-2">一覧</button>
-	        </div>
+			<form action="/jsys_group3/jsysFC" method="post">
+		        <div class="btn-group-vertical">
+		            <button type="submit" class="btn btn-info my-2" name="buttonId" value="V101_03_01">登録</button>
+		            <button type="submit" class="btn btn-info my-2" name="buttonId" value="V101_03_02">一覧</button>
+		        </div>
+		    </form>
+		    
 	 	</div>
 	    
 	    <!-- Footer.jspをinclude -->
