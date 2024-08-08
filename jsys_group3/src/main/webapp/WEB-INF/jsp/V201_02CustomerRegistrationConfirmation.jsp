@@ -27,34 +27,34 @@
 		        <tbody>
 		            <tr>
 		                <th scope="row">得意先名</th>
-		                <td>Aストア</td>
+		                <td><c:out value="${ requestScope.customer.custName }"/></td>
 		            </tr>
 		            <tr>
 		                <th scope="row">電話番号1</th>
-		                <td><c:out value="${ requestScope.customer.phone1 }" default = "045-128-3581"/></td>
+		                <td><c:out value="${ requestScope.customer.telNo1 }"/></td>
 		            </tr>
 		            <tr>
 		                <th scope="row">電話番号2</th>
-		                <td><c:out value="${ requestScope.customer.phone2 }" default = "045-128-3582"/></td>
+		                <td><c:out value="${ requestScope.customer.telNo2 }"/></td>
 		            </tr>
 		            <tr>
 		                <th scope="row">電話番号3</th>
-		                <td><c:out value="${ requestScope.customer.phone3 }" default = "045-128-3583"/></td>
+		                <td><c:out value="${ requestScope.customer.telNo3 }"/></td>
 		            </tr>
 		            <tr>
 		                <th scope="row">郵便番号1</th>
-						<td><c:out value="${ requestScope.customer.postalCode1 }" default = "220-0001"/></td>
+						<td><c:out value="${ requestScope.customer.postalCode1 }"/></td>
 		            </tr>
 		            <tr>
 		                <th scope="row">住所1</th>
-						<td><c:out value="${ requestScope.customer.address1 }" default = "横浜市西区北幸２－１"/></td>
+						<td><c:out value="${ requestScope.customer.address1 }"/></td>
 		            </tr>
 		            <tr>
 		                <th scope="row">郵便番号2</th>
-						<td><c:out value="${ requestScope.customer.postalCode2 }" default = "220-0002"/></td>
+						<td><c:out value="${ requestScope.customer.postalCode2 }"/></td>
 		            <tr>
 		                <th scope="row">住所2</th>
-						<td><c:out value="${ requestScope.customer.address2 }" default = "横浜市西区北幸２－２"/></td>
+						<td><c:out value="${ requestScope.customer.address2 }"/></td>
 		            </tr>
 		            <tr>
 		                <th scope="row">割引率</th>
@@ -63,12 +63,24 @@
 		        </tbody>
 		    </table>
 		 
+		 	<form action="/jsys_group3/jsysFC" method="post">
+		 		<input type="hidden" name="custName" value="<c:out value="${ requestScope.customer.custName }" />">
+		 		<input type="hidden" name="telNo1" value="<c:out value="${ requestScope.customer.telNo1 }" />">
+		 		<input type="hidden" name="telNo2" value="<c:out value="${ requestScope.customer.telNo2 }" />">
+		 		<input type="hidden" name="telNo3" value="<c:out value="${ requestScope.customer.telNo3 }" />">
+		 		<input type="hidden" name="postalCode1" value="<c:out value="${ requestScope.customer.postalCode1 }" />">
+		 		<input type="hidden" name="address1" value="<c:out value="${ requestScope.customer.address1 }" />">
+		 		<input type="hidden" name="postalCode2" value="<c:out value="${ requestScope.customer.postalCode2 }" />">
+		 		<input type="hidden" name="address2" value="<c:out value="${ requestScope.customer.address2 }" />">
+		 		<input type="hidden" name="discountRate" value="<c:out value="${ requestScope.customer.discountRate }" />">
+		 		
+	            <div class="mt-3">
+			    	<button class="btn btn-primary" name="buttonId" value="V201_02_01">はい</button>
+			    	<button class="btn btn-secondary" name="buttonId" value="V201_02_02">キャンセル</button>
+				</div>
+				
+	        </form>
 					    
-		    <div class="mt-3">
-		    	<button class="btn btn-primary">はい</button>
-		    	<button class="btn btn-secondary">キャンセル</button>
-			</div>
-					  
 		</div>
 		
 		<!-- Footer.jspをinclude -->

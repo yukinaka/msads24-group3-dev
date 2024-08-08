@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import jsys.sales.entity.Employee;
 
 /**
- * 従業員DAO
+ * 従業員テーブルの情報を操作する
  */
 public class EmployeeDAO {
 
@@ -26,9 +26,9 @@ public class EmployeeDAO {
 	}
 
 	/**
-	 * 引数で指定された得意先オブジェクトの情報を得意先テーブルに登録する
+	 * 引数で指定された従業員番号を従業員テーブルから検索し、一致した従業員オブジェクトを返す
 	 * @param empNo 従業員番号
-	 * @return employee　データベースの値を持つオブジェクト
+	 * @return 従業員オブジェクト
 	 * @throws SQLException データベースエラー
 	 */
 	public Employee findEmployee(String empNo) throws SQLException{
@@ -43,11 +43,15 @@ public class EmployeeDAO {
 			// Employeeオブジェクトの生成
 			employee = new Employee();
 			// パラメータの設定
-			stmt.setString(1, employee.getEmpNo());
-			stmt.setString(2, employee.getEmpName());
-			stmt.setString(3, employee.getPassword());
+			stmt.setString(1, empNo);
 			// SQL文の実行
 			res = stmt.executeQuery();
+
+			if(res.next()) {
+				employee.setEmpNo(res.getString("employee_no"));
+				employee.setEmpName(res.getString("employee_name"));
+				employee.setPassword(res.getString("password"));
+			}
 
 		}finally {
 			// クローズ処理
