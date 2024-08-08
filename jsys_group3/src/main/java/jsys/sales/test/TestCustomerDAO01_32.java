@@ -10,7 +10,7 @@ import jsys.sales.dao.ConnectionManager;
 import jsys.sales.dao.CustomerDAO;
 import jsys.sales.entity.Customer;
 
-public class TestCustomerDAO01_29 {
+public class TestCustomerDAO01_32 {
 
 	/**
 	 * @param args
@@ -32,7 +32,7 @@ public class TestCustomerDAO01_29 {
 
 			Customer customer = new Customer();
 
-			customer.setCustName("Sストア");
+			customer.setCustName("Aストア");
 			customer.setTelNo1("0451283581");
 			customer.setTelNo2("");
 			customer.setTelNo3("");

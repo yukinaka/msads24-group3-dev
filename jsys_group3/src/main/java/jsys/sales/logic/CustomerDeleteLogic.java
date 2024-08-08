@@ -29,7 +29,7 @@ public class CustomerDeleteLogic {
 	 * @throws SalesBusinessException 業務エラー
 	 * @throws SalesSystemException システムエラー
 	 */
-	public void deleteCustomer(String custCode) throws SalesBusinessException, SalesSystemException {
+	public void deleteCustomer(String custCode) throws SalesSystemException {
 
 		Connection con = null;
 		boolean result = false;

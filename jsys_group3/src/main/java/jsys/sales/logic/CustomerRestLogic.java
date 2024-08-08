@@ -27,7 +27,7 @@ public class CustomerRestLogic {
 	 * @throws SalesSystemException システムエラー
 	 */
 	public void restCustomer(String custCode)
-			throws SalesBusinessException, SalesSystemException {
+			throws SalesSystemException {
 		Connection con = null;
 		boolean result = false;
 
