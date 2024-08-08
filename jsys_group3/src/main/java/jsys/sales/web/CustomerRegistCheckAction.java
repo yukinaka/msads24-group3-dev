@@ -22,7 +22,7 @@ public class CustomerRegistCheckAction implements ActionIF{
 	 */
 	public String execute(HttpServletRequest request){
 
-		String page = "V201_02CustomerRegistrationConfirmation";
+		String page = "V201_02CustomerRegistrationConfirmation.jsp";
 		try {
 
 			HttpSession session = request.getSession(false);
@@ -73,7 +73,7 @@ public class CustomerRegistCheckAction implements ActionIF{
 
 		} catch (SalesBusinessException e) {
 			request.setAttribute("errorMessage", e.getMessage());
-			page = "V201_01CustomerRegistration";
+			page = "V201_01CustomerRegistration.jsp";
 		} catch (SalesSystemException e) {
 			request.setAttribute("errorMessage", e.getMessage());
 			page = "V901_01SystemError.jsp";

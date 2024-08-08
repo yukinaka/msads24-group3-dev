@@ -19,7 +19,7 @@ public class CustomerDeleteAction implements ActionIF{
 	 */
 	public String execute(HttpServletRequest request){
 
-		String page = "V221_02CustomerDeletionCompletion";
+		String page = "V221_02CustomerDeletionCompletion.jsp";
 
 		try {
 			HttpSession session = request.getSession(false);

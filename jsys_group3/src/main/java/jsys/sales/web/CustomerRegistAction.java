@@ -21,7 +21,7 @@ public class CustomerRegistAction implements ActionIF{
 	 */
 	public String execute(HttpServletRequest request){
 
-		String page = "V201_02CustomerRegistrationConfirmation";
+		String page = "V201_02CustomerRegistrationConfirmation.jsp";
 		try {
 			HttpSession session = request.getSession(false);
 			if(session==null) {
