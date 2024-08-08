@@ -43,11 +43,15 @@ public class EmployeeDAO {
 			// Employeeオブジェクトの生成
 			employee = new Employee();
 			// パラメータの設定
-			stmt.setString(1, employee.getEmpNo());
-			stmt.setString(2, employee.getEmpName());
-			stmt.setString(3, employee.getPassword());
+			stmt.setString(1, empNo);
 			// SQL文の実行
 			res = stmt.executeQuery();
+
+			if(res.next()) {
+				employee.setEmpNo(res.getString("employee_no"));
+				employee.setEmpName(res.getString("employee_name"));
+				employee.setPassword(res.getString("password"));
+			}
 
 		}finally {
 			// クローズ処理
