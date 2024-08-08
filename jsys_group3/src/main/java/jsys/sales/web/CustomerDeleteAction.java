@@ -32,7 +32,6 @@ public class CustomerDeleteAction implements ActionIF{
 
 			CustomerDeleteLogic logic = new CustomerDeleteLogic();
 			logic.deleteCustomer(custCode);
-			request.setAttribute("custCode", custCode);		//??????????????????????????????????
 
 		} catch (SalesSystemException e) {
 			request.setAttribute("errorMessage", e.getMessage());
