@@ -15,7 +15,11 @@ import jsys.sales.logic.CustomerRegistLogic;
  *得意先情報登録の入力チェックを行う
  */
 public class CustomerRegistCheckAction implements ActionIF{
-
+	/**
+	 *登録確認ページへの遷移を実行する
+	 * @param request　リクエストオブジェクト
+	 * @return 遷移先ページ
+	 */
 	public String execute(HttpServletRequest request){
 
 		String page = "V201_02CustomerRegistrationConfirmation";

@@ -2,7 +2,6 @@
  * @author J22_油井清子（2024/8/8）
  */
 package jsys.sales.web;
-
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jsys.sales.common.SalesSystemException;
@@ -10,10 +9,14 @@ import jsys.sales.entity.Customer;
 import jsys.sales.entity.Employee;
 
 /**
- *得意先情報の削除を行う
+ *得意先情報の削除確認を行う
  */
 public class CustomerDeleteCheckAction implements ActionIF{
-
+	/**
+	 *削除確認ページへの遷移を実行する
+	 * @param request　リクエストオブジェクト
+	 * @return 遷移先ページ
+	 */
 	public String execute(HttpServletRequest request){
 
 		String page = "V221_01CustomerDeletionConfirmation";
@@ -49,7 +52,6 @@ public class CustomerDeleteCheckAction implements ActionIF{
 			customer.setPostalCode2(postalCode2);
 			customer.setAddress2(address2);
 			customer.setDiscountRate(Integer.parseInt(discountRate));
-
 			request.setAttribute("customer", customer);
 
 		} catch (SalesSystemException e) {

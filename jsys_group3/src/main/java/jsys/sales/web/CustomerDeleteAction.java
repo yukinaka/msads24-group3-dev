@@ -12,7 +12,11 @@ import jsys.sales.logic.CustomerDeleteLogic;
  *得意先情報の削除を行う
  */
 public class CustomerDeleteAction implements ActionIF{
-
+	/**
+	 *削除完了ページへの遷移を実行する
+	 * @param request　リクエストオブジェクト
+	 * @return 遷移先ページ
+	 */
 	public String execute(HttpServletRequest request){
 
 		String page = "V221_02CustomerDeletionCompletion";
