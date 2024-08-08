@@ -21,18 +21,25 @@
 		<!-- メインコンテンツ -->
 	    <div class="container mt-5">
 	        <h2 class="text-center">ログイン</h2>
-	     	<h4 class="text-center text-danger mb-3">エラーメッセージエリア</h4>
 	        
-	        <form action="loginServlet" method="post">
+     		<%-- エラーメッセージがある場合、出力 --%>
+	     	<h4 class="text-center text-danger mb-3">
+				<c:out value="${requestScope.errorMessage}"/>
+				<c:forEach var="message" items="${requestScope.errorMessageList}">
+					<c:out value="${message}"/><br>
+				</c:forEach>
+	     	</h4>
+	        
+	        <form action="/jsys_group3/jsysFC" method="post">
 	            <div class="mb-3">
 	                <label for="username" class="form-label">従業員番号</label>
-	                <input type="text" class="form-control" id="username" name="username" required>
+	                <input type="text" class="form-control" id="username" name="empNo" required value="<c:out value="${ param.empId }" />">
 	            </div>
 	            <div class="mb-3">
 	                <label for="password" class="form-label">パスワード</label>
-	                <input type="password" class="form-control" id="password" name="password" required>
+	                <input type="password" class="form-control" id="password" name="password" required value="<c:out value="${ param.password }" />">
 	            </div>
-	            <button type="submit" class="btn btn-primary w-100">ログイン</button>
+	            <button type="submit" class="btn btn-primary w-100" name="buttonId" value="V101_01_01">ログイン</button>
 	        </form>
 	    </div>
 	    
