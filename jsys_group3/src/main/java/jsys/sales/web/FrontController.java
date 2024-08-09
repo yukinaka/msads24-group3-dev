@@ -35,15 +35,11 @@ public class FrontController extends HttpServlet {
 		// パラメータ未送信または空文字の場合
 		if (buttonId == null || buttonId.equals("")) {
 			// TODO 1 プロトタイピング作成演習：得意先管理メニュー画面のbuttonIdをデフォルトとして設定してください。
-			buttonId = "V101_01";
+			buttonId = "V101_01_01";
 
 		}
 		// リクエスト種別の判定
 		switch (buttonId) {
-		// TODO 2 プロトタイピング作成演習：得意先検索各種画面遷移に関連するcaseを追加してください。
-			case "V101_01":
-				page = "V101_01Login.jsp";
-				break;
 
 			case "V101_01_01":
 				action = new LoginAction();
@@ -73,6 +69,7 @@ public class FrontController extends HttpServlet {
 				break;
 
 			case "V101_04_02":
+
 				page = "V302_01ProductOrderSummary.jsp";
 				break;
 
@@ -127,6 +124,7 @@ public class FrontController extends HttpServlet {
 				action = new CustomerDetailAction();
 				page = action.execute(request);
 				break;
+
 			case "V211_01_01":
 				page = "V202_01CustomerList.jsp";
 				break;
