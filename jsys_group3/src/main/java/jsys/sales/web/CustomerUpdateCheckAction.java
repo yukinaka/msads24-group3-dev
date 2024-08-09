@@ -25,7 +25,7 @@ public class CustomerUpdateCheckAction implements ActionIF{
 	 */
 	public String execute(HttpServletRequest request){
 
-		String page = "V222_01CustomerUpdate.jsp";
+		String page = "V222_02CustomerModificationConfirmation.jsp";
 		try {
 
 			HttpSession session = request.getSession(false);

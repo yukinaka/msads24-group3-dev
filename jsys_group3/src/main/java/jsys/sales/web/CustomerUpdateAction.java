@@ -22,7 +22,7 @@ public class CustomerUpdateAction implements ActionIF{
 	 */
 	public String execute(HttpServletRequest request){
 
-		String page = "V201_03CustomerRegistrationCompletion.jsp";
+		String page = "V222_03CustomerModificationCompletion.jsp";
 		try {
 			HttpSession session = request.getSession(false);
 			Employee loginEmployee;
