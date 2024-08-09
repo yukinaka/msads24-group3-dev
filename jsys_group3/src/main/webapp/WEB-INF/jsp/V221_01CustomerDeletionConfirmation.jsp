@@ -61,10 +61,12 @@
 		        </tbody>
 		    </table>
 		
-		    <div class="mt-3">
-		        <button type="button" class="btn btn-danger mr-2" name="buttonId" value="V221_01_01">はい</button>
-		        <button type="button" class="btn btn-secondary" name="buttonId" value="V221_01_02">キャンセル</button>
-		    </div>
+			<form action="/jsys_group3/jsysFC" method="post">
+		    	<div class="mt-3">
+		        	<button type="button" class="btn btn-danger mr-2" name="buttonId" value="V221_01_01">はい</button>
+		        	<button type="button" class="btn btn-secondary" name="buttonId" value="V221_01_02">キャンセル</button>
+		    	</div>
+		    </form>
 		</div>
 		
 		<!-- Footer.jspをinclude -->
