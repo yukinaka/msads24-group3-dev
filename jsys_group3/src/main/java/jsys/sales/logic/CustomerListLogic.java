@@ -1,3 +1,6 @@
+/**
+ * @author J05_田中勇起（2024/8/9）
+ */
 package jsys.sales.logic;
 
 import java.sql.Connection;
@@ -10,8 +13,17 @@ import jsys.sales.dao.ConnectionManager;
 import jsys.sales.dao.CustomerDAO;
 import jsys.sales.entity.Customer;
 
+/**
+ * 得意先一覧を取得するLogicクラス
+ */
 public class CustomerListLogic {
 
+	/**
+	 * 得意先テーブルから全ての得意先を取得し、ArrayListに格納して返す
+	 * @return 得意先一覧
+	 * @throws SalesBusinessException
+	 * @throws SalesSystemException
+	 */
 	public ArrayList<Customer> findAllCustomer() throws SalesBusinessException, SalesSystemException {
 
 		Connection con = null;
@@ -41,7 +53,7 @@ public class CustomerListLogic {
 			}
 		}
 
-		return null;
+		return custList;
 
 	}
 }

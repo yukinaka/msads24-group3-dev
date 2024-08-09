@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -73,6 +74,7 @@
 	                <div class="text-center mt-4">
 	                    <form action="/jsys_group3/jsysFC" method="post">
 	                    
+		                    <input type="hidden" name="custCode" value="<c:out value="${ requestScope.customer.custCode }" />">
 		                    <input type="hidden" name="custName" value="<c:out value="${ requestScope.customer.custName }" />">
 					 		<input type="hidden" name="telNo1" value="<c:out value="${ requestScope.customer.telNo1 }" />">
 					 		<input type="hidden" name="telNo2" value="<c:out value="${ requestScope.customer.telNo2 }" />">
@@ -86,10 +88,10 @@
 		 		
 	                        <button type="submit" class="btn btn-secondary mr-2" name="buttonId" value="V211_01_01">前画面へ戻る</button>
 	                        <button type="submit" class="btn btn-primary mr-2" name="buttonId" value="V211_01_02">変更</button>
-	                        <c:if test="${ requestScope.customer.deleleFlag == false }">
+	                        <c:if test="${ requestScope.customer.deleteFlag == false }">
 		                        <button type="submit" class="btn btn-danger" name="buttonId" value="V211_01_03">削除</button>
 	                        </c:if>
-	                        <c:if test="${ requestScope.customer.deleleFlag == true }">
+	                        <c:if test="${ requestScope.customer.deleteFlag == true }">
 		                        <button type="submit" class="btn btn-success" name="buttonId" value="V211_01_04">復元</button>
 	                        </c:if>
 	                        

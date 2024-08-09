@@ -222,21 +222,6 @@ public class Customer implements Serializable{
 	}
 
 	/**
-	 * 削除フラグを取得する。
-	 * @return deleteFlag
-	 */
-	public boolean isDeleteFlag() {
-		return deleteFlag;
-	}
-	/**
-	 * 削除フラグを設定する。
-	 * @param deleteFlag
-	 */
-	public void setDeleteFlag(boolean deleteFlag) {
-		this.deleteFlag = deleteFlag;
-	}
-
-	/**
 	 * 最終更新者番号を取得する。
 	 * @return lastUpdateBy
 	 */
@@ -249,6 +234,22 @@ public class Customer implements Serializable{
 	 */
 	public void setLastUpdateBy(String lastUpdateBy) {
 		this.lastUpdateBy = lastUpdateBy;
+	}
+
+	/**
+	 * 削除フラグを取得する。
+	 * @return deleteFlag
+	 */
+	public boolean isDeleteFlag() {
+		return deleteFlag;
+	}
+
+	/**
+	 * 削除フラグを設定する。
+	 * @param deleteFlag
+	 */
+	public void setDeleteFlag(boolean deleteFlag) {
+		this.deleteFlag = deleteFlag;
 	}
 
 	/**

@@ -1,7 +1,11 @@
+/**
+ * @author J05_田中勇起（2024/8/9）
+ */
 package jsys.sales.logic;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import jsys.sales.common.SalesBusinessException;
 import jsys.sales.common.SalesSystemException;
@@ -11,19 +15,37 @@ import jsys.sales.entity.Customer;
 
 public class CustomerFindLogic {
 
-	public Customer findCustomer(String custCode) throws SalesBusinessException, SalesSystemException {
+	public ArrayList<Customer> findCustomer(String custStr) throws SalesBusinessException, SalesSystemException {
 
 		Connection con = null;
-		Customer customer = null;
+		ArrayList<Customer> custList= null;
 
 		try {
 			con = ConnectionManager.getConnection();
 
 			CustomerDAO customerDAO = new CustomerDAO(con);
-//			customer = customerDAO.findCustomer(custCode);
 
-			if (customer==null) {
-				throw new SalesBusinessException("該当する取引先コードは存在しません。");
+			ArrayList<Customer> custListByCode = customerDAO.findCustomerByCode(custStr);
+			if (custListByCode!=null) {
+				custList = new ArrayList<>();
+
+				for (Customer cust : custListByCode) {
+					custList.add(cust);
+				}
+			}
+
+			ArrayList<Customer> custListByName = customerDAO.findCustomerByName(custStr);
+			if (custListByName!=null) {
+				if (custList==null) {
+					custList = new ArrayList<>();
+				}
+				for (Customer cust : custListByName) {
+					custList.add(cust);
+				}
+			}
+
+			if (custList==null) {
+				throw new SalesBusinessException("集計情報が存在しません。");
 			}
 
 		} catch (SQLException e) {
@@ -40,7 +62,7 @@ public class CustomerFindLogic {
 			}
 		}
 
-		return customer;
+		return custList;
 
 	}
 }
