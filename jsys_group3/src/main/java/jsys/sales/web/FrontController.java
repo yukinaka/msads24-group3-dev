@@ -41,6 +41,10 @@ public class FrontController extends HttpServlet {
 		// リクエスト種別の判定
 		switch (buttonId) {
 		// TODO 2 プロトタイピング作成演習：得意先検索各種画面遷移に関連するcaseを追加してください。
+			case "V101_01":
+				page = "V101_01Login.jsp";
+				break;
+
 			case "V101_01_01":
 				action = new LoginAction();
 				page = action.execute(request);

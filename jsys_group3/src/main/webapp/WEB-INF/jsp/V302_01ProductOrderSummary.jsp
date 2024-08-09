@@ -68,7 +68,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach value="productSummary" items="${requestScope.productSummaryList}">
+					<c:forEach var="productSummary" items="${requestScope.productSummaryList}">
 	               	 	<tr>
 	                    	<td><c:out value="${ productSummary.itemCode }"/></td>
 	                    	<td><c:out value="${ productSummary.itemName }"/></td>
