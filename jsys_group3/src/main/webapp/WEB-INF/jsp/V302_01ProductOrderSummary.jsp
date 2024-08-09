@@ -29,12 +29,9 @@
 						<label for="CustomerCodeName" class="form-label text-nowrap">得意先コード・得意先名を入力し、選択してください。</label>
 						<input list="CustomerCodeNameList" id="CustomerCodeName" name="CustomerCodeName" class="form-control" />
 						<datalist id="CustomerCodeNameList">
-							<option value="KA0001 Aストア"></option>
-							<option value="KA0002 Bストア"></option>
-							<option value="KA0003 Cストア"></option>
-							<option value="KA0004 Dストア"></option>
-							<option value="KA0005 Eストア"></option>
-							<option value="KA0006 Fストア"></option>
+							<c:forEach var="customer" items="${ requestScope.customerList }">
+								<option value="<c:out value="${ customer.custCode }"/><c:out value="${ customer.custName }"/>"></option>
+							</c:forEach>
 						</datalist>
 			            <button type="submit" class="btn btn-primary text-nowrap mt-4" name="buttonId" value="V302_01">集計</button>
 			        </div>
@@ -71,13 +68,13 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="productSummary" items="${requestScope.productSummaryList}">
+					<c:forEach value="productSummary" items="${requestScope.productSummaryList}">
 	               	 	<tr>
-	                    	<td><c:out value="${productSummary.itemCode}"/></td>
-	                    	<td><c:out value="${productSummary.itemName}"/></td>
-	                    	<td><c:out value="${productSummary.totalNum}"/></td>
-	                    	<td><c:out value="${productSummary.itemPrice}"/></td>
-	                    	<td><c:out value="${productSummary.totalPricePerItem}"/></td>
+	                    	<td><c:out value="${ productSummary.itemCode }"/></td>
+	                    	<td><c:out value="${ productSummary.itemName }"/></td>
+	                    	<td><c:out value="${ productSummary.totalNum }"/></td>
+	                    	<td><c:out value="${ productSummary.itemPrice }"/></td>
+	                    	<td><c:out value="${ productSummary.totalPricePerItem }"/></td>
 	                	</tr>
 	                </c:forEach>
 					
