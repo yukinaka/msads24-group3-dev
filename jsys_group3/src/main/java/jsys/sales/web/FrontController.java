@@ -201,6 +201,18 @@ public class FrontController extends HttpServlet {
 				page = action.execute(request);
 				break;
 
+			case "V202_01_02":
+				request.setAttribute("order", "asc");
+				action = new CustomerFindAction();
+				page = action.execute(request);
+				break;
+
+			case "V202_01_03":
+				request.setAttribute("order", "desc");
+				action = new CustomerFindAction();
+				page = action.execute(request);
+				break;
+
 			case "V202_01_06":
 				action = new CustomerDetailAction();
 				page = action.execute(request);

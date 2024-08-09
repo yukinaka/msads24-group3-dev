@@ -40,10 +40,13 @@ public class CustomerListAction implements ActionIF {
 				}
 			}
 
+			String order = request.getParameter("order");
+
 			CustomerListLogic logic = new CustomerListLogic();
 			ArrayList<Customer> custList = logic.findAllCustomer();
 
 			request.setAttribute("custList", custList);
+			request.setAttribute("checkbox", false);
 
 		} catch (SalesBusinessException e) {
 			request.setAttribute("errorMessage", e.getMessage());

@@ -56,4 +56,10 @@ public class CustomerListLogic {
 		return custList;
 
 	}
+
+	public ArrayList<Customer> findCustomerInCurrentPage(ArrayList<Customer> custList, int size, int block, int currentPage) {
+
+		return null;
+	}
+
 }
