@@ -49,12 +49,13 @@ public class CustomerListAction implements ActionIF {
 			request.setAttribute("custList", custList);
 
 			int size = 20;
-			int block = (custList.size() + (size - 1)) / size;
-
+			int lastPage = (custList.size() + (size - 1)) / size;
 			int currentPage = 1;
+
+			request.setAttribute("lastPage", lastPage);
 			request.setAttribute("currentPage", currentPage);
 
-			List<Customer> custListInCurrentPage = logic.findCustomerInCurrentPage(custList, size, block, currentPage);
+			List<Customer> custListInCurrentPage = logic.findCustomerInCurrentPage(custList, size, lastPage, currentPage);
 			request.setAttribute("custListInCurrentPage", custListInCurrentPage);
 
 			request.setAttribute("checkbox", false);

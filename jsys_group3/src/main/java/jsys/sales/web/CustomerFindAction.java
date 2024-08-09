@@ -47,17 +47,11 @@ public class CustomerFindAction implements ActionIF {
 			String custStr = request.getParameter("custStr");
 
 			boolean checkbox;
-			if (request.getParameter("ckbotton")==null) {
+			if (request.getParameter("ckbutton")==null) {
 				checkbox = false;
 			} else {
 				checkbox = true;
 			}
-//			if (request.getParameter("ckbutton").equals("true")) {
-//				checkbox = true;
-//			} else {
-//				checkbox = false;
-//			}
-			System.out.println(checkbox);
 
 			CustomerFindLogic logic = new CustomerFindLogic();
 			List<Customer> custList= logic.findCustomer(custStr);
@@ -65,13 +59,14 @@ public class CustomerFindAction implements ActionIF {
 			request.setAttribute("custList", custList);
 
 			int size = 20;
-			int block = (custList.size() + (size - 1)) / size;
-
+			int lastPage = (custList.size() + (size - 1)) / size;
 			int currentPage = 1;
+
+			request.setAttribute("lastPage", lastPage);
 			request.setAttribute("currentPage", currentPage);
 
 			CustomerListLogic pageLogic = new CustomerListLogic();
-			List<Customer> custListInCurrentPage = pageLogic.findCustomerInCurrentPage(custList, size, block, currentPage);
+			List<Customer> custListInCurrentPage = pageLogic.findCustomerInCurrentPage(custList, size, lastPage, currentPage);
 			request.setAttribute("custListInCurrentPage", custListInCurrentPage);
 
 			request.setAttribute("checkbox", checkbox);

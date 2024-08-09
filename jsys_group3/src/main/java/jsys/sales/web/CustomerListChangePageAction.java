@@ -14,9 +14,9 @@ import jsys.sales.entity.Employee;
 import jsys.sales.logic.CustomerListLogic;
 
 /**
- * 得意先一覧で前ページへ遷移するActionクラス
+ * 得意先一覧で次ページへ遷移するActionクラス
  */
-public class CustomerListPrevPageAction implements ActionIF {
+public class CustomerListChangePageAction implements ActionIF {
 
 	/**
 	 *
@@ -47,11 +47,13 @@ public class CustomerListPrevPageAction implements ActionIF {
 			request.setAttribute("custList", custList);
 
 			int size = 20;
-			int block = (custList.size() + (size - 1)) / size;
-			int currentPage = Integer.parseInt(request.getParameter("currentPage")) - 1;
+			int lastPage = (custList.size() + (size - 1)) / size;
+			int currentPage = Integer.parseInt(request.getParameter("currentPage"));
+
+			request.setAttribute("lastPage", lastPage);
 			request.setAttribute("currentPage", currentPage);
 
-			List<Customer> custListInCurrentPage = logic.findCustomerInCurrentPage(custList, size, block, currentPage);
+			List<Customer> custListInCurrentPage = logic.findCustomerInCurrentPage(custList, size, lastPage, currentPage);
 			request.setAttribute("custListInCurrentPage", custListInCurrentPage);
 
 			request.setAttribute("checkbox", false);
