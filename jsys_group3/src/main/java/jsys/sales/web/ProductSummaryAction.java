@@ -2,19 +2,15 @@
  * @author J22_油井清子（2024/8/9）
  */
 package jsys.sales.web;
-import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jsys.sales.common.SalesBusinessException;
 import jsys.sales.common.SalesSystemException;
-import jsys.sales.entity.Customer;
 import jsys.sales.entity.Employee;
-import jsys.sales.entity.PeriodSummary;
 import jsys.sales.entity.ProductSummary;
-import jsys.sales.logic.CustomerRegistLogic;
+import jsys.sales.logic.ProductSummaryLogic;
 /**
  *商品別受注集計を行う
  */

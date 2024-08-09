@@ -10,10 +10,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jsys.sales.common.SalesBusinessException;
 import jsys.sales.common.SalesSystemException;
-import jsys.sales.entity.Customer;
 import jsys.sales.entity.Employee;
 import jsys.sales.entity.PeriodSummary;
-import jsys.sales.logic.CustomerRegistLogic;
+import jsys.sales.logic.OrderSummaryWithinPeriodLogic;
 /**
  *期間内の受注集計を行う
  */
@@ -41,21 +40,30 @@ public class OrderSummaryWithinPeriodAction implements ActionIF{
 				}
 			}
 
-//			Date firstDay = (Date) new SimpleDateFormat().parse(request.getParameter("firstDay"));
-//			Date lastDay = (Date) new SimpleDateFormat().parse(request.getParameter("lastDay"));
-//
-//			if (firstDay.after(lastDay)){
-//				throw new SalesBusinessException("正しい期間を選択してください。");
-//			}
+			Date firstDay = null;
+			Date lastDay = null;
 
-//			OrderSummaryWithinPeriodLogic logic = new OrderSummaryWithinPeriodLogic();
-//			ArrayList<PeriodSummary> periodSummaryList = logic.OrderSummaryWithinPeriod(firstDay,lastDay);
-//
-//			request.setAttribute("periodSummaryList", periodSummaryList);
-//
-//			if (periodSummaryList==null) {
-//				throw new SalesBusinessException("選択された集計期間に該当する受注情報は存在しません。");
-//			}
+			try {
+				firstDay = (Date) new SimpleDateFormat().parse(request.getParameter("firstDay"));
+				lastDay = (Date) new SimpleDateFormat().parse(request.getParameter("lastDay"));
+			} catch (ParseException e) {
+				throw new SalesSystemException("システムエラーが発生しました。");
+			}
+
+			if (firstDay.after(lastDay)){
+				throw new SalesBusinessException("正しい期間を選択してください。");
+			}
+
+			OrderSummaryWithinPeriodLogic logic = new OrderSummaryWithinPeriodLogic();
+			ArrayList<PeriodSummary> periodSummaryList = logic.orderSummaryWithinPeriodLogic(firstDay,lastDay);
+			int total = logic.periodSummaryTotal(periodSummaryList);
+
+			request.setAttribute("periodSummaryList", periodSummaryList);
+			request.setAttribute("total", total);
+
+			if (periodSummaryList==null) {
+				throw new SalesBusinessException("選択された集計期間に該当する受注情報は存在しません。");
+			}
 
 		} catch (SalesBusinessException e) {
 			request.setAttribute("errorMessage", e.getMessage());

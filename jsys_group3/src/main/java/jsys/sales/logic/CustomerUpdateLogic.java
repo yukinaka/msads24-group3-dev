@@ -75,7 +75,7 @@ public class CustomerUpdateLogic {
 	 * @throws SalesSystemException システムエラー
 	 */
 	public void updateCustomer(Customer customer)
-			throws SalesBusinessException, SalesSystemException {
+			throws SalesSystemException {
 		Connection con = null;
 		boolean result = false;
 

@@ -1,21 +1,22 @@
 /**
- * @author J22_油井清子（2024/8/8）
+ * @author J22_油井清子（2024/8/9）
  */
 package jsys.sales.web;
+
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jsys.sales.common.SalesSystemException;
 import jsys.sales.entity.Customer;
 import jsys.sales.entity.Employee;
-import jsys.sales.logic.CustomerRegistLogic;
-
+import jsys.sales.logic.CustomerUpdateLogic;
 /**
- *得意先情報の登録を行う
+ *得意先情報の変更を行う
  */
-public class CustomerRegistAction implements ActionIF{
+public class CustomerUpdateAction implements ActionIF{
+
 	/**
-	 *登録完了ページへの遷移を実行する
+	 *変更完了ページへの遷移を実行する
 	 * @param request　リクエストオブジェクト
 	 * @return 遷移先ページ
 	 */
@@ -56,8 +57,8 @@ public class CustomerRegistAction implements ActionIF{
 			customer.setAddress2(address2);
 			customer.setDiscountRate(Integer.parseInt(discountRate));
 
-			CustomerRegistLogic logic = new CustomerRegistLogic();
-			logic.insertCustomer(customer);
+			CustomerUpdateLogic logic = new CustomerUpdateLogic();
+			logic.updateCustomer(customer);
 
 		} catch (SalesSystemException e) {
 			request.setAttribute("errorMessage", e.getMessage());
