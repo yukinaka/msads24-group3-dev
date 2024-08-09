@@ -125,26 +125,26 @@ public class FrontController extends HttpServlet {
 				page = "V400_00Navbar.jsp";
 				break;
 
-			case "V200_01_01":
-				page = "V200_01CustomerManagementMenu.jsp";
-				break;
+//			case "V200_01_01":
+//				page = "V200_01CustomerManagementMenu.jsp";
+//				break;
 //
 //			case "V201_01_01":
 //				page = "V200_01CustomerManagementMenu.jsp";
 //				break;
-
-			case "V200_01_02":
-				page = "V201_01CustomerFindView.jsp";
-				break;
-
+//
+//			case "V200_01_02":
+//				page = "V201_01CustomerFindView.jsp";
+//				break;
+//
 //			case "V201_02_01":
 //				page = "V201_01CustomerFindView.jsp";
 //				break;
-
-			case "V201_01_02":
-				action = new CustomerFindAction();
-				page = action.execute(request);
-				break;
+//
+//			case "V201_01_02":
+//				action = new CustomerFindAction();
+//				page = action.execute(request);
+//				break;
 
 
 
