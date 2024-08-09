@@ -72,6 +72,7 @@
 	                
                		<c:if test="${ requestScope.checkbox == true }">
 	                	<c:forEach var="customer" items="${ requestScope.custListInCurrentPage }">
+	                	あああ
 			                <tbody>
 			                    <tr>
 			                    	<td>
@@ -144,22 +145,43 @@
 			    <li class="page-item disabled">
 			      <form action="/jsys_group3/jsysFC" method="post">
 			      	<input type="hidden" name="order" value="<c:out value="${ requestScope.order }" />">
-			      	<input type="hidden" name="currentPage" value="<c:out value="${ requestScope.currentPage }" />">
-			      	<button class="btn btn-link" type="submit" name="buttonId" value="V202_01_04">前ページ</button>
+			      	<input type="hidden" name="currentPage" value="<c:out value="${ requestScope.currentPage - 1 }" />">
+			      	<input type="hidden" name="lastPage" value="<c:out value="${ requestScope.lastPage }" />">
+			      	<c:if test="${ requestScope.currentPage != 1 }">
+			      		<button class="btn btn-link" type="submit" name="buttonId" value="V202_01_04">前ページ</button>
+			      	</c:if>
 			      </form>
 			    </li>
-			    <li class="page-item active" aria-current="page">
-			      <a class="page-link" href="#">1</a></li>
-			    <li class="page-item">
-			      <a class="page-link" href="#">2</a>
-			    </li>
-			    <li class="page-item">
-			      <a class="page-link" href="#">3</a></li>
+			    
+			    <c:forEach var="page" begin="1" end="${ requestScope.lastPage }">
+			    
+				    <li class="page-item">
+				      <form action="/jsys_group3/jsysFC" method="post">
+				      	<input type="hidden" name="order" value="<c:out value="${ requestScope.order }" />">
+				      	<input type="hidden" name="currentPage" value="<c:out value="${ page }" />">
+				      	<input type="hidden" name="lastPage" value="<c:out value="${ requestScope.lastPage }" />">
+				      	<c:if test="${ requestScope.currentPage == page }">
+					      	<button class="btn btn-primary" type="submit" name="buttonId" value="V202_01_07"><c:out value="${ page }" /></button>
+				      	</c:if>
+				      	<c:if test="${ requestScope.currentPage != page }">
+					      	<button class="btn btn-outline-primary" type="submit" name="buttonId" value="V202_01_07"><c:out value="${ page }" /></button>
+				      	</c:if>
+				      </form>
+			        </li>
+			    
+			    </c:forEach>
+			    
+
+			      
+			      
 			    <li class="page-item">
 			      <form action="/jsys_group3/jsysFC" method="post">
 			      	<input type="hidden" name="order" value="<c:out value="${ requestScope.order }" />">
-			      	<input type="hidden" name="currentPage" value="<c:out value="${ requestScope.currentPage }" />">
-			      	<button class="btn btn-link" type="submit" name="buttonId" value="V202_01_05">次ページ</button>
+			      	<input type="hidden" name="currentPage" value="<c:out value="${ requestScope.currentPage + 1 }" />">
+			      	<input type="hidden" name="lastPage" value="<c:out value="${ requestScope.lastPage }" />">
+			      	<c:if test="${ requestScope.currentPage != requestScope.lastPage }">
+				      	<button class="btn btn-link" type="submit" name="buttonId" value="V202_01_05">次ページ</button>
+			      	</c:if>
 			      </form>
 			    </li>
 			  </ul>

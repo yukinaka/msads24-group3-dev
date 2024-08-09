@@ -211,31 +211,34 @@ public class FrontController extends HttpServlet {
 			case "V202_01_02":
 				request.setAttribute("order", "asc");
 				action = new CustomerListAction();
-//				action = new CustomerListAscOrderAction();
 				page = action.execute(request);
 				break;
 
 			case "V202_01_03":
 				request.setAttribute("order", "desc");
 				action = new CustomerListAction();
-//				action = new CustomerListDescOrderAction();
 				page = action.execute(request);
 				break;
 
 			case "V202_01_04":
-//				request.setAttribute("currentPage", );
-				action = new CustomerListPrevPageAction();
+//				action = new CustomerListPrevPageAction();
+				action = new CustomerListChangePageAction();
 				page = action.execute(request);
 				break;
 
 			case "V202_01_05":
-//				request.setAttribute("currentPage", );
-				action = new CustomerListNextPageAction();
+//				action = new CustomerListNextPageAction();
+				action = new CustomerListChangePageAction();
 				page = action.execute(request);
 				break;
 
 			case "V202_01_06":
 				action = new CustomerDetailAction();
+				page = action.execute(request);
+				break;
+
+			case "V202_01_07":
+				action = new CustomerListChangePageAction();
 				page = action.execute(request);
 				break;
 
