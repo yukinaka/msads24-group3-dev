@@ -38,10 +38,6 @@
 	                    <label class="form-check-label text-nowrap" for="ckbutton">
 	                       削除済み項目も含める
 	                    </label>
-	                    <input class="form-check-input" type="checkbox" name="ckbutton" value="false">
-	                    <label class="form-check-label text-nowrap" for="ckbutton">
-	                       削除済み項目も含めない
-	                    </label>
 	                </div>
 	            </form>
 	        </div>

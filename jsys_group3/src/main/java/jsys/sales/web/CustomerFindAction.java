@@ -4,6 +4,7 @@
 package jsys.sales.web;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -12,6 +13,7 @@ import jsys.sales.common.SalesSystemException;
 import jsys.sales.entity.Customer;
 import jsys.sales.entity.Employee;
 import jsys.sales.logic.CustomerFindLogic;
+import jsys.sales.logic.CustomerListLogic;
 
 /**
  * 得意先一覧画面で検索を行うActionクラス
@@ -58,9 +60,20 @@ public class CustomerFindAction implements ActionIF {
 			System.out.println(checkbox);
 
 			CustomerFindLogic logic = new CustomerFindLogic();
-			ArrayList<Customer> custList= logic.findCustomer(custStr);
+			List<Customer> custList= logic.findCustomer(custStr);
 
 			request.setAttribute("custList", custList);
+
+			int size = 20;
+			int block = (custList.size() + (size - 1)) / size;
+
+			int currentPage = 1;
+			request.setAttribute("currentPage", currentPage);
+
+			CustomerListLogic pageLogic = new CustomerListLogic();
+			List<Customer> custListInCurrentPage = pageLogic.findCustomerInCurrentPage(custList, size, block, currentPage);
+			request.setAttribute("custListInCurrentPage", custListInCurrentPage);
+
 			request.setAttribute("checkbox", checkbox);
 
 		} catch (SalesBusinessException e) {
