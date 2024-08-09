@@ -26,6 +26,7 @@
 		        <div class="btn-group-vertical">
 		            <button type="submit" class="btn btn-info my-2" name="buttonId" value="V101_03_01">登録</button>
 		            <button type="submit" class="btn btn-info my-2" name="buttonId" value="V101_03_02">一覧</button>
+		            <input type="hidden" name="currentPage" value="1">
 		        </div>
 		    </form>
 		    

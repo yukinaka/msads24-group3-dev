@@ -15,9 +15,9 @@ import jsys.sales.logic.CustomerFindLogic;
 import jsys.sales.logic.CustomerListLogic;
 
 /**
- * 得意先一覧を表示するActionクラス
+ * 得意先一覧を並び替える示するActionクラス
  */
-public class CustomerListAction implements ActionIF {
+public class CustomerListOrderAction implements ActionIF {
 
 	/**
 	 *
@@ -42,14 +42,13 @@ public class CustomerListAction implements ActionIF {
 
 			CustomerListLogic logic = new CustomerListLogic();
 
-			String order = "default";
+			String order = "asc";
 			ArrayList<Customer> custList = logic.findAllCustomer();
-			request.setAttribute("custList", custList);
+//			request.setAttribute("custList", custList);
 
 			int size = 20;
 			int block = (custList.size() + (size - 1)) / size;
-//			int currentPage = (int)request.getAttribute("currentPage");
-			int currentPage = 1;
+			int currentPage = Integer.parseInt(request.getParameter("currentPage")) + 1;
 
 			ArrayList<Customer> custListInCurrentPage = logic.findCustomerInCurrentPage(custList, size, block, currentPage);
 			request.setAttribute("custListInCurrentPage", custListInCurrentPage);

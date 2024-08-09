@@ -59,7 +59,15 @@ public class CustomerListLogic {
 
 	public ArrayList<Customer> findCustomerInCurrentPage(ArrayList<Customer> custList, int size, int block, int currentPage) {
 
-		return null;
+		ArrayList<Customer> custListInCurrentPage;
+		block = (custList.size() + (size - 1)) / size;
+
+		int start = (currentPage - 1) * size;
+		int end = Math.min(start + size, custList.size());
+		custListInCurrentPage = (ArrayList)custList.subList(start, end);
+
+
+		return custListInCurrentPage;
 	}
 
 }

@@ -166,6 +166,7 @@ public class FrontController extends HttpServlet {
 				break;
 
 			case "V101_03_02":
+//				request.setAttribute("currentPage", 1);
 				action = new CustomerListAction();
 				page = action.execute(request);
 				break;
@@ -203,13 +204,19 @@ public class FrontController extends HttpServlet {
 
 			case "V202_01_02":
 				request.setAttribute("order", "asc");
-				action = new CustomerFindAction();
+				action = new CustomerListAction();
 				page = action.execute(request);
 				break;
 
 			case "V202_01_03":
 				request.setAttribute("order", "desc");
-				action = new CustomerFindAction();
+				action = new CustomerListAction();
+				page = action.execute(request);
+				break;
+
+			case "V202_01_04":
+//				request.setAttribute("currentPage", );
+				action = new CustomerListOrderAction();
 				page = action.execute(request);
 				break;
 
