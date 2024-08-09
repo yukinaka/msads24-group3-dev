@@ -22,8 +22,8 @@
 	        <h2 class="my-4">ログアウト</h2>
 	        <p class="lead">ログアウトしました。</p>
 	        
-	        <form action="/jsys/jsysFC" method="post">
-	            <button type="submit" class="btn btn-primary" name="buttonId" value="99">ログイン画面へ戻る</button>
+	        <form action="/jsys_group3/jsysFC" method="post">
+	            <button type="submit" class="btn btn-primary" name="buttonId" value="V101_99_01">ログイン画面へ戻る</button>
 	        </form>
 	    </div>
 	    
