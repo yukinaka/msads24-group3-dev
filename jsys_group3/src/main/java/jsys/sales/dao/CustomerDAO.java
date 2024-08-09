@@ -77,15 +77,32 @@ public class CustomerDAO {
 	 * @return 得意先オブジェクトが格納されたArrayList
 	 * @throws SQLException データベースエラー
 	 */
-	public ArrayList<Customer> findAllCustomer() throws SQLException {
+	public ArrayList<Customer> findAllCustomer(String order) throws SQLException {
 
-		String sql = "select * from customer";
+		String sql = "select * from customer order by";
 		PreparedStatement stmt = null;
 		ResultSet res = null;
 		ArrayList<Customer> customerList = null;
 		Customer customer = null;
 
 		try {
+
+			switch(order) {
+
+				case "dft":
+					sql = sql + " customer_code asc";
+					break;
+				case "asc":
+					sql = sql + " customer_name asc";
+					break;
+				case "desc":
+					sql = sql + " customer_name desc";
+					break;
+				default:
+					sql = sql + " customer_code asc";
+					break;
+
+			}
 
 			stmt = con.prepareStatement(sql);
 			res = stmt.executeQuery();
