@@ -39,7 +39,7 @@ public class CustomerUpdateCheckAction implements ActionIF{
 				}
 			}
 
-			String custName = request.getParameter("custName");		//CustomerFindViewのnameの名前
+			String custName = request.getParameter("custName");
 			String telNo1 = request.getParameter("telNo1-1") + "-" + request.getParameter("telNo1-2") + "-" + request.getParameter("telNo1-3");
 			String telNo2 = request.getParameter("telNo2-1") + "-" + request.getParameter("telNo2-2") + "-" + request.getParameter("telNo2-3");
 			String telNo3 = request.getParameter("telNo3-1") + "-" + request.getParameter("telNo3-2") + "-" + request.getParameter("telNo3-3");

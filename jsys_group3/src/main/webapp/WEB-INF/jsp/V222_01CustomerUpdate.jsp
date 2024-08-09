@@ -28,10 +28,18 @@
 	
 	<div class="container mt-5">
 		<h2 class="text-center">得意先変更</h2>
-		<h4 class="text-center text-danger mb-3">エラーメッセージエリア</h4>
 		
-		<%-- フォーム領域 --%>
-		<form action="/jsys/V201_02CustomerRegistrationConfirmation" method="post">
+		<%-- エラーメッセージがある場合、出力 --%>
+     	<h4 class="text-center text-danger mb-3">
+			<c:out value="${requestScope.errorMessage}"/>
+			<c:forEach var="message" items="${requestScope.errorMessageList}">
+				<c:out value="${message}"/><br>
+			</c:forEach>
+     	</h4>        
+		
+		
+	<%-- フォーム領域 --%>
+		<form action="/jsys_group3/jsysFC" method="post">
         
             <div class="row row-cols-auto mb-3">
 			    <div class="col-10">
@@ -46,11 +54,11 @@
 			    <div class="col-6">
 			    	<label for="telNo1" class="text-left form-label">電話番号1</label>
 	                <div class="input-group mb-3">
-		                <input type="text" class="form-control" id="telNo1" name="telNo1" value="045" pattern="^[0-9]{2-3}$">
+		                <input type="text" class="form-control" id="telNo1" name="telNo1-1" value="045" pattern="^[0-9]{2-3}$"title="数値2～4桁で入力してください。" required>
 		    			<span class="input-group-text">-</span>
-		                <input type="text" class="form-control" id="telNo1" name="telNo1" value="128" pattern="^[0-9]{3-4}$">
+		                <input type="text" class="form-control" id="telNo1" name="telNo1-2" value="128" pattern="^[0-9]{3-4}$"title="数値3～4桁で入力してください。" required>
 		    			<span class="input-group-text">-</span>
-		                <input type="text" class="form-control" id="telNo1" name="telNo1" value="3581" pattern="^[0-9]{4}$">
+		                <input type="text" class="form-control" id="telNo1" name="telNo1-3" value="3581" pattern="^[0-9]{4}$"title="数値3～4桁で入力してください。" required>
 					</div>
 			    </div>
 			</div>
@@ -59,11 +67,11 @@
 			    <div class="col-6">
 			    	<label for="telNo1" class="text-left form-label">電話番号2</label>
 	                <div class="input-group mb-3">
-		                <input type="text" class="form-control" id="telNo1" name="telNo1" pattern="^[0-9]{2-3}$">
+		                <input type="text" class="form-control" id="telNo1" name="telNo2-1" pattern="^[0-9]{2-3}$"title="数値2～4桁で入力してください。" >
 		    			<span class="input-group-text">-</span>
-		                <input type="text" class="form-control" id="telNo1" name="telNo1" pattern="^[0-9]{3-4}$">
+		                <input type="text" class="form-control" id="telNo1" name="telNo2-2" pattern="^[0-9]{3-4}$"title="数値3～4桁で入力してください。" >
 		    			<span class="input-group-text">-</span>
-		                <input type="text" class="form-control" id="telNo1" name="telNo1" pattern="^[0-9]{4}$">
+		                <input type="text" class="form-control" id="telNo1" name="telNo2-3" pattern="^[0-9]{4}$"title="数値3～4桁で入力してください。" >
 					</div>
 			    </div>
 			</div>
@@ -72,11 +80,11 @@
 			    <div class="col-6">
 			    	<label for="telNo1" class="text-left form-label">電話番号3</label>
 	                <div class="input-group mb-3">
-		                <input type="text" class="form-control" id="telNo1" name="telNo1" pattern="^[0-9]{2-3}$">
+		                <input type="text" class="form-control" id="telNo1" name="telNo3-1" pattern="^[0-9]{2-3}$"title="数値2～4桁で入力してください。" >
 		    			<span class="input-group-text">-</span>
-		                <input type="text" class="form-control" id="telNo1" name="telNo1" pattern="^[0-9]{3-4}$">
+		                <input type="text" class="form-control" id="telNo1" name="telNo3-2" pattern="^[0-9]{3-4}$"title="数値3～4桁で入力してください。" >
 		    			<span class="input-group-text">-</span>
-		                <input type="text" class="form-control" id="telNo1" name="telNo1" pattern="^[0-9]{4}$">
+		                <input type="text" class="form-control" id="telNo1" name="telNo3-3" pattern="^[0-9]{4}$"title="数値3～4桁で入力してください。" >
 					</div>
 			    </div>
 			</div>
@@ -85,9 +93,9 @@
 			    <div class="col-3">
 			    	<label for="telNo1" class="text-left form-label">郵便番号1</label>
 	                <div class="input-group mb-2">
-		                <input type="text" class="form-control" id="telNo1" name="telNo1" value="220" pattern="^[0-9]{3}$">
+		                <input type="text" class="form-control" id="postalCode1" name="postalCode1-1" maxlength="3" pattern="^[0-9]{3}$"title="数値3桁で入力してください。">
 		    			<span class="input-group-text">-</span>
-		                <input type="text" class="form-control" id="telNo1" name="telNo1" value="0001" pattern="^[0-9]{4}$">
+		                <input type="text" class="form-control" id="postalCode1" name="postalCode1-2" maxlength="4" pattern="^[0-9]{4}$"title="数値4桁で入力してください。">
 					</div>
 			    </div>
 			</div>
@@ -105,9 +113,9 @@
 			    <div class="col-3">
 			    	<label for="telNo1" class="text-left form-label">郵便番号2</label>
 	                <div class="input-group mb-2">
-		                <input type="text" class="form-control" id="telNo1" name="telNo1" pattern="^[0-9]{3}$">
+		                <input type="text" class="form-control" id="postalCode2" name="postalCode2-1" maxlength="3" pattern="^[0-9]{3}$" title="数値3桁で入力してください。">
 		    			<span class="input-group-text">-</span>
-		                <input type="text" class="form-control" id="telNo1" name="telNo1" pattern="^[0-9]{4}$">
+		                <input type="text" class="form-control" id="postalCode2" name="postalCode2-2" maxlength="4" pattern="^[0-9]{4}$" title="数値4桁で入力してください。">
 					</div>
 			    </div>
 			</div>
@@ -116,7 +124,7 @@
 			    <div class="col-10">
 			    	<label for="telNo1" class="text-left form-label">住所2</label>
 	                <div class="input-group mb-3">
-	                	<input type="text" class="form-control" id="address1" name="address1" maxlength="40" title="住所は40文字以内で入力してください。">
+	                	<input type="text" class="form-control" id="address2" name="address2" maxlength="40" title="住所は40文字以内で入力してください。">
 					</div>
 			    </div>
 			 </div>
@@ -132,9 +140,13 @@
 			 </div>
 			 
             <div class="text-center">
-			    <button type="submit" class="btn btn-primary mb-5">変更</button>
+			    <button type="submit" class="btn btn-primary mb-5" name="buttonId" value="V222_01_01">変更</button>
             </div>
-        </form>
+        </form> 
+        
+         
+        
+        
 	</div>
 	
 	<!-- Footer.jspをinclude -->
