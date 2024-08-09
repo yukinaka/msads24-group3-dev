@@ -6,6 +6,7 @@ package jsys.sales.logic;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import jsys.sales.common.SalesBusinessException;
 import jsys.sales.common.SalesSystemException;
@@ -24,7 +25,7 @@ public class CustomerListLogic {
 	 * @throws SalesBusinessException
 	 * @throws SalesSystemException
 	 */
-	public ArrayList<Customer> findAllCustomer() throws SalesBusinessException, SalesSystemException {
+	public ArrayList<Customer> findAllCustomer(String order) throws SalesBusinessException, SalesSystemException {
 
 		Connection con = null;
 		ArrayList<Customer> custList = null;
@@ -33,7 +34,7 @@ public class CustomerListLogic {
 			con = ConnectionManager.getConnection();
 
 			CustomerDAO customerDAO = new CustomerDAO(con);
-			custList = customerDAO.findAllCustomer();
+			custList = customerDAO.findAllCustomer(order);
 
 			if (custList==null) {
 				throw new SalesBusinessException("取引先は存在しません。");
@@ -57,17 +58,17 @@ public class CustomerListLogic {
 
 	}
 
-	public ArrayList<Customer> findCustomerInCurrentPage(ArrayList<Customer> custList, int size, int block, int currentPage) {
+	public List<Customer> findCustomerInCurrentPage(List<Customer> custList, int size, int block, int currentPage) {
 
-		ArrayList<Customer> custListInCurrentPage;
+		List<Customer> custListInCurrentPage;
 		block = (custList.size() + (size - 1)) / size;
 
 		int start = (currentPage - 1) * size;
 		int end = Math.min(start + size, custList.size());
-		custListInCurrentPage = (ArrayList)custList.subList(start, end);
-
+		custListInCurrentPage = custList.subList(start, end);
 
 		return custListInCurrentPage;
 	}
+
 
 }

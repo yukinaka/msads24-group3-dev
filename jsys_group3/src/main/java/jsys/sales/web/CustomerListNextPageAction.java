@@ -3,7 +3,6 @@
  */
 package jsys.sales.web;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -12,13 +11,12 @@ import jsys.sales.common.SalesBusinessException;
 import jsys.sales.common.SalesSystemException;
 import jsys.sales.entity.Customer;
 import jsys.sales.entity.Employee;
-import jsys.sales.logic.CustomerFindLogic;
 import jsys.sales.logic.CustomerListLogic;
 
 /**
- * 得意先一覧を表示するActionクラス
+ * 得意先一覧で次ページへ遷移するActionクラス
  */
-public class CustomerListAction implements ActionIF {
+public class CustomerListNextPageAction implements ActionIF {
 
 	/**
 	 *
@@ -43,15 +41,14 @@ public class CustomerListAction implements ActionIF {
 
 			CustomerListLogic logic = new CustomerListLogic();
 
-			String order = (String)request.getAttribute("order");
+			String order = request.getParameter("order");
 			List<Customer> custList = logic.findAllCustomer(order);
 
 			request.setAttribute("custList", custList);
 
 			int size = 20;
 			int block = (custList.size() + (size - 1)) / size;
-
-			int currentPage = 1;
+			int currentPage = Integer.parseInt(request.getParameter("currentPage")) + 1;
 			request.setAttribute("currentPage", currentPage);
 
 			List<Customer> custListInCurrentPage = logic.findCustomerInCurrentPage(custList, size, block, currentPage);
