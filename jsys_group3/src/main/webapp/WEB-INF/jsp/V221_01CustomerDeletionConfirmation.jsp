@@ -25,38 +25,38 @@
 		        <tbody>
 		            <tr>
 		                <th scope="row">得意先名</th>
-		                <td><c:out value="${ requestScope.customer.custName }"></td>
+		                <td><c:out value="${ requestScope.customer.custName }"></c:out></td>
 		            </tr>
 		            <tr>
 		                <th scope="row">電話番号1</th>
-		                <td><c:out value="${ requestScope.customer.telNo1 }"></td>
+		                <td><c:out value="${ requestScope.customer.telNo1 }"></c:out></td>
 		            </tr>
 		            <tr>
 		                <th scope="row">電話番号2</th>
-		                <td><c:out value="${ requestScope.customer.telNo2 }"></td>
+		                <td><c:out value="${ requestScope.customer.telNo2 }"></c:out></td>
 		            </tr>
 		            <tr>
 		                <th scope="row">電話番号3</th>
-		                <td><c:out value="${ requestScope.customer.telNo3 }"></td>
+		                <td><c:out value="${ requestScope.customer.telNo3 }"></c:out></td>
 		            </tr>
 		            <tr>
 		                <th scope="row">郵便番号1</th>
-		                <td><c:out value="${ requestScope.customer.postalCode1 }"></td>
+		                <td><c:out value="${ requestScope.customer.postalCode1 }"></c:out></td>
 		            </tr>
 		            <tr>
 		                <th scope="row">住所1</th>
-		                <td><c:out value="${ requestScope.customer.address1 }"></td>
+		                <td><c:out value="${ requestScope.customer.address1 }"></c:out></td>
 		            </tr>
 		            <tr>
 		                <th scope="row">郵便番号2</th>
-		                <td><c:out value="${ requestScope.customer.postalCode2 }"></td>
+		                <td><c:out value="${ requestScope.customer.postalCode2 }"></c:out></td>
 		            <tr>
 		                <th scope="row">住所2</th>
-		                <td><c:out value="${ requestScope.customer.address2 }"></td>
+		                <td><c:out value="${ requestScope.customer.address2 }"></c:out></td>
 		            </tr>
 		            <tr>
 		                <th scope="row">割引率</th>
-		                <td><c:out value="${ requestScope.customer.discountRate }">%</td>
+		                <td><c:out value="${ requestScope.customer.discountRate }">%</c:out></td>
 		            </tr>
 		        </tbody>
 		    </table>
@@ -71,6 +71,6 @@
 		
 		<!-- Footer.jspをinclude -->
 		<%@ include file="Footer.jsp" %>
-	
+
 	</body>
 </html>
