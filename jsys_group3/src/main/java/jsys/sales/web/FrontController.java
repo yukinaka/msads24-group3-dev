@@ -109,13 +109,11 @@ public class FrontController extends HttpServlet {
 				break;
 
 			case "V202_01_04":
-//				action = new CustomerListPrevPageAction();
 				action = new CustomerListChangePageAction();
 				page = action.execute(request);
 				break;
 
 			case "V202_01_05":
-//				action = new CustomerListNextPageAction();
 				action = new CustomerListChangePageAction();
 				page = action.execute(request);
 				break;
