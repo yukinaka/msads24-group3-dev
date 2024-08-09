@@ -63,12 +63,25 @@
 		        </tbody>
 		    </table>
 		 
+		 <form action="/jsys_group3/jsysFC" method="post">
+		 		<input type="hidden" name="custName" value="<c:out value="${ requestScope.customer.custName }" />">
+		 		<input type="hidden" name="telNo1" value="<c:out value="${ requestScope.customer.telNo1 }" />">
+		 		<input type="hidden" name="telNo2" value="<c:out value="${ requestScope.customer.telNo2 }" />">
+		 		<input type="hidden" name="telNo3" value="<c:out value="${ requestScope.customer.telNo3 }" />">
+		 		<input type="hidden" name="postalCode1" value="<c:out value="${ requestScope.customer.postalCode1 }" />">
+		 		<input type="hidden" name="address1" value="<c:out value="${ requestScope.customer.address1 }" />">
+		 		<input type="hidden" name="postalCode2" value="<c:out value="${ requestScope.customer.postalCode2 }" />">
+		 		<input type="hidden" name="address2" value="<c:out value="${ requestScope.customer.address2 }" />">
+		 		<input type="hidden" name="discountRate" value="<c:out value="${ requestScope.customer.discountRate }" />">
+		 		
+	            <div class="mt-3">
+		    		<button class="btn btn-primary" name="buttonId" value="V222_02_01">はい</button>
+		    		<button class="btn btn-secondary" name="buttonId" value="V222_02_02">キャンセル</button>
+				</div>
+				
+	     </form>
 					    
-		    <div class="mt-3">
-		    	<button class="btn btn-primary" name="buttonId" value="V222_02_01">はい</button>
-		    	<button class="btn btn-secondary" name="buttonId" value="V222_02_02">キャンセル</button>
-			</div>
-			
+		</div>		    
 	<!-- Footer.jspをinclude -->
 	<%@ include file="Footer.jsp" %>
 	

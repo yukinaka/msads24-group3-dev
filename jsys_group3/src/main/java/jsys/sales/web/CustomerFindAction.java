@@ -45,7 +45,7 @@ public class CustomerFindAction implements ActionIF {
 			String custStr = request.getParameter("custStr");
 
 			boolean checkbox;
-			if (request.getParameter("checkbox").equals("true")) {
+			if (request.getParameter("ckbutton").equals("true")) {
 				checkbox = true;
 			} else {
 				checkbox = false;
