@@ -57,8 +57,8 @@
 								    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
 								        data-bs-toggle="dropdown" aria-expanded="false">得意先名</button>
 								    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-								      <li><a class="dropdown-item" href="#nest_button_group">昇順</a></li>
-								      <li><a class="dropdown-item" href="#nest_button_group">降順</a></li>
+								      <li><div class="dropdown-item"><button class="btn" type="submit" name="buttonId" value="V202_01_02">昇順</button></div></li>
+								      <li><div class="dropdown-item"><button class="btn" type="submit" name="buttonId" value="V202_01_03">降順</button></div></li>
 								    </ul>
 								  </div>
 	                        </th>
@@ -103,7 +103,7 @@
                		
                		<c:if test="${ requestScope.checkbox == false }">
 	                	<c:forEach var="customer" items="${ requestScope.custList }">
-		               		<c:if test="${ requestScope.checkbox == false }">
+		               		<c:if test="${ customer.deleteFlag == false }">
 				                <tbody>
 				                    <tr>
 				                    	<td>

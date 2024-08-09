@@ -50,6 +50,7 @@ public class CustomerFindAction implements ActionIF {
 			} else {
 				checkbox = false;
 			}
+			System.out.println(checkbox);
 
 			CustomerFindLogic logic = new CustomerFindLogic();
 			ArrayList<Customer> custList= logic.findCustomer(custStr);
