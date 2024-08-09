@@ -1,9 +1,8 @@
 /**
- * @author J05_田中勇起（2024/8/9）
+ * @author J05_田中勇起（2024/8/7）
  */
 package jsys.sales.web;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -12,13 +11,12 @@ import jsys.sales.common.SalesBusinessException;
 import jsys.sales.common.SalesSystemException;
 import jsys.sales.entity.Customer;
 import jsys.sales.entity.Employee;
-import jsys.sales.logic.CustomerFindLogic;
 import jsys.sales.logic.CustomerListLogic;
 
 /**
- * 得意先一覧画面で検索を行うActionクラス
+ * 得意先一覧で次ページへ遷移するActionクラス
  */
-public class CustomerFindAction implements ActionIF {
+public class CustomerListNextPageAction implements ActionIF {
 
 	/**
 	 *
@@ -32,49 +30,31 @@ public class CustomerFindAction implements ActionIF {
 		try {
 
 			HttpSession session = request.getSession(false);
-			Employee loginEmployee;
-
-			if(session==null) {
+			if (session==null) {
 				throw new SalesSystemException("セッションが無効です。");
-			}else {
-
-				loginEmployee = (Employee)session.getAttribute("loginEmployee");
-				if(loginEmployee == null) {
-					throw new SalesSystemException("ログイン情報が存在しません。");
+			} else {
+				Employee loginEmployee = (Employee) session.getAttribute("loginEmployee");
+				if (loginEmployee==null) {
+					throw new SalesBusinessException("ログイン情報が存在しません。");
 				}
 			}
 
-			String custStr = request.getParameter("custStr");
+			CustomerListLogic logic = new CustomerListLogic();
 
-			boolean checkbox;
-			if (request.getParameter("ckbotton")==null) {
-				checkbox = false;
-			} else {
-				checkbox = true;
-			}
-//			if (request.getParameter("ckbutton").equals("true")) {
-//				checkbox = true;
-//			} else {
-//				checkbox = false;
-//			}
-			System.out.println(checkbox);
-
-			CustomerFindLogic logic = new CustomerFindLogic();
-			List<Customer> custList= logic.findCustomer(custStr);
+			String order = request.getParameter("order");
+			List<Customer> custList = logic.findAllCustomer(order);
 
 			request.setAttribute("custList", custList);
 
 			int size = 20;
 			int block = (custList.size() + (size - 1)) / size;
-
-			int currentPage = 1;
+			int currentPage = Integer.parseInt(request.getParameter("currentPage")) + 1;
 			request.setAttribute("currentPage", currentPage);
 
-			CustomerListLogic pageLogic = new CustomerListLogic();
-			List<Customer> custListInCurrentPage = pageLogic.findCustomerInCurrentPage(custList, size, block, currentPage);
+			List<Customer> custListInCurrentPage = logic.findCustomerInCurrentPage(custList, size, block, currentPage);
 			request.setAttribute("custListInCurrentPage", custListInCurrentPage);
 
-			request.setAttribute("checkbox", checkbox);
+			request.setAttribute("checkbox", false);
 
 		} catch (SalesBusinessException e) {
 			request.setAttribute("errorMessage", e.getMessage());
@@ -90,4 +70,3 @@ public class CustomerFindAction implements ActionIF {
 	}
 
 }
-

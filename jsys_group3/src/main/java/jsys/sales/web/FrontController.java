@@ -81,6 +81,10 @@ public class FrontController extends HttpServlet {
 				page = "V211_01CustomerDetails.jsp";
 				break;
 
+			case "V211_01_02":
+				page = "V222_01CustomerUpdate.jsp";
+				break;
+
 			case "V221_01":
 				page = "V221_01CustomerDeletionConfirmation.jsp";
 				break;
@@ -89,16 +93,18 @@ public class FrontController extends HttpServlet {
 				page = "V221_02CustomerDeletionCompletion.jsp";
 				break;
 
-			case "V222_01":
+			case "V222_01_01":
+				action = new CustomerUpdateCheckAction();
+				page = action.execute(request);
+				break;
+
+			case "V222_02_01":
+				action = new CustomerUpdateAction();
+				page = action.execute(request);
+				break;
+
+			case "V222_02_02":
 				page = "V222_01CustomerUpdate.jsp";
-				break;
-
-			case "V222_02":
-				page = "V222_02CustomerModificationConfirmation.jsp";
-				break;
-
-			case "V222_03":
-				page = "V222_03CustomerModificationCompletion.jsp";
 				break;
 
 			case "V223_01":
@@ -166,6 +172,7 @@ public class FrontController extends HttpServlet {
 				break;
 
 			case "V101_03_02":
+				request.setAttribute("order", "dft");
 				action = new CustomerListAction();
 				page = action.execute(request);
 				break;
@@ -198,6 +205,32 @@ public class FrontController extends HttpServlet {
 
 			case "V202_01_01":
 				action = new CustomerFindAction();
+				page = action.execute(request);
+				break;
+
+			case "V202_01_02":
+				request.setAttribute("order", "asc");
+				action = new CustomerListAction();
+//				action = new CustomerListAscOrderAction();
+				page = action.execute(request);
+				break;
+
+			case "V202_01_03":
+				request.setAttribute("order", "desc");
+				action = new CustomerListAction();
+//				action = new CustomerListDescOrderAction();
+				page = action.execute(request);
+				break;
+
+			case "V202_01_04":
+//				request.setAttribute("currentPage", );
+				action = new CustomerListPrevPageAction();
+				page = action.execute(request);
+				break;
+
+			case "V202_01_05":
+//				request.setAttribute("currentPage", );
+				action = new CustomerListNextPageAction();
 				page = action.execute(request);
 				break;
 

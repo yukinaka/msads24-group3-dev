@@ -20,9 +20,15 @@
     <div class="container text-center mt-5">
         <h2 class="display-4">システムエラー</h2>
         
-        <div class="alert alert-danger mt-4">
-            <strong>システムエラーが発生しました。</strong>
-        </div>
+        <%-- エラーメッセージがある場合、出力 --%>
+	    <div class="alert alert-danger mt-4">
+	    	<strong>
+	    		<c:out value="${requestScope.errorMessage}"/>
+	    		<c:forEach var="message" items="${requestScope.errorMessageList}">
+					<c:out value="${message}"/><br>
+				</c:forEach>
+			</strong>
+	    </div>
     </div>
     
     <!-- Footer.jspをinclude -->

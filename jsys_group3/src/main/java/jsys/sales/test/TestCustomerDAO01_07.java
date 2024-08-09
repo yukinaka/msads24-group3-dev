@@ -30,7 +30,7 @@ public class TestCustomerDAO01_07 {
 		try {
 			CustomerDAO custDAO = new CustomerDAO(con);
 
-			ArrayList<Customer> custList = custDAO.findAllCustomer();
+			ArrayList<Customer> custList = custDAO.findAllCustomer("dft");
 
 			if (custList == null) {
 				System.out.println("戻り値：" + custList);

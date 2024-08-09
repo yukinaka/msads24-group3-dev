@@ -57,8 +57,8 @@
 								    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
 								        data-bs-toggle="dropdown" aria-expanded="false">得意先名</button>
 								    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-								      <li><a class="dropdown-item" href="#nest_button_group">昇順</a></li>
-								      <li><a class="dropdown-item" href="#nest_button_group">降順</a></li>
+								      <li><div class="dropdown-item"><form action="/jsys_group3/jsysFC" method="post"><button class="btn" type="submit" name="buttonId" value="V202_01_02">昇順</button></form></div></li>
+								      <li><div class="dropdown-item"><form action="/jsys_group3/jsysFC" method="post"><button class="btn" type="submit" name="buttonId" value="V202_01_03">降順</button></form></div></li>
 								    </ul>
 								  </div>
 	                        </th>
@@ -71,7 +71,7 @@
 	                </thead>
 	                
                		<c:if test="${ requestScope.checkbox == true }">
-	                	<c:forEach var="customer" items="${ requestScope.custList }">
+	                	<c:forEach var="customer" items="${ requestScope.custListInCurrentPage }">
 			                <tbody>
 			                    <tr>
 			                    	<td>
@@ -102,8 +102,8 @@
                		</c:if>
                		
                		<c:if test="${ requestScope.checkbox == false }">
-	                	<c:forEach var="customer" items="${ requestScope.custList }">
-		               		<c:if test="${ requestScope.checkbox == false }">
+	                	<c:forEach var="customer" items="${ requestScope.custListInCurrentPage }">
+		               		<c:if test="${ customer.deleteFlag == false }">
 				                <tbody>
 				                    <tr>
 				                    	<td>
@@ -142,7 +142,11 @@
 			<nav aria-label="...">
 			  <ul class="pagination justify-content-center my-3">
 			    <li class="page-item disabled">
-			      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">前ページ</a>
+			      <form action="/jsys_group3/jsysFC" method="post">
+			      	<input type="hidden" name="order" value="<c:out value="${ requestScope.order }" />">
+			      	<input type="hidden" name="currentPage" value="<c:out value="${ requestScope.currentPage }" />">
+			      	<button class="btn btn-link" type="submit" name="buttonId" value="V202_01_04">前ページ</button>
+			      </form>
 			    </li>
 			    <li class="page-item active" aria-current="page">
 			      <a class="page-link" href="#">1</a></li>
@@ -152,7 +156,11 @@
 			    <li class="page-item">
 			      <a class="page-link" href="#">3</a></li>
 			    <li class="page-item">
-			      <a class="page-link" href="#">次ページ</a>
+			      <form action="/jsys_group3/jsysFC" method="post">
+			      	<input type="hidden" name="order" value="<c:out value="${ requestScope.order }" />">
+			      	<input type="hidden" name="currentPage" value="<c:out value="${ requestScope.currentPage }" />">
+			      	<button class="btn btn-link" type="submit" name="buttonId" value="V202_01_05">次ページ</button>
+			      </form>
 			    </li>
 			  </ul>
 			</nav>

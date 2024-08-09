@@ -4,6 +4,7 @@
 package jsys.sales.web;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -41,9 +42,22 @@ public class CustomerListAction implements ActionIF {
 			}
 
 			CustomerListLogic logic = new CustomerListLogic();
-			ArrayList<Customer> custList = logic.findAllCustomer();
+
+			String order = (String)request.getAttribute("order");
+			List<Customer> custList = logic.findAllCustomer(order);
 
 			request.setAttribute("custList", custList);
+
+			int size = 20;
+			int block = (custList.size() + (size - 1)) / size;
+
+			int currentPage = 1;
+			request.setAttribute("currentPage", currentPage);
+
+			List<Customer> custListInCurrentPage = logic.findCustomerInCurrentPage(custList, size, block, currentPage);
+			request.setAttribute("custListInCurrentPage", custListInCurrentPage);
+
+			request.setAttribute("checkbox", false);
 
 		} catch (SalesBusinessException e) {
 			request.setAttribute("errorMessage", e.getMessage());
