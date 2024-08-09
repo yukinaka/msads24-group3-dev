@@ -40,119 +40,6 @@ public class FrontController extends HttpServlet {
 		}
 		// リクエスト種別の判定
 		switch (buttonId) {
-		// TODO 2 プロトタイピング作成演習：得意先検索各種画面遷移に関連するcaseを追加してください。
-			case "V101_01":
-				page = "V101_01Login.jsp";
-				break;
-
-			case "V101_02":
-				page = "V101_02MainMenu.jsp";
-				break;
-
-			case "V101_03":
-				page = "V101_03CustomerManagementMenu.jsp";
-				break;
-
-			case "V101_04":
-				page = "V101_04CustomerSummaryMenu.jsp";
-				break;
-
-			case "V101_99":
-				page = "V101_99Logout.jsp";
-				break;
-
-			case "V201_01":
-				page = "V201_01CustomerRegistration.jsp";
-				break;
-
-			case "V201_02":
-				page = "V201_02CustomerRegistrationConfirmation.jsp";
-				break;
-
-			case "V201_03":
-				page = "V201_03CustomerRegistrationCompletion.jsp";
-				break;
-
-			case "V202_01":
-				page = "V202_01CustomerList.jsp";
-				break;
-
-			case "V211_01":
-				page = "V211_01CustomerDetails.jsp";
-				break;
-
-			case "V211_01_02":
-				page = "V222_01CustomerUpdate.jsp";
-				break;
-
-			case "V221_01":
-				page = "V221_01CustomerDeletionConfirmation.jsp";
-				break;
-
-			case "V221_02":
-				page = "V221_02CustomerDeletionCompletion.jsp";
-				break;
-
-			case "V222_01_01":
-				action = new CustomerUpdateCheckAction();
-				page = action.execute(request);
-				break;
-
-			case "V222_02_01":
-				action = new CustomerUpdateAction();
-				page = action.execute(request);
-				break;
-
-			case "V222_02_02":
-				page = "V222_01CustomerUpdate.jsp";
-				break;
-
-			case "V223_01":
-				page = "V223_01CustomerRestorationConfirmation.jsp";
-				break;
-
-			case "V223_02":
-				page = "V223_02CustomerRestorationCompletion.jsp";
-				break;
-
-			case "V301_01":
-				page = "V301_01OrderSummaryWithinPeriod.jsp";
-				break;
-
-			case "V302_01":
-				page = "V302_01ProductOrderSummary.jsp";
-				break;
-
-			case "V901_01":
-				page = "V901_01SystemError.jsp";
-				break;
-
-			case "V400_00":
-				page = "V400_00Navbar.jsp";
-				break;
-
-//			case "V200_01_01":
-//				page = "V200_01CustomerManagementMenu.jsp";
-//				break;
-//
-//			case "V201_01_01":
-//				page = "V200_01CustomerManagementMenu.jsp";
-//				break;
-//
-//			case "V200_01_02":
-//				page = "V201_01CustomerFindView.jsp";
-//				break;
-//
-//			case "V201_02_01":
-//				page = "V201_01CustomerFindView.jsp";
-//				break;
-//
-//			case "V201_01_02":
-//				action = new CustomerFindAction();
-//				page = action.execute(request);
-//				break;
-
-
 
 			case "V101_01_01":
 				action = new LoginAction();
@@ -182,6 +69,7 @@ public class FrontController extends HttpServlet {
 				break;
 
 			case "V101_04_02":
+
 				page = "V302_01ProductOrderSummary.jsp";
 				break;
 
@@ -236,6 +124,12 @@ public class FrontController extends HttpServlet {
 
 			case "V202_01_06":
 				action = new CustomerDetailAction();
+				page = action.execute(request);
+				break;
+
+			case "V211_01_01":
+				request.setAttribute("order", "asc");
+				action = new CustomerListAction();
 				page = action.execute(request);
 				break;
 

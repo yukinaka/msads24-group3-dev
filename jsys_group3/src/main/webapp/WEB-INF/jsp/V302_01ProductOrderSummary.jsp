@@ -39,15 +39,6 @@
 		        
 	        </form>
 	        
-			<br>
-	        <br>
-	        <br>
-	        <br>
-	        <br>
-	        <br>
-	        <br>
-	        <br>
-	        <br>
 	        
 			<%-- エラーメッセージがある場合、出力 --%>
 	        <h4 class="text-danger">
@@ -57,34 +48,36 @@
 				</c:forEach>
 	        </h4>
 			
-			<table class="table table-bordered table-striped mt-4">
-	            <thead>
-	                <tr>
-						<th>商品コード</th>
-						<th>商品名</th>
-						<th>合計数量</th>
-						<th>単価</th>
-						<th>商品別合計金額</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach value="productSummary" items="${requestScope.productSummaryList}">
-	               	 	<tr>
-	                    	<td><c:out value="${ productSummary.itemCode }"/></td>
-	                    	<td><c:out value="${ productSummary.itemName }"/></td>
-	                    	<td><c:out value="${ productSummary.totalNum }"/></td>
-	                    	<td><c:out value="${ productSummary.itemPrice }"/></td>
-	                    	<td><c:out value="${ productSummary.totalPricePerItem }"/></td>
-	                	</tr>
-	                </c:forEach>
-					
-					<tr style="background-color: aqua;">
-						<td colspan="3"></td>
-						<td>総計：</td>
-						<td><c:out value="${requestScope.total}"/></td>
-					</tr>
-				</tbody>
-	        </table>
+			<c:if test="${requestScope.productSummaryList != null}">
+				<table class="table table-bordered table-striped mt-4">
+		            <thead>
+		                <tr>
+							<th>商品コード</th>
+							<th>商品名</th>
+							<th>合計数量</th>
+							<th>単価</th>
+							<th>商品別合計金額</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="productSummary" items="${requestScope.productSummaryList}">
+		               	 	<tr>
+		                    	<td><c:out value="${ productSummary.itemCode }"/></td>
+		                    	<td><c:out value="${ productSummary.itemName }"/></td>
+		                    	<td><c:out value="${ productSummary.totalNum }"/></td>
+		                    	<td><c:out value="${ productSummary.itemPrice }"/></td>
+		                    	<td><c:out value="${ productSummary.totalPricePerItem }"/></td>
+		                	</tr>
+		                </c:forEach>
+						
+						<tr style="background-color: aqua;">
+							<td colspan="3"></td>
+							<td>総計：</td>
+							<td><c:out value="${requestScope.total}"/></td>
+						</tr>
+					</tbody>
+		        </table>
+		    </c:if>
 		
 		</div>
 		
