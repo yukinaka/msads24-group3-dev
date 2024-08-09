@@ -30,11 +30,11 @@
 	       <br>
 	        
 	        <div class="d-flex justify-content-center mb-4">
-	            <form class="d-flex">
-	                <input class="form-control me-2" type="search" placeholder="検索" aria-label="Search">
-	                <button class="btn btn-primary text-nowrap" type="submit">検索</button>
+	            <form class="d-flex" action="/jsys_group3/jsysFC" method="post">
+	                <input class="form-control me-2" type="search" name="custStr" placeholder="検索" aria-label="Search">
+	                <button class="btn btn-primary text-nowrap" type="submit" name="buttonId" value="V202_01_01">検索</button>
 	                <div class="form-check ms-3">
-	                    <input class="form-check-input" type="checkbox" id="ckbutton">
+	                    <input class="form-check-input" type="checkbox" name="ckbutton" value="true">
 	                    <label class="form-check-label text-nowrap" for="ckbutton">
 	                       削除済み項目も含める
 	                    </label>
@@ -69,61 +69,72 @@
 	                        <th>最終更新者</th>
 	                    </tr>
 	                </thead>
-	                <tbody>
-	                    <tr>
-	                        <td><a href="#">KA0001</a></td>
-	                        <td>Aストア</td>
-	                        <td>045-128-3581</td>
-	                        <td>220-0001</td>
-	                        <td>横浜市西区北幸2-1</td>
-	                        <td style="text-align:right">0%</td>
-	                        <td>HA0001</td>
-	                    </tr>
-	                </tbody>
-	                <tbody>
-	                    <tr>
-	                        <td><a href="#">KA0002</a></td>
-	                        <td>Bストア</td>
-	                        <td>045-128-3581</td>
-	                        <td>220-0001</td>
-	                        <td>横浜市西区北幸2-1</td>
-	                        <td style="text-align:right">0%</td>
-	                        <td>HA0001</td>
-	                    </tr>
-	                </tbody>
-	                <tbody>
-	                    <tr>
-	                        <td><a href="#">KA0005</a></td>
-	                        <td>Eストア</td>
-	                        <td>045-128-3581</td>
-	                        <td>220-0001</td>
-	                        <td>横浜市西区北幸2-1</td>
-	                        <td style="text-align:right">0%</td>
-	                        <td>HA0001</td>
-	                    </tr>
-	                </tbody>
-	                <tbody>
-	                    <tr>
-	                        <td><a href="#">KA0006</a></td>
-	                        <td>Fストア</td>
-	                        <td>045-128-3581</td>
-	                        <td>220-0001</td>
-	                        <td>横浜市西区北幸2-1</td>
-	                        <td style="text-align:right">0%</td>
-	                        <td>HA0001</td>
-	                    </tr>
-	                </tbody>
-	                <tbody>
-	                    <tr>
-	                        <td><a href="#">KA0007</a></td>
-	                        <td>Gストア</td>
-	                        <td>045-128-3581</td>
-	                        <td>220-0001</td>
-	                        <td>横浜市西区北幸2-1</td>
-	                        <td style="text-align:right">0%</td>
-	                        <td>HA0001</td>
-	                    </tr>
-	                </tbody>
+	                
+               		<c:if test="${ requestScope.checkbox == true }">
+	                	<c:forEach var="customer" items="${ requestScope.custList }">
+			                <tbody>
+			                    <tr>
+			                    	<td>
+				                    	<form action="/jsys_group3/jsysFC" method="post">
+						                    <input type="hidden" name="custCode" value="<c:out value="${ customer.custCode }" />">
+						                    <input type="hidden" name="custName" value="<c:out value="${ customer.custName }" />">
+									 		<input type="hidden" name="telNo1" value="<c:out value="${ customer.telNo1 }" />">
+									 		<input type="hidden" name="telNo2" value="<c:out value="${ customer.telNo2 }" />">
+									 		<input type="hidden" name="telNo3" value="<c:out value="${ customer.telNo3 }" />">
+									 		<input type="hidden" name="postalCode1" value="<c:out value="${ customer.postalCode1 }" />">
+									 		<input type="hidden" name="address1" value="<c:out value="${ customer.address1 }" />">
+									 		<input type="hidden" name="postalCode2" value="<c:out value="${ customer.postalCode2 }" />">
+									 		<input type="hidden" name="address2" value="<c:out value="${ customer.address2 }" />">
+									 		<input type="hidden" name="discountRate" value="<c:out value="${ customer.discountRate }" />">
+									 		<input type="hidden" name="deleteFlag" value="<c:out value="${ customer.deleteFlag }" />">
+					                        <button type="submit" class="btn btn-light" name="buttonId" value="V202_01_06"><c:out value="${ customer.custCode }" /></button>
+					                    </form>
+			                    	</td>
+			                        <td><c:out value="${ customer.custName }" /></td>
+			                        <td><c:out value="${ customer.telNo1 }" /></td>
+			                        <td><c:out value="${ customer.postalCode1 }" /></td>
+			                        <td><c:out value="${ customer.address1 }" /></td>
+			                        <td style="text-align:right"><c:out value="${ customer.discountRate }" />%</td>
+			                        <td><c:out value="${ customer.lastUpdateBy }" /></td>
+			                    </tr>
+			                </tbody>
+	                	</c:forEach>
+               		</c:if>
+               		
+               		<c:if test="${ requestScope.checkbox == false }">
+	                	<c:forEach var="customer" items="${ requestScope.custList }">
+		               		<c:if test="${ requestScope.checkbox == false }">
+				                <tbody>
+				                    <tr>
+				                    	<td>
+					                    	<form action="/jsys_group3/jsysFC" method="post">
+							                    <input type="hidden" name="custCode" value="<c:out value="${ customer.custCode }" />">
+							                    <input type="hidden" name="custName" value="<c:out value="${ customer.custName }" />">
+										 		<input type="hidden" name="telNo1" value="<c:out value="${ customer.telNo1 }" />">
+										 		<input type="hidden" name="telNo2" value="<c:out value="${ customer.telNo2 }" />">
+										 		<input type="hidden" name="telNo3" value="<c:out value="${ customer.telNo3 }" />">
+										 		<input type="hidden" name="postalCode1" value="<c:out value="${ customer.postalCode1 }" />">
+										 		<input type="hidden" name="address1" value="<c:out value="${ customer.address1 }" />">
+										 		<input type="hidden" name="postalCode2" value="<c:out value="${ customer.postalCode2 }" />">
+										 		<input type="hidden" name="address2" value="<c:out value="${ customer.address2 }" />">
+										 		<input type="hidden" name="discountRate" value="<c:out value="${ customer.discountRate }" />">
+										 		<input type="hidden" name="deleteFlag" value="<c:out value="${ customer.deleteFlag }" />">
+						                        <button type="submit" class="btn btn-light" name="buttonId" value="V202_01_06"><c:out value="${ customer.custCode }" /></button>
+						                    </form>
+				                    	</td>
+				                        <td><c:out value="${ customer.custName }" /></td>
+				                        <td><c:out value="${ customer.telNo1 }" /></td>
+				                        <td><c:out value="${ customer.postalCode1 }" /></td>
+				                        <td><c:out value="${ customer.address1 }" /></td>
+				                        <td style="text-align:right"><c:out value="${ customer.discountRate }" />%</td>
+				                        <td><c:out value="${ customer.lastUpdateBy }" /></td>
+				                    </tr>
+				                </tbody>
+				            </c:if>
+	                	</c:forEach>
+               		</c:if>
+               		
+               		
 	            </table>
 	        </div>
 	        

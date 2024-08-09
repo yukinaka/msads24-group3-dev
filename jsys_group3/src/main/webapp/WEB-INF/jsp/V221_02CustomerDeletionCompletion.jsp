@@ -19,7 +19,9 @@
 		
 		<div class="container text-center mt-5">
 		    <h4 class="my-5">削除が完了しました。</h4>
-		    <button type="button" class="btn btn-primary" name="buttonId" value="V221_02_01">得意先一覧画面へ戻る</button>
+		    <form action="/jsys_group3/jsysFC" method="post">
+		    	<button type="button" class="btn btn-primary" name="buttonId" value="V221_02_01">得意先一覧画面へ戻る</button>
+			</form>
 		</div>
 		
 		<!-- Footer.jspをinclude -->

@@ -30,20 +30,25 @@
 		<div class="container text-center mt-5">
 	        <h2>期間内の受注集計</h2>
 	
-	        <form action="/jsys/jsysFC" method="post" class="my-4">
+	        <form action="/jsys_group3/jsysFC" method="post" class="my-4">
 	            <div class="form-row justify-content-center">
 	                
 	                <div class="form-group">
 			            <input type="date" class="form-control" id="firstDay" name="firstDay">～
 			            <input type="date" class="form-control" id="lastDay" name="lastDay">
-			            <button type="submit" class="btn btn-primary text-nowrap" name="buttonId" value="V301_01">集計</button>
+			            <button type="submit" class="btn btn-primary text-nowrap" name="buttonId" value="V301_01_01">集計</button>
 			        </div>
 	            </div>
 		        
 	        </form>
 	       
-	        
-	        <h4 class="text-danger">エラーメッセージエリア</h4>
+	        <%-- エラーメッセージがある場合、出力 --%>
+	        <h4 class="text-danger">
+	        	<c:out value="${requestScope.errorMessage}"/>
+	        	<c:forEach var="message" items="${requestScope.errorMessageList}">
+					<c:out value="${message}"/><br>
+				</c:forEach>
+	        </h4>
 	        
 	        <br>
 	        <br>
@@ -64,20 +69,17 @@
 	                </tr>
 	            </thead>
 	            <tbody>
-	                <tr>
-	                    <td>KA0001</td>
-	                    <td>Aストア</td>
-	                    <td>500000</td>
-	                </tr>
-	                <tr>
-	                    <td>KA0015</td>
-	                    <td>Oストア</td>
-	                    <td>30000</td>
-	                </tr>
+	                <c:forEach var="periodSummary" items="${requestScope.periodSummaryList}">
+	               	 	<tr>
+	                    	<td><c:out value="${periodSummary.custCode}"/></td>
+	                    	<td><c:out value="${periodSummary.custName}"/></td>
+	                    	<td><c:out value="${periodSummary.totalPricePerCust}"/></td>
+	                	</tr>
+	                </c:forEach>
 	                <tr style="background-color: aqua;">
 	                    <td></td>
 	                    <td>総計</td>
-	                    <td>530000</td>
+	                    <td><c:out value="${requestScope.total}"/></td>
 	                </tr>
 	            </tbody>
 	        </table>
