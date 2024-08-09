@@ -195,6 +195,12 @@ public class FrontController extends HttpServlet {
 				page = "V201_01CustomerRegistration.jsp";
 				break;
 
+			case "V700_00":
+				action = new OrderSummaryWithinPeriodActionValidation();
+				page = action.execute(request);
+//				page = "V201_01CustomerRegistration.jsp";
+				break;
+
 //			case "V101_03_02":
 //				action = new LoginAction();
 //				page = action.execute(request);
