@@ -26,6 +26,8 @@ public class CustomerListAction implements ActionIF {
 	public String execute(HttpServletRequest request) {
 
 		String page = "V202_01CustomerList.jsp";
+		int currentPage = 1;
+		int lastPage = 1;
 
 		try {
 
@@ -39,24 +41,16 @@ public class CustomerListAction implements ActionIF {
 				}
 			}
 
-			CustomerListLogic logic = new CustomerListLogic();
-
 			String order = (String)request.getAttribute("order");
+			CustomerListLogic logic = new CustomerListLogic();
 			List<Customer> custList = logic.findAllCustomer(order);
-
 			request.setAttribute("custList", custList);
 
 			int size = 20;
-			int lastPage = (custList.size() + (size - 1)) / size;
-			int currentPage = 1;
-
-			request.setAttribute("lastPage", lastPage);
-			request.setAttribute("currentPage", currentPage);
+			lastPage = (custList.size() + (size - 1)) / size;
 
 			List<Customer> custListInCurrentPage = logic.findCustomerInCurrentPage(custList, size, lastPage, currentPage);
 			request.setAttribute("custListInCurrentPage", custListInCurrentPage);
-
-			request.setAttribute("checkbox", false);
 
 		} catch (SalesBusinessException e) {
 			request.setAttribute("errorMessage", e.getMessage());
@@ -66,6 +60,11 @@ public class CustomerListAction implements ActionIF {
 		} catch (SalesSystemException e) {
 			request.setAttribute("errorMessage", e.getMessage());
 			page = "V901_01SystemErrorPage.jsp";
+			
+		} finally {
+			request.setAttribute("currentPage", currentPage);
+			request.setAttribute("lastPage", lastPage);
+			request.setAttribute("checkbox", false);
 		}
 
 		return page;
