@@ -45,6 +45,10 @@ public class FrontController extends HttpServlet {
 				action = new LoginAction();
 				page = action.execute(request);
 				break;
+				
+			case "V101_02":
+				page = "V101_02MainMenu.jsp";
+				break;
 
 			case "V101_02_01":
 				page = "V101_03CustomerManagementMenu.jsp";
@@ -112,11 +116,11 @@ public class FrontController extends HttpServlet {
 				action = new CustomerListChangePageAction();
 				page = action.execute(request);
 				break;
-
-			case "V202_01_05":
-				action = new CustomerListChangePageAction();
-				page = action.execute(request);
-				break;
+//
+//			case "V202_01_05":
+//				action = new CustomerListChangePageAction();
+//				page = action.execute(request);
+//				break;
 
 			case "V202_01_06":
 				action = new CustomerDetailAction();
@@ -124,7 +128,9 @@ public class FrontController extends HttpServlet {
 				break;
 
 			case "V211_01_01":
-				page = "V202_01CustomerList.jsp";
+				request.setAttribute("order", "dft");
+				action = new CustomerListAction();
+				page = action.execute(request);
 				break;
 
 			case "V211_01_02":

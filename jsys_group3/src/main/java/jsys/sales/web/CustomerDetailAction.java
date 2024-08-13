@@ -47,8 +47,6 @@ public class CustomerDetailAction implements ActionIF{
 			String discountRate = request.getParameter("discountRate");
 			String deleteFlag = request.getParameter("deleteFlag");
 
-			System.out.println("custName : " + custName);
-
 			Customer customer = new Customer();
 			customer.setCustCode(custCode);
 			customer.setCustName(custName);
