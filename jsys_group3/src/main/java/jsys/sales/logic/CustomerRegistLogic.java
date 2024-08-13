@@ -76,7 +76,6 @@ public class CustomerRegistLogic {
 	/**
 	 * 引数で指定された得意先オブジェクトの情報を得意先テーブルに登録する。
 	 * @param customer 得意先オブジェクト
-	 * @throws SalesBusinessException 業務エラー
 	 * @throws SalesSystemException システムエラー
 	 */
 	public void insertCustomer(Customer customer) throws SalesSystemException {
@@ -102,9 +101,7 @@ public class CustomerRegistLogic {
 
 			/*登録完了判断*/
 			if(!result) {
-
 				throw new SalesSystemException("システムエラーが発生しました。");
-
 			}
 
 			//得意先採番テーブルの更新

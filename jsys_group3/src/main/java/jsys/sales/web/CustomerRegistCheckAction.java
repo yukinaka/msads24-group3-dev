@@ -25,6 +25,7 @@ public class CustomerRegistCheckAction implements ActionIF{
 	public String execute(HttpServletRequest request){
 
 		String page = "V201_02CustomerRegistrationConfirmation.jsp";
+		Customer customer = null;
 		try {
 
 			HttpSession session = request.getSession(false);
@@ -98,12 +99,7 @@ public class CustomerRegistCheckAction implements ActionIF{
 			    }
 			}
 
-
-			if (!errorMessageList.isEmpty()) {
-				throw new SalesBusinessException(errorMessageList);
-			}
-
-			Customer customer = new Customer();
+			customer = new Customer();
 			customer.setCustName(custName);
 			customer.setTelNo1(telNo1);
 			customer.setTelNo2(telNo2);
@@ -113,12 +109,26 @@ public class CustomerRegistCheckAction implements ActionIF{
 			customer.setPostalCode2(postalCode2);
 			customer.setAddress2(address2);
 			customer.setDiscountRate(Integer.parseInt(discountRate));
+			
+			if (!errorMessageList.isEmpty()) {
+				request.setAttribute("telNo1_1", request.getParameter("telNo1-1"));
+				request.setAttribute("telNo1_2", request.getParameter("telNo1-2"));
+				request.setAttribute("telNo1_3", request.getParameter("telNo1-3"));
+				request.setAttribute("telNo2_1", request.getParameter("telNo2-1"));
+				request.setAttribute("telNo2_2", request.getParameter("telNo2-2"));
+				request.setAttribute("telNo2_3", request.getParameter("telNo2-3"));
+				request.setAttribute("telNo3_1", request.getParameter("telNo3-1"));
+				request.setAttribute("telNo3_2", request.getParameter("telNo3-2"));
+				request.setAttribute("telNo3_3", request.getParameter("telNo3-3"));
+				request.setAttribute("postalCode1_1", request.getParameter("postalCode1-1"));
+				request.setAttribute("postalCode1_2", request.getParameter("postalCode1-2"));
+				request.setAttribute("postalCode2_1", request.getParameter("postalCode2-1"));
+				request.setAttribute("postalCode2_2", request.getParameter("postalCode2-2"));
+				throw new SalesBusinessException(errorMessageList);
+			}
 
 			CustomerRegistLogic logic = new CustomerRegistLogic();
 			logic.checkCustomer(customer);
-
-			// 処理結果の格納
-			request.setAttribute("customer", customer);
 
 		} catch (SalesBusinessException e) {
 			request.setAttribute("errorMessage", e.getMessage());
@@ -131,6 +141,8 @@ public class CustomerRegistCheckAction implements ActionIF{
 			// エラーメッセージの格納
 			request.setAttribute("errorMessage", e.getMessage());
 			page = "V901_01SystemError.jsp";
+		} finally {
+			request.setAttribute("customer", customer);
 		}
 		return page;
 	}

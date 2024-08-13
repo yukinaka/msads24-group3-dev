@@ -89,7 +89,8 @@ public class FrontController extends HttpServlet {
 				break;
 
 			case "V201_02_02":
-				page = "V201_01CustomerRegistration.jsp";
+				action = new CustomerRegistPageAction();
+				page = action.execute(request);
 				break;
 
 			case "V201_03_01":
