@@ -20,25 +20,32 @@
 		<%@ include file="V400_05Navbar.jsp" %>
 		
 		<div class="container mt-5 text-center">
-			<h2>商品別受注集計</h2>
-			
-			<form action="/jsys_group3/jsysFC" method="post" class="my-4">
-	            <div class="form-row justify-content-center">
-	                
-	                <div class="form-group">
-						<label for="CustomerCodeName" class="form-label text-nowrap">得意先コード・得意先名を入力し、選択してください。</label>
-						<input list="CustomerCodeNameList" id="CustomerCodeName" name="CustomerCodeName" class="form-control" />
-						<datalist id="CustomerCodeNameList">
-							<c:forEach var="customer" items="${ requestScope.customerList }">
-								<option value="<c:out value="${ customer.custCode }"/><c:out value="${ customer.custName }"/>"></option>
-							</c:forEach>
-						</datalist>
-			            <button type="submit" class="btn btn-primary text-nowrap mt-4" name="buttonId" value="V302_01">集計</button>
-			        </div>
-	            </div>
-		        
-	        </form>
-	        
+	    <h2>商品別受注集計</h2>
+	
+<div class="container mt-5 text-center">
+    <h2>商品別受注集計</h2>
+
+    <form action="/jsys_group3/jsysFC" method="post" class="my-4">
+        <div class="row justify-content-center align-items-end">
+            <div class="col-auto">
+                <label for="CustomerCodeName" class="form-label text-nowrap">得意先コード・得意先名を入力し、選択してください。</label>
+                <input list="CustomerCodeNameList" id="CustomerCodeName" name="CustomerCodeName" class="form-control" style="width: 300px;" />
+                <datalist id="CustomerCodeNameList">
+                    <c:forEach var="customer" items="${requestScope.customerList}">
+                        <option value="${customer.custCode} ${customer.custName}"></option>
+                    </c:forEach>
+                </datalist>
+            </div>
+            <div class="col-auto d-flex align-items-end">
+                <button type="submit" class="btn btn-primary text-nowrap mt-0" name="buttonId" value="V302_01">集計</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+			        
 	        
 			<%-- エラーメッセージがある場合、出力 --%>
 	        <h4 class="text-danger">

@@ -72,7 +72,6 @@
 	                
                		<c:if test="${ requestScope.checkbox == true }">
 	                	<c:forEach var="customer" items="${ requestScope.custListInCurrentPage }">
-	                	あああ
 			                <tbody>
 			                    <tr>
 			                    	<td>

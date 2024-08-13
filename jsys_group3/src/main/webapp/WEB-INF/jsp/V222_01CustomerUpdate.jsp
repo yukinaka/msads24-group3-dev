@@ -27,7 +27,7 @@
 	<%@ include file="V400_03Navbar.jsp" %>
 	
 	<div class="container mt-5">
-		<h2 class="text-center">得意先変更</h2>
+		<h2 class="text-center">得意先変更<c:out value="${requestScope.customer.custName}" /></h2>
 		
 		<%-- エラーメッセージがある場合、出力 --%>
      	<h4 class="text-center text-danger mb-3">
@@ -45,20 +45,21 @@
 			    <div class="col-10">
 			    	<label for="telNo1" class="text-left form-label">得意先名</label>
 	                <div class="input-group mb-3">
-		                <input type="text" class="form-control" id="custName" name="custName" value="Aストア" maxlength="32" title="得意先名は32文字以内で入力してください。">
+		                <input type="text" class="form-control" id="custName" name="custName" maxlength="32" title="得意先名は32文字以内で入力してください。" required>
 					</div>
 			    </div>
 			 </div>
+			  
             
             <div class="row row-cols-auto mb-3">
 			    <div class="col-6">
 			    	<label for="telNo1" class="text-left form-label">電話番号1</label>
 	                <div class="input-group mb-3">
-		                <input type="text" class="form-control" id="telNo1" name="telNo1-1" value="045" pattern="^[0-9]{2-3}$"title="数値2～4桁で入力してください。" required>
+	                	<input type="text" class="form-control" id="telNo1" name="telNo1-1" maxlength="4" pattern="^[0-9]{2,4}$" title="数値2～4桁で入力してください。" required>
 		    			<span class="input-group-text">-</span>
-		                <input type="text" class="form-control" id="telNo1" name="telNo1-2" value="128" pattern="^[0-9]{3-4}$"title="数値3～4桁で入力してください。" required>
+		                <input type="text" class="form-control" id="telNo1" name="telNo1-2" maxlength="4" pattern="^[0-9]{3,4}$" title="数値3～4桁で入力してください。" required>
 		    			<span class="input-group-text">-</span>
-		                <input type="text" class="form-control" id="telNo1" name="telNo1-3" value="3581" pattern="^[0-9]{4}$"title="数値3～4桁で入力してください。" required>
+		                <input type="text" class="form-control" id="telNo1" name="telNo1-3" maxlength="4" pattern="^[0-9]{3,4}$" title="数値3～4桁で入力してください。" required>
 					</div>
 			    </div>
 			</div>
@@ -67,11 +68,11 @@
 			    <div class="col-6">
 			    	<label for="telNo1" class="text-left form-label">電話番号2</label>
 	                <div class="input-group mb-3">
-		                <input type="text" class="form-control" id="telNo1" name="telNo2-1" pattern="^[0-9]{2-3}$"title="数値2～4桁で入力してください。" >
+		                <input type="text" class="form-control" id="telNo2" name="telNo2-1" maxlength="4" pattern="^[0-9]{2,4}$" title="数値2～4桁で入力してください。" >
 		    			<span class="input-group-text">-</span>
-		                <input type="text" class="form-control" id="telNo1" name="telNo2-2" pattern="^[0-9]{3-4}$"title="数値3～4桁で入力してください。" >
+		                <input type="text" class="form-control" id="telNo2" name="telNo2-2" maxlength="4" pattern="^[0-9]{3,4}$" title="数値3～4桁で入力してください。" >
 		    			<span class="input-group-text">-</span>
-		                <input type="text" class="form-control" id="telNo1" name="telNo2-3" pattern="^[0-9]{4}$"title="数値3～4桁で入力してください。" >
+		                <input type="text" class="form-control" id="telNo2" name="telNo2-3" maxlength="4" pattern="^[0-9]{3,4}$" title="数値3～4桁で入力してください。" >
 					</div>
 			    </div>
 			</div>
@@ -80,11 +81,11 @@
 			    <div class="col-6">
 			    	<label for="telNo1" class="text-left form-label">電話番号3</label>
 	                <div class="input-group mb-3">
-		                <input type="text" class="form-control" id="telNo1" name="telNo3-1" pattern="^[0-9]{2-3}$"title="数値2～4桁で入力してください。" >
+		                <input type="text" class="form-control" id="telNo3" name="telNo3-1" maxlength="4" pattern="^[0-9]{2,3}$"title="数値2～4桁で入力してください。" >
 		    			<span class="input-group-text">-</span>
-		                <input type="text" class="form-control" id="telNo1" name="telNo3-2" pattern="^[0-9]{3-4}$"title="数値3～4桁で入力してください。" >
+		                <input type="text" class="form-control" id="telNo3" name="telNo3-2" maxlength="4" pattern="^[0-9]{3,4}$"title="数値3～4桁で入力してください。" >
 		    			<span class="input-group-text">-</span>
-		                <input type="text" class="form-control" id="telNo1" name="telNo3-3" pattern="^[0-9]{4}$"title="数値3～4桁で入力してください。" >
+		                <input type="text" class="form-control" id="telNo3" name="telNo3-3" maxlength="4" pattern="^[0-9]{3,4}$"title="数値3～4桁で入力してください。" >
 					</div>
 			    </div>
 			</div>
@@ -145,8 +146,6 @@
         </form> 
         
          
-        
-        
 	</div>
 	
 	<!-- Footer.jspをinclude -->
