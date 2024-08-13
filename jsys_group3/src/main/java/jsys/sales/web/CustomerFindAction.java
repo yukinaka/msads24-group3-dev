@@ -81,7 +81,9 @@ public class CustomerFindAction implements ActionIF {
 		} catch (SalesBusinessException e) {
 			request.setAttribute("errorMessage", e.getMessage());
 			request.setAttribute("errorMessageList", e.getMessageList());
-			page = "V202_01CustomerList.jsp";
+			request.setAttribute("order", "dft");
+			ActionIF action = new CustomerListAction();
+			page = action.execute(request);
 
 		} catch (SalesSystemException e) {
 			request.setAttribute("errorMessage", e.getMessage());
