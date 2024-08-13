@@ -77,8 +77,8 @@
 		 		<input type="hidden" name="deleteFlag" value="<c:out value="${ requestScope.customer.deleteFlag }" />">
 		 		
 	            <div class="mt-3">
-		    		<button class="btn btn-primary" name="buttonId" value="V222_02_01">はい</button>
-		    		<button class="btn btn-secondary" name="buttonId" value="V222_02_02">キャンセル</button>
+		    		<button type="submit" class="btn btn-primary" name="buttonId" value="V222_02_01">はい</button>
+		    		<button type="submit" class="btn btn-secondary" name="buttonId" value="V222_02_02">キャンセル</button>
 				</div>
 				
 	     </form>

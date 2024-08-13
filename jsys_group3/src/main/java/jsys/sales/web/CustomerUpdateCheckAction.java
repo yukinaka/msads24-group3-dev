@@ -26,6 +26,7 @@ public class CustomerUpdateCheckAction implements ActionIF{
 	public String execute(HttpServletRequest request){
 
 		String page = "V222_02CustomerModificationConfirmation.jsp";
+		Customer customer = null;
 		try {
 
 			HttpSession session = request.getSession(false);
@@ -101,11 +102,8 @@ public class CustomerUpdateCheckAction implements ActionIF{
 			        errorMessageList.add("郵便番号2が不正です。");
 			    }
 			}
-			if (!errorMessageList.isEmpty()) {
-				throw new SalesBusinessException(errorMessageList);
-			}
 
-			Customer customer = new Customer();
+			customer = new Customer();
 			customer.setCustCode(custCode);
 			customer.setCustName(custName);
 			customer.setTelNo1(telNo1);
@@ -118,6 +116,23 @@ public class CustomerUpdateCheckAction implements ActionIF{
 			customer.setDiscountRate(Integer.parseInt(discountRate));
 			customer.setDeleteFlag(Boolean.getBoolean(deleteFlag));
 
+			if (!errorMessageList.isEmpty()) {
+				request.setAttribute("telNo1_1", request.getParameter("telNo1-1"));
+				request.setAttribute("telNo1_2", request.getParameter("telNo1-2"));
+				request.setAttribute("telNo1_3", request.getParameter("telNo1-3"));
+				request.setAttribute("telNo2_1", request.getParameter("telNo2-1"));
+				request.setAttribute("telNo2_2", request.getParameter("telNo2-2"));
+				request.setAttribute("telNo2_3", request.getParameter("telNo2-3"));
+				request.setAttribute("telNo3_1", request.getParameter("telNo3-1"));
+				request.setAttribute("telNo3_2", request.getParameter("telNo3-2"));
+				request.setAttribute("telNo3_3", request.getParameter("telNo3-3"));
+				request.setAttribute("postalCode1_1", request.getParameter("postalCode1-1"));
+				request.setAttribute("postalCode1_2", request.getParameter("postalCode1-2"));
+				request.setAttribute("postalCode2_1", request.getParameter("postalCode2-1"));
+				request.setAttribute("postalCode2_2", request.getParameter("postalCode2-2"));
+				throw new SalesBusinessException(errorMessageList);
+			}
+			
 			CustomerUpdateLogic logic = new CustomerUpdateLogic();
 			logic.checkCustomer(customer);
 
@@ -135,6 +150,8 @@ public class CustomerUpdateCheckAction implements ActionIF{
 			// エラーメッセージの格納
 			request.setAttribute("errorMessage", e.getMessage());
 			page = "V901_01SystemError.jsp";
+		} finally {
+			request.setAttribute("customer", customer);
 		}
 		return page;
 	}

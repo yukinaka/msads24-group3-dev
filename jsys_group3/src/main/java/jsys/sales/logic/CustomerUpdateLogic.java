@@ -74,7 +74,6 @@ public class CustomerUpdateLogic {
 	/**
 	 * 引数で指定された得意先コードの得意先情報を変更する
 	 * @param custCode 得意先コード
-	 * @throws SalesBusinessException 業務エラー
 	 * @throws SalesSystemException システムエラー
 	 */
 	public void updateCustomer(Customer customer)

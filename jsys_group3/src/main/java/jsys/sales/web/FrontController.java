@@ -179,7 +179,9 @@ public class FrontController extends HttpServlet {
 				break;
 
 			case "V222_03_01":
-				page = "V202_01CustomerList.jsp";
+				request.setAttribute("order", "dft");
+				action = new CustomerListAction();
+				page = action.execute(request);
 				break;
 
 			case "V223_01_01":
