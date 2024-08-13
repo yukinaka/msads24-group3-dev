@@ -55,6 +55,7 @@ public class CustomerRegistAction implements ActionIF{
 			customer.setPostalCode2(postalCode2);
 			customer.setAddress2(address2);
 			customer.setDiscountRate(Integer.parseInt(discountRate));
+			customer.setLastUpdateBy(loginEmployee.getEmpNo());
 
 			CustomerRegistLogic logic = new CustomerRegistLogic();
 			logic.insertCustomer(customer);

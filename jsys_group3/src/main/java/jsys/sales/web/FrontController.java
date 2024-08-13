@@ -73,7 +73,9 @@ public class FrontController extends HttpServlet {
 				break;
 
 			case "V101_04_02":
-
+				request.setAttribute("order", "dft");
+				action = new CustomerListAction();
+				action.execute(request);
 				page = "V302_01ProductOrderSummary.jsp";
 				break;
 
@@ -134,7 +136,7 @@ public class FrontController extends HttpServlet {
 				break;
 
 			case "V211_01_02":
-				action = new CustomerUpdateCheckAction();
+				action = new CustomerUpdatePageAction();
 				page = action.execute(request);
 				break;
 
@@ -172,7 +174,8 @@ public class FrontController extends HttpServlet {
 				break;
 
 			case "V222_02_02":
-				page = "V222_01CustomerUpdate.jsp";
+				action = new CustomerUpdatePageAction();
+				page = action.execute(request);
 				break;
 
 			case "V222_03_01":

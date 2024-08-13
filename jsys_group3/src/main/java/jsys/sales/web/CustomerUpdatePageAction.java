@@ -1,8 +1,7 @@
 /**
- * @author J05_田中勇起（2024/8/9）
+ * @author J22_油井清子（2024/8/9）
  */
 package jsys.sales.web;
-
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jsys.sales.common.SalesSystemException;
@@ -10,26 +9,27 @@ import jsys.sales.entity.Customer;
 import jsys.sales.entity.Employee;
 
 /**
- *得意先詳細情報画面へ遷移する
+ *得意先変更画面への遷移を行う
  */
-public class CustomerDetailAction implements ActionIF{
+public class CustomerUpdatePageAction implements ActionIF{
+
+
 	/**
-	 *得意先詳細情報画面への遷移を実行する
-	 * @param request リクエストオブジェクト
+	 *変更画面への遷移を実行する
+	 * @param request　リクエストオブジェクト
 	 * @return 遷移先ページ
 	 */
 	public String execute(HttpServletRequest request){
 
-		String page = "V211_01CustomerDetails.jsp";
+		String page = "V222_01CustomerUpdate.jsp";
 		try {
-			HttpSession session = request.getSession(false);
-			Employee loginEmployee;
 
+			HttpSession session = request.getSession(false);
 			if(session==null) {
 				throw new SalesSystemException("セッションが無効です。");
 			}else {
 
-				loginEmployee = (Employee)session.getAttribute("loginEmployee");
+				Employee loginEmployee = (Employee)session.getAttribute("loginEmployee");
 				if(loginEmployee == null) {
 					throw new SalesSystemException("ログイン情報が存在しません。");
 				}
@@ -63,8 +63,29 @@ public class CustomerDetailAction implements ActionIF{
 			customer.setLastUpdateBy(lastUpdateBy);
 
 			request.setAttribute("customer", customer);
+			
+			String[] telNo1Parts = telNo1 != "" ? telNo1.split("-") : new String[]{"", "", ""};
+			request.setAttribute("telNo1_1", telNo1Parts[0]);
+			request.setAttribute("telNo1_2", telNo1Parts[1]);
+			request.setAttribute("telNo1_3", telNo1Parts[2]);
+			String[] telNo2Parts = telNo2 != "" ? telNo2.split("-") : new String[]{"", "", ""};
+			request.setAttribute("telNo2_1", telNo2Parts[0]);
+			request.setAttribute("telNo2_2", telNo2Parts[1]);
+			request.setAttribute("telNo2_3", telNo2Parts[2]);
+			String[] telNo3Parts = telNo3 != "" ? telNo3.split("-") : new String[]{"", "", ""};
+			request.setAttribute("telNo3_1", telNo3Parts[0]);
+			request.setAttribute("telNo3_2", telNo3Parts[1]);
+			request.setAttribute("telNo3_3", telNo3Parts[2]);
+			String[] postalCode1Parts = postalCode1 != "" ? postalCode1.split("-") : new String[]{"", ""};
+			request.setAttribute("postalCode1_1", postalCode1Parts[0]);
+			request.setAttribute("postalCode1_2", postalCode1Parts[1]);
+			String[] postalCode2Parts = postalCode2 != "" ? postalCode2.split("-") : new String[]{"", ""};
+			request.setAttribute("postalCode2_1", postalCode2Parts[0]);
+			request.setAttribute("postalCode2_2", postalCode2Parts[1]);
+			
 
 		} catch (SalesSystemException e) {
+			e.printStackTrace();
 			request.setAttribute("errorMessage", e.getMessage());
 			page = "V901_01SystemError.jsp";
 		}

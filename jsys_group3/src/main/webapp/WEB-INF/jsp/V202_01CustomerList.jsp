@@ -119,6 +119,7 @@
 										 		<input type="hidden" name="address2" value="<c:out value="${ customer.address2 }" />">
 										 		<input type="hidden" name="discountRate" value="<c:out value="${ customer.discountRate }" />">
 										 		<input type="hidden" name="deleteFlag" value="<c:out value="${ customer.deleteFlag }" />">
+										 		<input type="hidden" name="lastUpdateBy" value="<c:out value="${ customer.lastUpdateBy }" />">
 						                        <button type="submit" class="btn btn-light" name="buttonId" value="V202_01_06"><c:out value="${ customer.custCode }" /></button>
 						                    </form>
 				                    	</td>

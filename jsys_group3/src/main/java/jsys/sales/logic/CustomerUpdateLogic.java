@@ -4,6 +4,7 @@
 package jsys.sales.logic;
 import java.sql.Connection;
 import java.sql.SQLException;
+
 import jsys.sales.common.SalesBusinessException;
 import jsys.sales.common.SalesSystemException;
 import jsys.sales.dao.ConnectionManager;
@@ -47,7 +48,9 @@ public class CustomerUpdateLogic {
 			/*得意先名重複判断*/
 			if(findCustomer != null) {
 
-				throw new SalesBusinessException("その得意先名は既に登録されています。");
+				if (!findCustomer.getCustCode().equals(customer.getCustCode())) {
+					throw new SalesBusinessException("その得意先名は既に登録されています。");
+				}
 
 			}
 

@@ -27,13 +27,13 @@
 	                
 	                <div class="form-group">
 						<label for="CustomerCodeName" class="form-label text-nowrap">得意先コード・得意先名を入力し、選択してください。</label>
-						<input list="CustomerCodeNameList" id="CustomerCodeName" name="CustomerCodeName" class="form-control" />
-						<datalist id="CustomerCodeNameList">
-							<c:forEach var="customer" items="${ requestScope.customerList }">
-								<option value="<c:out value="${ customer.custCode }"/><c:out value="${ customer.custName }"/>"></option>
+						<input list="CustomerCodeNameList" id="CustomerCodeName" name="CustomerCodeName" class="form-control" value="<c:out value="${ requestScope.custCodeName }" />"/>
+						<datalist id="CustomerCodeNameList" name="CustomerCodeNameList">
+							<c:forEach var="customer" items="${ requestScope.custList }">
+								<option value="<c:out value="${ customer.custCode }"/> : <c:out value="${ customer.custName }"/>"></option>
 							</c:forEach>
 						</datalist>
-			            <button type="submit" class="btn btn-primary text-nowrap mt-4" name="buttonId" value="V302_01">集計</button>
+			            <button type="submit" class="btn btn-primary text-nowrap mt-4" name="buttonId" value="V302_01_01">集計</button>
 			        </div>
 	            </div>
 		        
@@ -83,11 +83,6 @@
 		
 		<!-- Footer.jspをinclude -->
 		<%@ include file="Footer.jsp" %>
-		
-		<!-- ブートストラップのJSと依存関係をインクルード -->
-		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 		
 	</body>
 </html>

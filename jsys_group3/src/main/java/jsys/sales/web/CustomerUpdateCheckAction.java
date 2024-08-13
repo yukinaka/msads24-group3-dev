@@ -29,16 +29,18 @@ public class CustomerUpdateCheckAction implements ActionIF{
 		try {
 
 			HttpSession session = request.getSession(false);
+			Employee loginEmployee;
 			if(session==null) {
 				throw new SalesSystemException("セッションが無効です。");
 			}else {
 
-				Employee loginEmployee = (Employee)session.getAttribute("loginEmployee");
+				loginEmployee = (Employee)session.getAttribute("loginEmployee");
 				if(loginEmployee == null) {
 					throw new SalesSystemException("ログイン情報が存在しません。");
 				}
 			}
 
+			String custCode = request.getParameter("custCode");
 			String custName = request.getParameter("custName");
 			String telNo1 = request.getParameter("telNo1-1") + "-" + request.getParameter("telNo1-2") + "-" + request.getParameter("telNo1-3");
 			String telNo2 = request.getParameter("telNo2-1") + "-" + request.getParameter("telNo2-2") + "-" + request.getParameter("telNo2-3");
@@ -48,6 +50,7 @@ public class CustomerUpdateCheckAction implements ActionIF{
 			String postalCode2 = request.getParameter("postalCode2-1") + "-" + request.getParameter("postalCode2-2");
 			String address2 = request.getParameter("address2");
 			String discountRate = request.getParameter("discountRate");
+			String deleteFlag = request.getParameter("deleteFlag");
 
 			ArrayList<String> errorMessageList = new ArrayList<>();
 
@@ -92,6 +95,7 @@ public class CustomerUpdateCheckAction implements ActionIF{
 			}
 
 			Customer customer = new Customer();
+			customer.setCustCode(custCode);
 			customer.setCustName(custName);
 			customer.setTelNo1(telNo1);
 			customer.setTelNo2(telNo2);
@@ -101,6 +105,7 @@ public class CustomerUpdateCheckAction implements ActionIF{
 			customer.setPostalCode2(postalCode2);
 			customer.setAddress2(address2);
 			customer.setDiscountRate(Integer.parseInt(discountRate));
+			customer.setDeleteFlag(Boolean.getBoolean(deleteFlag));
 
 			CustomerUpdateLogic logic = new CustomerUpdateLogic();
 			logic.checkCustomer(customer);

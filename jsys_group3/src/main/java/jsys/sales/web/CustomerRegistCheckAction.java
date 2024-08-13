@@ -51,7 +51,7 @@ public class CustomerRegistCheckAction implements ActionIF{
 			ArrayList<String> errorMessageList = new ArrayList<>();
 
 			if (telNo2.equals("--")) {
-				telNo2 = null;
+				telNo2 = "";
 			} else {
 
 				if (!telNo2.matches("^[0-9]{2,4}-[0-9]{3,4}-[0-9]{3,4}$")) {
@@ -60,7 +60,7 @@ public class CustomerRegistCheckAction implements ActionIF{
 			}
 
 			if (telNo3.equals("--")) {
-				telNo3 = null;
+				telNo3 = "";
 			} else {
 
 				if (!telNo2.matches("^[0-9]{2,4}-[0-9]{3,4}-[0-9]{3,4}$")) {
@@ -69,7 +69,7 @@ public class CustomerRegistCheckAction implements ActionIF{
 			}
 
 			if (postalCode1.equals("-")) {
-				postalCode1 = null;
+				postalCode1 = "";
 			} else {
 
 				if (!postalCode1.matches("^[0-9]{3}-[0-9]{4}$")) {
@@ -78,7 +78,7 @@ public class CustomerRegistCheckAction implements ActionIF{
 			}
 
 			if (postalCode2.equals("-")) {
-				postalCode2 = null;
+				postalCode2 = "";
 			} else {
 
 				if (!postalCode2.matches("^[0-9]{3}-[0-9]{4}$")) {

@@ -3,7 +3,6 @@
  */
 package jsys.sales.web;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -12,7 +11,6 @@ import jsys.sales.common.SalesBusinessException;
 import jsys.sales.common.SalesSystemException;
 import jsys.sales.entity.Customer;
 import jsys.sales.entity.Employee;
-import jsys.sales.logic.CustomerFindLogic;
 import jsys.sales.logic.CustomerListLogic;
 
 /**
