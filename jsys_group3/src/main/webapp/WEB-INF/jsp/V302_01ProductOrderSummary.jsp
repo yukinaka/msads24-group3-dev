@@ -39,7 +39,6 @@
 		        
 	        </form>
 	        
-	        
 			<%-- エラーメッセージがある場合、出力 --%>
 	        <h4 class="text-danger">
 	        	<c:out value="${requestScope.errorMessage}"/>

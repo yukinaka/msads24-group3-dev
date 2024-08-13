@@ -3,9 +3,10 @@
  */
 package jsys.sales.dao;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import jsys.sales.entity.ProductSummary;
 
 /**
@@ -31,59 +32,43 @@ public class ProductSummaryDAO {
 	 */
 	public ArrayList<ProductSummary> productOrderSummary(String custCode) throws SQLException {
 
-//		String sql ="select order_details.item_code, item.item_name, sum(order_details.order_num) as total_num, item.price "
-//				+ "from orders inner join ( order_details inner join item on order_details.item_code = item.item_code ) on orders.order_no = order_details.order_no "
-//				+ "where orders.customer_code = ? "
-//				+ "group by order_details.item_code;";
-//
-//		PreparedStatement stmt = null;
-//		ResultSet res = null;
-//		ArrayList<ProductSummary> productSummaryList = null;
-//
-//		try {
-//			stmt = con.prepareStatement(sql);
-//			stmt.setString(1,custCode);
-//
-//			res = stmt.executeQuery();
-//			ProductSummary productSummary=null;
-//
-//			while (res.next()) {
-//				if(productSummaryList==null) {
-//					productSummaryList = new ArrayList<>();
-//				}
-//				productSummary = new ProductSummary();
-//				productSummary.setItemCode(res.getString("item_code"));
-//				productSummary.setItemName(res.getString("item_name"));
-//				productSummary.setItemPrice(res.getInt("price"));
-//				productSummary.setTotalNum(res.getInt("total_num"));
-//
-//				productSummaryList.add(productSummary);
-//			}
-//		} finally {
-//
-//			if (res != null) {
-//				res.close();
-//			}
-//			if (stmt != null) {
-//				stmt.close();
-//			}
-//		}
-//		return productSummaryList;
-		
-		ArrayList<ProductSummary> productSummaryList = new ArrayList<>();
-		
-		for (int i=1; i<=15; i++) {
-			
-			ProductSummary productSummary = new ProductSummary();
-			productSummary.setItemCode(String.format("P%02d", i));
-			productSummary.setItemName("商品" + i);
-			productSummary.setItemPrice(300);
-			productSummary.setTotalNum(50);
+		String sql ="select order_details.item_code, item.item_name, sum(order_details.order_num) as total_num, item.price "
+				+ "from orders inner join ( order_details inner join item on order_details.item_code = item.item_code ) on orders.order_no = order_details.order_no "
+				+ "where orders.customer_code = ? "
+				+ "group by order_details.item_code;";
 
-			productSummaryList.add(productSummary);
+		PreparedStatement stmt = null;
+		ResultSet res = null;
+		ArrayList<ProductSummary> productSummaryList = null;
+
+		try {
+			stmt = con.prepareStatement(sql);
+			stmt.setString(1,custCode);
+
+			res = stmt.executeQuery();
+			ProductSummary productSummary=null;
+
+			while (res.next()) {
+				if(productSummaryList==null) {
+					productSummaryList = new ArrayList<>();
+				}
+				productSummary = new ProductSummary();
+				productSummary.setItemCode(res.getString("item_code"));
+				productSummary.setItemName(res.getString("item_name"));
+				productSummary.setItemPrice(res.getInt("price"));
+				productSummary.setTotalNum(res.getInt("total_num"));
+
+				productSummaryList.add(productSummary);
+			}
+		} finally {
+
+			if (res != null) {
+				res.close();
+			}
+			if (stmt != null) {
+				stmt.close();
+			}
 		}
-		
 		return productSummaryList;
-		
 	}
 }

@@ -27,7 +27,7 @@
 	<%@ include file="V400_03Navbar.jsp" %>
 	
 	<div class="container mt-5">
-		<h2 class="text-center">得意先変更</h2>
+		<h2 class="text-center">得意先変更<c:out value="${requestScope.customer.custName}" /></h2>
 		
 		<%-- エラーメッセージがある場合、出力 --%>
      	<h4 class="text-center text-danger mb-3">
@@ -48,6 +48,7 @@
 					</div>
 			    </div>
 			 </div>
+			  
             
             <div class="row row-cols-auto mb-3">
 			    <div class="col-6">
@@ -146,8 +147,6 @@
         </form> 
         
          
-        
-        
 	</div>
 	
 	<!-- Footer.jspをinclude -->

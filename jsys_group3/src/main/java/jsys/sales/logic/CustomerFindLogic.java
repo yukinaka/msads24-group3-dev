@@ -45,7 +45,7 @@ public class CustomerFindLogic {
 			}
 
 			if (custList==null) {
-				throw new SalesBusinessException("集計情報が存在しません。");
+				throw new SalesBusinessException("検索結果が見つかりませんでした。");
 			}
 
 		} catch (SQLException e) {
