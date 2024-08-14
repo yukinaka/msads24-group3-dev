@@ -5,8 +5,9 @@
 package jsys.sales.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import jsys.sales.entity.Employee;
 
 /**
@@ -31,46 +32,37 @@ public class EmployeeDAO {
 	 * @throws SQLException データベースエラー
 	 */
 	public Employee findEmployee(String empNo) throws SQLException{
-//		String sql = "select * from employee where employee_no = ?";
-//		PreparedStatement stmt = null;
-//		ResultSet res = null;
-//		Employee employee = null;
-//
-//		try {
-//			// PreparedStatementの生成
-//			stmt = con.prepareStatement(sql);
-//			// Employeeオブジェクトの生成
-//			employee = new Employee();
-//			// パラメータの設定
-//			stmt.setString(1, empNo);
-//			// SQL文の実行
-//			res = stmt.executeQuery();
-//
-//			if(res.next()) {
-//				employee.setEmpNo(res.getString("employee_no"));
-//				employee.setEmpName(res.getString("employee_name"));
-//				employee.setPassword(res.getString("password"));
-//			}
-//
-//		}finally {
-//			// クローズ処理
-//			if (res != null) {
-//				res.close();
-//			}
-//			if (stmt != null) {
-//				stmt.close();
-//			}
-//		}
-//		return employee;
-		
-		Employee employee = new Employee();
-		
-		employee.setEmpNo("H20001");
-		employee.setPassword("zy0001");
-		employee.setEmpName("Taro");
-		
+		String sql = "select * from employee where employee_no = ?";
+		PreparedStatement stmt = null;
+		ResultSet res = null;
+		Employee employee = null;
+
+		try {
+			// PreparedStatementの生成
+			stmt = con.prepareStatement(sql);
+			// Employeeオブジェクトの生成
+			employee = new Employee();
+			// パラメータの設定
+			stmt.setString(1, empNo);
+			// SQL文の実行
+			res = stmt.executeQuery();
+
+			if(res.next()) {
+				employee.setEmpNo(res.getString("employee_no"));
+				employee.setEmpName(res.getString("employee_name"));
+				employee.setPassword(res.getString("password"));
+			}
+
+		}finally {
+			// クローズ処理
+			if (res != null) {
+				res.close();
+			}
+			if (stmt != null) {
+				stmt.close();
+			}
+		}
 		return employee;
-		
 	}
 
 }
