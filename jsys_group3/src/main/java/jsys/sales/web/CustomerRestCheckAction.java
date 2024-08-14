@@ -43,6 +43,7 @@ public class CustomerRestCheckAction implements ActionIF {
 			}
 
 			//値を取得する
+			String custCode = request.getParameter("custCode");
 			String custName = request.getParameter("custName");
 			String telNo1 = request.getParameter("telNo1");
 			String telNo2 = request.getParameter("telNo2");
@@ -52,9 +53,12 @@ public class CustomerRestCheckAction implements ActionIF {
 			String postalCode2 = request.getParameter("postalCode2");
 			String address2 = request.getParameter("address2");
 			String discountRate = request.getParameter("discountRate");
+			String deleteFlag = request.getParameter("deleteFlag");
+			String lastUpdateBy = request.getParameter("lastUpdateBy");
 
 			//値をセットする
 			Customer customer = new Customer();
+			customer.setCustCode(custCode);
 			customer.setCustName(custName);
 			customer.setTelNo1(telNo1);
 			customer.setTelNo2(telNo2);
@@ -64,6 +68,8 @@ public class CustomerRestCheckAction implements ActionIF {
 			customer.setPostalCode2(postalCode2);
 			customer.setAddress2(address2);
 			customer.setDiscountRate(Integer.parseInt(discountRate));
+			customer.setDeleteFlag(Boolean.parseBoolean(deleteFlag));
+			customer.setLastUpdateBy(lastUpdateBy);
 
 			// 処理結果の格納
 			request.setAttribute("customer", customer);

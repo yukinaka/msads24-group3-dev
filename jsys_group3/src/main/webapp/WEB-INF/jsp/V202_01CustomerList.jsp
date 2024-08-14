@@ -101,71 +101,35 @@
 		                    </tr>
 		                </thead>
 		                
-	               		<c:if test="${ requestScope.checkbox == true }">
-		                	<c:forEach var="customer" items="${ requestScope.custListInCurrentPage }">
-				                <tbody>
-				                    <tr>
-				                    	<td>
-					                    	<form action="/jsys_group3/jsysFC" method="post">
-							                    <input type="hidden" name="custCode" value="<c:out value="${ customer.custCode }" />">
-							                    <input type="hidden" name="custName" value="<c:out value="${ customer.custName }" />">
-										 		<input type="hidden" name="telNo1" value="<c:out value="${ customer.telNo1 }" />">
-										 		<input type="hidden" name="telNo2" value="<c:out value="${ customer.telNo2 }" />">
-										 		<input type="hidden" name="telNo3" value="<c:out value="${ customer.telNo3 }" />">
-										 		<input type="hidden" name="postalCode1" value="<c:out value="${ customer.postalCode1 }" />">
-										 		<input type="hidden" name="address1" value="<c:out value="${ customer.address1 }" />">
-										 		<input type="hidden" name="postalCode2" value="<c:out value="${ customer.postalCode2 }" />">
-										 		<input type="hidden" name="address2" value="<c:out value="${ customer.address2 }" />">
-										 		<input type="hidden" name="discountRate" value="<c:out value="${ customer.discountRate }" />">
-										 		<input type="hidden" name="deleteFlag" value="<c:out value="${ customer.deleteFlag }" />">
-						                        <button type="submit" class="btn btn-light" name="buttonId" value="V202_01_06"><c:out value="${ customer.custCode }" /></button>
-						                    </form>
-				                    	</td>
-				                        <td><c:out value="${ customer.custName }" /></td>
-				                        <td><c:out value="${ customer.telNo1 }" /></td>
-				                        <td><c:out value="${ customer.postalCode1 }" /></td>
-				                        <td><c:out value="${ customer.address1 }" /></td>
-				                        <td style="text-align:right"><c:out value="${ customer.discountRate }" />%</td>
-				                        <td><c:out value="${ customer.lastUpdateBy }" /></td>
-				                    </tr>
-				                </tbody>
-		                	</c:forEach>
-	               		</c:if>
-	               		
-	               		<c:if test="${ requestScope.checkbox == false }">
-		                	<c:forEach var="customer" items="${ requestScope.custListInCurrentPage }">
-			               		<c:if test="${ customer.deleteFlag == false }">
-					                <tbody>
-					                    <tr>
-					                    	<td>
-						                    	<form action="/jsys_group3/jsysFC" method="post">
-								                    <input type="hidden" name="custCode" value="<c:out value="${ customer.custCode }" />">
-								                    <input type="hidden" name="custName" value="<c:out value="${ customer.custName }" />">
-											 		<input type="hidden" name="telNo1" value="<c:out value="${ customer.telNo1 }" />">
-											 		<input type="hidden" name="telNo2" value="<c:out value="${ customer.telNo2 }" />">
-											 		<input type="hidden" name="telNo3" value="<c:out value="${ customer.telNo3 }" />">
-											 		<input type="hidden" name="postalCode1" value="<c:out value="${ customer.postalCode1 }" />">
-											 		<input type="hidden" name="address1" value="<c:out value="${ customer.address1 }" />">
-											 		<input type="hidden" name="postalCode2" value="<c:out value="${ customer.postalCode2 }" />">
-											 		<input type="hidden" name="address2" value="<c:out value="${ customer.address2 }" />">
-											 		<input type="hidden" name="discountRate" value="<c:out value="${ customer.discountRate }" />">
-											 		<input type="hidden" name="deleteFlag" value="<c:out value="${ customer.deleteFlag }" />">
-											 		<input type="hidden" name="lastUpdateBy" value="<c:out value="${ customer.lastUpdateBy }" />">
-							                        <button type="submit" class="btn btn-light" name="buttonId" value="V202_01_06"><c:out value="${ customer.custCode }" /></button>
-							                    </form>
-					                    	</td>
-					                        <td><c:out value="${ customer.custName }" /></td>
-					                        <td><c:out value="${ customer.telNo1 }" /></td>
-					                        <td><c:out value="${ customer.postalCode1 }" /></td>
-					                        <td><c:out value="${ customer.address1 }" /></td>
-					                        <td style="text-align:right"><c:out value="${ customer.discountRate }" />%</td>
-					                        <td><c:out value="${ customer.lastUpdateBy }" /></td>
-					                    </tr>
-					                </tbody>
-					            </c:if>
-		                	</c:forEach>
-	               		</c:if>
-	               		
+	                	<c:forEach var="customer" items="${ requestScope.custListInCurrentPage }">
+			                <tbody>
+			                    <tr>
+			                    	<td>
+				                    	<form action="/jsys_group3/jsysFC" method="post">
+						                    <input type="hidden" name="custCode" value="<c:out value="${ customer.custCode }" />">
+						                    <input type="hidden" name="custName" value="<c:out value="${ customer.custName }" />">
+									 		<input type="hidden" name="telNo1" value="<c:out value="${ customer.telNo1 }" />">
+									 		<input type="hidden" name="telNo2" value="<c:out value="${ customer.telNo2 }" />">
+									 		<input type="hidden" name="telNo3" value="<c:out value="${ customer.telNo3 }" />">
+									 		<input type="hidden" name="postalCode1" value="<c:out value="${ customer.postalCode1 }" />">
+									 		<input type="hidden" name="address1" value="<c:out value="${ customer.address1 }" />">
+									 		<input type="hidden" name="postalCode2" value="<c:out value="${ customer.postalCode2 }" />">
+									 		<input type="hidden" name="address2" value="<c:out value="${ customer.address2 }" />">
+									 		<input type="hidden" name="discountRate" value="<c:out value="${ customer.discountRate }" />">
+									 		<input type="hidden" name="deleteFlag" value="<c:out value="${ customer.deleteFlag }" />">
+									 		<input type="hidden" name="lastUpdateBy" value="<c:out value="${ customer.lastUpdateBy }" />">
+					                        <button type="submit" class="btn btn-light" name="buttonId" value="V202_01_06"><c:out value="${ customer.custCode }" /></button>
+					                    </form>
+			                    	</td>
+			                        <td><c:out value="${ customer.custName }" /></td>
+			                        <td><c:out value="${ customer.telNo1 }" /></td>
+			                        <td><c:out value="${ customer.postalCode1 }" /></td>
+			                        <td><c:out value="${ customer.address1 }" /></td>
+			                        <td style="text-align:right"><c:out value="${ customer.discountRate }" />%</td>
+			                        <td><c:out value="${ customer.lastUpdateBy }" /></td>
+			                    </tr>
+			                </tbody>
+	                	</c:forEach>
 	               		
 		            </table>
 		        </c:if>
