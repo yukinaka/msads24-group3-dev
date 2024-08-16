@@ -3,8 +3,6 @@
  */
 package jsys.sales.web;
 import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -44,9 +42,11 @@ public class OrderSummaryWithinPeriodAction implements ActionIF{
 			Date lastDay = null;
 
 			try {
-				firstDay = (Date) new SimpleDateFormat().parse(request.getParameter("firstDay"));
-				lastDay = (Date) new SimpleDateFormat().parse(request.getParameter("lastDay"));
-			} catch (ParseException e) {
+
+				firstDay = Date.valueOf(request.getParameter("firstDay"));
+				lastDay = Date.valueOf(request.getParameter("lastDay"));
+
+			} catch (IllegalArgumentException e) {
 				throw new SalesSystemException("システムエラーが発生しました。");
 			}
 
