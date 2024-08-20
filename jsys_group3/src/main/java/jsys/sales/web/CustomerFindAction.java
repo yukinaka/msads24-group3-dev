@@ -67,7 +67,7 @@ public class CustomerFindAction implements ActionIF {
 				}
 
 				if (custList.isEmpty()) {
-					throw new SalesBusinessException("取引先は存在しません。");
+					throw new SalesBusinessException("検索結果が見つかりませんでした。");
 				}
 			}
 
