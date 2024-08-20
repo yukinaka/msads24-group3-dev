@@ -54,13 +54,8 @@
 	        <br>
 	        <br>
 	        <br>
-	        <br>
-	        <br>
-	        <br>
-	        <br>
-	        <br>
 	
-	        <table class="table table-bordered table-striped mt-4">
+	        <table class="table table-bordered table-striped mt-4 text-start">
 	            <thead>
 	                <tr>
 	                    <th>得意先コード</th>
