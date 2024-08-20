@@ -57,8 +57,6 @@ public class CustomerFindAction implements ActionIF {
 			CustomerFindLogic logic = new CustomerFindLogic();
 			List<Customer> custList = logic.findCustomer(custStr);
 
-			System.out.println(custList.size());
-
 			/* チェックボックスがチェックされていない場合は、削除済みの得意先をリストから削除する */
 			if (!checkbox) {
 				for (int i=0; i<custList.size(); i++) {
@@ -86,8 +84,6 @@ public class CustomerFindAction implements ActionIF {
 			request.setAttribute("errorMessage", e.getMessage());
 			request.setAttribute("errorMessageList", e.getMessageList());
 			request.setAttribute("order", "dft");
-			ActionIF action = new CustomerListAction();
-			page = action.execute(request);
 
 		} catch (SalesSystemException e) {
 			request.setAttribute("errorMessage", e.getMessage());
@@ -99,8 +95,6 @@ public class CustomerFindAction implements ActionIF {
 			request.setAttribute("checkbox", checkbox);
 			request.setAttribute("custStr", custStr);
 
-			System.out.println(currentPage);
-			System.out.println(lastPage);
 		}
 
 		return page;
