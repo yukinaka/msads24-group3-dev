@@ -57,6 +57,7 @@ public class ProductSummaryDAO {
 				productSummary.setItemName(res.getString("item_name"));
 				productSummary.setItemPrice(res.getInt("price"));
 				productSummary.setTotalNum(res.getInt("total_num"));
+				productSummary.setTotalPricePerItem((res.getInt("total_num")) * (res.getInt("price")));
 
 				productSummaryList.add(productSummary);
 			}
