@@ -62,7 +62,13 @@ public class CustomerDeleteCheckAction implements ActionIF{
 
 		} catch (SalesSystemException e) {
 			request.setAttribute("errorMessage", e.getMessage());
-			page = "V901_01SystemError.jsp";
+
+			if(e.getMessage().equals("セッションが無効です。") || e.getMessage().equals("ログイン情報が存在しません。")) {
+				page = "V101_99Logout.jsp";
+			}else {
+				page = "V901_01SystemError.jsp";
+			}
+
 		}
 		return page;
 	}
