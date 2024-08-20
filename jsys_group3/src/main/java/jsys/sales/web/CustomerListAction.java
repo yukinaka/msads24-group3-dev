@@ -44,6 +44,24 @@ public class CustomerListAction implements ActionIF {
 			String order = (String)request.getAttribute("order");
 			CustomerListLogic logic = new CustomerListLogic();
 			List<Customer> custList = logic.findAllCustomer(order);
+
+			if (request.getAttribute("checkbox")==null) {
+				request.setAttribute("checkbox", false);
+				for (int i=0; i<custList.size(); i++) {
+					Customer cust = custList.get(i);
+					if (cust.isDeleteFlag()) {
+						custList.remove(cust);
+					}
+				}
+
+				if (custList.isEmpty()) {
+					throw new SalesBusinessException("取引先は存在しません。");
+				}
+
+			} else {
+				request.setAttribute("checkbox", true);
+			}
+
 			request.setAttribute("custList", custList);
 
 			int size = 20;
@@ -60,11 +78,11 @@ public class CustomerListAction implements ActionIF {
 		} catch (SalesSystemException e) {
 			request.setAttribute("errorMessage", e.getMessage());
 			page = "V901_01SystemErrorPage.jsp";
-			
+
 		} finally {
 			request.setAttribute("currentPage", currentPage);
 			request.setAttribute("lastPage", lastPage);
-			request.setAttribute("checkbox", false);
+
 		}
 
 		return page;

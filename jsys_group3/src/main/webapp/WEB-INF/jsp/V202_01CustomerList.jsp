@@ -141,6 +141,8 @@
 			    <li class="page-item disabled">
 			      <form action="/jsys_group3/jsysFC" method="post">
 			      	<input type="hidden" name="order" value="<c:out value="${ requestScope.order }" />">
+			      	<input type="hidden" name="checkbox" value="<c:out value="${ requestScope.checkbox }" />">
+			      	<input type="hidden" name="custStr" value="<c:out value="${ requestScope.custStr }" />">
 			      	<input type="hidden" name="currentPage" value="<c:out value="${ requestScope.currentPage - 1 }" />">
 			      	<input type="hidden" name="lastPage" value="<c:out value="${ requestScope.lastPage }" />">
 			      	<c:if test="${ requestScope.currentPage != 1 }">
@@ -154,6 +156,8 @@
 				    <li class="page-item">
 				      <form action="/jsys_group3/jsysFC" method="post">
 				      	<input type="hidden" name="order" value="<c:out value="${ requestScope.order }" />">
+				      	<input type="hidden" name="checkbox" value="<c:out value="${ requestScope.checkbox }" />">
+				      	<input type="hidden" name="custStr" value="<c:out value="${ requestScope.custStr }" />">
 				      	<input type="hidden" name="currentPage" value="<c:out value="${ page }" />">
 				      	<input type="hidden" name="lastPage" value="<c:out value="${ requestScope.lastPage }" />">
 				      	<c:if test="${ requestScope.currentPage == page }">
@@ -170,6 +174,8 @@
 			    <li class="page-item">
 			      <form action="/jsys_group3/jsysFC" method="post">
 			      	<input type="hidden" name="order" value="<c:out value="${ requestScope.order }" />">
+			      	<input type="hidden" name="checkbox" value="<c:out value="${ requestScope.checkbox }" />">
+			      	<input type="hidden" name="custStr" value="<c:out value="${ requestScope.custStr }" />">
 			      	<input type="hidden" name="currentPage" value="<c:out value="${ requestScope.currentPage + 1 }" />">
 			      	<input type="hidden" name="lastPage" value="<c:out value="${ requestScope.lastPage }" />">
 			      	<c:if test="${ requestScope.currentPage != requestScope.lastPage }">
