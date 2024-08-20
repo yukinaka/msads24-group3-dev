@@ -24,7 +24,7 @@
             <div class="d-flex align-items-center ms-5">
                 <span class="user-info me-3">ログイン中: <strong><c:out value="${ sessionScope.loginEmployee.empNo }" /></strong></span>
                 <form action="/jsys_group3/jsysFC" method="post" class="d-inline">
-                    <button type="submit" class="btn btn-outline-light" name="buttonId" value="V101_99_01">ログアウト</button>
+                    <button type="submit" class="btn btn-outline-light" name="buttonId" value="V101_03">ログアウト</button>
                 </form>
             </div>
 	    </div>			

@@ -41,7 +41,7 @@ public class ProductSummaryAction implements ActionIF{
 					throw new SalesSystemException("ログイン情報が存在しません。");
 				}
 			}
-			
+
 			CustomerListLogic custLogic = new CustomerListLogic();
 			List<Customer> custList = custLogic.findAllCustomer("dft");
 			request.setAttribute("custList", custList);
@@ -49,15 +49,17 @@ public class ProductSummaryAction implements ActionIF{
 			String custCodeName = request.getParameter("CustomerCodeName");
 			String custCode = custCodeName.substring(0, 6);
 			request.setAttribute("custCodeName", custCodeName);
-			
+
 			ProductSummaryLogic summaryLogic = new ProductSummaryLogic();
 			ArrayList<ProductSummary> productSummaryList = summaryLogic.productOrderSummary(custCode);
+			int total = summaryLogic.productSummaryTotal(productSummaryList);
 			request.setAttribute("productSummaryList", productSummaryList);
+			request.setAttribute("total", total);
 
 			if (productSummaryList==null) {
 				throw new SalesBusinessException("選択された得意先の受注情報は存在しません。");
 			}
-			
+
 		} catch (SalesBusinessException e) {
 			request.setAttribute("errorMessage", e.getMessage());
 			request.setAttribute("errorMessageList", e.getMessageList());
@@ -67,9 +69,9 @@ public class ProductSummaryAction implements ActionIF{
 			request.setAttribute("errorMessage", e.getMessage());
 			page = "V901_01SystemError.jsp";
 		}
-		
+
 		finally{
-			
+
 		}
 		return page;
 	}

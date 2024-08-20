@@ -49,6 +49,11 @@ public class FrontController extends HttpServlet {
 				page = "V101_02MainMenu.jsp";
 				break;
 
+			case "V101_03":
+				action = new LogoutAction();
+				page = action.execute(request);
+				break;
+
 			case "V101_02_01":
 				page = "V101_03CustomerManagementMenu.jsp";
 				break;
