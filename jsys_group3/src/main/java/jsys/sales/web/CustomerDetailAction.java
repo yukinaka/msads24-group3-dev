@@ -46,8 +46,7 @@ public class CustomerDetailAction implements ActionIF{
 			String address2 = request.getParameter("address2");
 			String discountRate = request.getParameter("discountRate");
 			String deleteFlag = request.getParameter("deleteFlag");
-
-			System.out.println("custName : " + custName);
+			String lastUpdateBy = request.getParameter("lastUpdateBy");
 
 			Customer customer = new Customer();
 			customer.setCustCode(custCode);
@@ -61,6 +60,7 @@ public class CustomerDetailAction implements ActionIF{
 			customer.setAddress2(address2);
 			customer.setDiscountRate(Integer.parseInt(discountRate));
 			customer.setDeleteFlag(Boolean.parseBoolean(deleteFlag));
+			customer.setLastUpdateBy(lastUpdateBy);
 
 			request.setAttribute("customer", customer);
 

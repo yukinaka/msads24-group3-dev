@@ -3,7 +3,6 @@
  */
 package jsys.sales.web;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -28,6 +27,10 @@ public class CustomerFindAction implements ActionIF {
 	public String execute(HttpServletRequest request) {
 
 		String page = "V202_01CustomerList.jsp";
+		String custStr = null;
+		int currentPage = 1;
+		int lastPage = 1;
+		boolean checkbox = false;
 
 		try {
 
@@ -44,41 +47,53 @@ public class CustomerFindAction implements ActionIF {
 				}
 			}
 
-			String custStr = request.getParameter("custStr");
-
-			boolean checkbox;
-			if (request.getParameter("ckbutton")==null) {
+			if (request.getParameter("checkbox")==null) {
 				checkbox = false;
 			} else {
 				checkbox = true;
 			}
 
+			custStr = request.getParameter("custStr");
 			CustomerFindLogic logic = new CustomerFindLogic();
-			List<Customer> custList= logic.findCustomer(custStr);
-
+			List<Customer> custList = logic.findCustomer(custStr);
+			
+			/* チェックボックスがチェックされていない場合は、削除済みの得意先をリストから削除する */
+			if (!checkbox) {
+				for (Customer cust : custList) {
+					if (cust.isDeleteFlag()) {
+						custList.remove(cust);
+					}
+				}
+				if (custList.isEmpty()) {
+					throw new SalesBusinessException("検索結果が見つかりませんでした。");
+				}
+			}
+			
 			request.setAttribute("custList", custList);
 
 			int size = 20;
-			int lastPage = (custList.size() + (size - 1)) / size;
-			int currentPage = 1;
-
-			request.setAttribute("lastPage", lastPage);
-			request.setAttribute("currentPage", currentPage);
+			lastPage = (custList.size() + (size - 1)) / size;
 
 			CustomerListLogic pageLogic = new CustomerListLogic();
 			List<Customer> custListInCurrentPage = pageLogic.findCustomerInCurrentPage(custList, size, lastPage, currentPage);
 			request.setAttribute("custListInCurrentPage", custListInCurrentPage);
 
-			request.setAttribute("checkbox", checkbox);
-
 		} catch (SalesBusinessException e) {
 			request.setAttribute("errorMessage", e.getMessage());
 			request.setAttribute("errorMessageList", e.getMessageList());
-			page = "V202_01CustomerList.jsp";
+			request.setAttribute("order", "dft");
+			ActionIF action = new CustomerListAction();
+			page = action.execute(request);
 
 		} catch (SalesSystemException e) {
 			request.setAttribute("errorMessage", e.getMessage());
 			page = "V901_01SystemErrorPage.jsp";
+			
+		} finally {
+			request.setAttribute("currentPage", currentPage);
+			request.setAttribute("lastPage", lastPage);
+			request.setAttribute("checkbox", checkbox);
+			request.setAttribute("custStr", custStr);
 		}
 
 		return page;

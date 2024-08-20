@@ -84,10 +84,12 @@
 					 		<input type="hidden" name="postalCode2" value="<c:out value="${ requestScope.customer.postalCode2 }" />">
 					 		<input type="hidden" name="address2" value="<c:out value="${ requestScope.customer.address2 }" />">
 					 		<input type="hidden" name="discountRate" value="<c:out value="${ requestScope.customer.discountRate }" />">
+					 		<input type="hidden" name="deleteFlag" value="<c:out value="${ requestScope.customer.deleteFlag }" />">
+					 		<input type="hidden" name="lastUpdateBy" value="<c:out value="${ requestScope.customer.lastUpdateBy }" />">
 		 		
 		 		
 	                        <button type="submit" class="btn btn-secondary mr-2" name="buttonId" value="V211_01_01">前画面へ戻る</button>
-	                        <button type="submit" class="btn btn-primary mr-2" name="buttonId" value="V211_01_02">変更</button>
+	                        <button type="submit" class="btn btn-primary mr-2" name="buttonId" value="V222_02_02">変更</button>
 	                        <c:if test="${ requestScope.customer.deleteFlag == false }">
 		                        <button type="submit" class="btn btn-danger" name="buttonId" value="V211_01_03">削除</button>
 	                        </c:if>

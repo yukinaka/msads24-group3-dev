@@ -22,7 +22,6 @@ public class CustomerFindLogic {
 
 		try {
 			con = ConnectionManager.getConnection();
-
 			CustomerDAO customerDAO = new CustomerDAO(con);
 
 			ArrayList<Customer> custListByCode = customerDAO.findCustomerByCode(custStr);
@@ -45,9 +44,9 @@ public class CustomerFindLogic {
 			}
 
 			if (custList==null) {
-				throw new SalesBusinessException("集計情報が存在しません。");
+				throw new SalesBusinessException("検索結果が見つかりませんでした。");
 			}
-
+			
 		} catch (SQLException e) {
 			throw new SalesSystemException("システムエラーが発生しました。システム管理者に連絡してください。");
 
@@ -65,4 +64,5 @@ public class CustomerFindLogic {
 		return custList;
 
 	}
+	
 }

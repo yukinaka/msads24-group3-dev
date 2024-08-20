@@ -26,19 +26,22 @@ public class CustomerUpdateCheckAction implements ActionIF{
 	public String execute(HttpServletRequest request){
 
 		String page = "V222_02CustomerModificationConfirmation.jsp";
+		Customer customer = null;
 		try {
 
 			HttpSession session = request.getSession(false);
+			Employee loginEmployee;
 			if(session==null) {
 				throw new SalesSystemException("セッションが無効です。");
 			}else {
 
-				Employee loginEmployee = (Employee)session.getAttribute("loginEmployee");
+				loginEmployee = (Employee)session.getAttribute("loginEmployee");
 				if(loginEmployee == null) {
 					throw new SalesSystemException("ログイン情報が存在しません。");
 				}
 			}
 
+			String custCode = request.getParameter("custCode");
 			String custName = request.getParameter("custName");
 			String telNo1 = request.getParameter("telNo1-1") + "-" + request.getParameter("telNo1-2") + "-" + request.getParameter("telNo1-3");
 			String telNo2 = request.getParameter("telNo2-1") + "-" + request.getParameter("telNo2-2") + "-" + request.getParameter("telNo2-3");
@@ -48,50 +51,60 @@ public class CustomerUpdateCheckAction implements ActionIF{
 			String postalCode2 = request.getParameter("postalCode2-1") + "-" + request.getParameter("postalCode2-2");
 			String address2 = request.getParameter("address2");
 			String discountRate = request.getParameter("discountRate");
+			String deleteFlag = request.getParameter("deleteFlag");
 
 			ArrayList<String> errorMessageList = new ArrayList<>();
 
-			if (telNo2.equals("--")) {
-				telNo2 = null;
-			} else {
+			// 電話番号1の処理
+			telNo1 = request.getParameter("telNo1-1") + "-" + request.getParameter("telNo1-2") + "-" + request.getParameter("telNo1-3");
+			telNo1 = telNo1.replaceAll("^-|-$", "").replaceAll("--", "-"); // 前後のハイフンを削除し、連続したハイフンを1つに
 
-				if (!telNo2.matches("^[0-9]{2,4}-[0-9]{3,4}-[0-9]{3,4}$")) {
-					errorMessageList.add("電話番号2が不正です。");
-				}
+			// 電話番号2の処理
+			telNo2 = request.getParameter("telNo2-1") + "-" + request.getParameter("telNo2-2") + "-" + request.getParameter("telNo2-3");
+			telNo2 = telNo2.replaceAll("^-|-$", "").replaceAll("--", "-"); // 前後のハイフンを削除し、連続したハイフンを1つに
+
+			// 電話番号3の処理
+			telNo3 = request.getParameter("telNo3-1") + "-" + request.getParameter("telNo3-2") + "-" + request.getParameter("telNo3-3");
+			telNo3 = telNo3.replaceAll("^-|-$", "").replaceAll("--", "-"); // 前後のハイフンを削除し、連続したハイフンを1つに
+
+			// 郵便番号1の処理
+			postalCode1 = request.getParameter("postalCode1-1") + "-" + request.getParameter("postalCode1-2");
+			postalCode1 = postalCode1.replaceAll("^-|-$", "").replaceAll("--", "-"); // 前後のハイフンを削除し、連続したハイフンを1つに
+
+			// 郵便番号2の処理
+			postalCode2 = request.getParameter("postalCode2-1") + "-" + request.getParameter("postalCode2-2");
+			postalCode2 = postalCode2.replaceAll("^-|-$", "").replaceAll("--", "-"); // 前後のハイフンを削除し、連続したハイフンを1つに
+
+			// 電話番号2のバリデーション
+			if (!telNo2.isEmpty() && !telNo2.equals("--")) {
+			    if (!telNo2.matches("^[0-9]{2,4}-[0-9]{3,4}-[0-9]{3,4}$")) {
+			        errorMessageList.add("電話番号2が不正です。");
+			    }
 			}
 
-			if (telNo3.equals("--")) {
-				telNo3 = null;
-			} else {
-
-				if (!telNo2.matches("^[0-9]{2,4}-[0-9]{3,4}-[0-9]{3,4}$")) {
-					errorMessageList.add("電話番号3が不正です。");
-				}
+			// 電話番号3のバリデーション
+			if (!telNo3.isEmpty() && !telNo3.equals("--")) {
+			    if (!telNo3.matches("^[0-9]{2,4}-[0-9]{3,4}-[0-9]{3,4}$")) {
+			        errorMessageList.add("電話番号3が不正です。");
+			    }
 			}
 
-			if (postalCode1.equals("-")) {
-				postalCode1 = null;
-			} else {
-
-				if (!postalCode1.matches("^[0-9]{3}-[0-9]{4}$")) {
-					errorMessageList.add("郵便番号1が不正です。");
-				}
+			// 郵便番号1のバリデーション
+			if (!postalCode1.isEmpty() && !postalCode1.equals("-")) {
+			    if (!postalCode1.matches("^[0-9]{3}-[0-9]{4}$")) {
+			        errorMessageList.add("郵便番号1が不正です。");
+			    }
 			}
 
-			if (postalCode2.equals("-")) {
-				postalCode2 = null;
-			} else {
-
-				if (!postalCode2.matches("^[0-9]{3}-[0-9]{4}$")) {
-					errorMessageList.add("郵便番号2が不正です。");
-				}
+			// 郵便番号2のバリデーション
+			if (!postalCode2.isEmpty() && !postalCode2.equals("-")) {
+			    if (!postalCode2.matches("^[0-9]{3}-[0-9]{4}$")) {
+			        errorMessageList.add("郵便番号2が不正です。");
+			    }
 			}
 
-			if (!errorMessageList.isEmpty()) {
-				throw new SalesBusinessException(errorMessageList);
-			}
-
-			Customer customer = new Customer();
+			customer = new Customer();
+			customer.setCustCode(custCode);
 			customer.setCustName(custName);
 			customer.setTelNo1(telNo1);
 			customer.setTelNo2(telNo2);
@@ -101,7 +114,25 @@ public class CustomerUpdateCheckAction implements ActionIF{
 			customer.setPostalCode2(postalCode2);
 			customer.setAddress2(address2);
 			customer.setDiscountRate(Integer.parseInt(discountRate));
+			customer.setDeleteFlag(Boolean.getBoolean(deleteFlag));
 
+			if (!errorMessageList.isEmpty()) {
+				request.setAttribute("telNo1_1", request.getParameter("telNo1-1"));
+				request.setAttribute("telNo1_2", request.getParameter("telNo1-2"));
+				request.setAttribute("telNo1_3", request.getParameter("telNo1-3"));
+				request.setAttribute("telNo2_1", request.getParameter("telNo2-1"));
+				request.setAttribute("telNo2_2", request.getParameter("telNo2-2"));
+				request.setAttribute("telNo2_3", request.getParameter("telNo2-3"));
+				request.setAttribute("telNo3_1", request.getParameter("telNo3-1"));
+				request.setAttribute("telNo3_2", request.getParameter("telNo3-2"));
+				request.setAttribute("telNo3_3", request.getParameter("telNo3-3"));
+				request.setAttribute("postalCode1_1", request.getParameter("postalCode1-1"));
+				request.setAttribute("postalCode1_2", request.getParameter("postalCode1-2"));
+				request.setAttribute("postalCode2_1", request.getParameter("postalCode2-1"));
+				request.setAttribute("postalCode2_2", request.getParameter("postalCode2-2"));
+				throw new SalesBusinessException(errorMessageList);
+			}
+			
 			CustomerUpdateLogic logic = new CustomerUpdateLogic();
 			logic.checkCustomer(customer);
 
@@ -119,6 +150,8 @@ public class CustomerUpdateCheckAction implements ActionIF{
 			// エラーメッセージの格納
 			request.setAttribute("errorMessage", e.getMessage());
 			page = "V901_01SystemError.jsp";
+		} finally {
+			request.setAttribute("customer", customer);
 		}
 		return page;
 	}

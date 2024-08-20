@@ -34,8 +34,7 @@ public class FrontController extends HttpServlet {
 
 		// パラメータ未送信または空文字の場合
 		if (buttonId == null || buttonId.equals("")) {
-			// TODO 1 プロトタイピング作成演習：得意先管理メニュー画面のbuttonIdをデフォルトとして設定してください。
-			buttonId = "V101_01_01";
+			buttonId = "V101_99_01";
 
 		}
 		// リクエスト種別の判定
@@ -44,6 +43,10 @@ public class FrontController extends HttpServlet {
 			case "V101_01_01":
 				action = new LoginAction();
 				page = action.execute(request);
+				break;
+				
+			case "V101_02":
+				page = "V101_02MainMenu.jsp";
 				break;
 
 			case "V101_02_01":
@@ -69,7 +72,9 @@ public class FrontController extends HttpServlet {
 				break;
 
 			case "V101_04_02":
-
+				request.setAttribute("order", "dft");
+				action = new CustomerListAction();
+				action.execute(request);
 				page = "V302_01ProductOrderSummary.jsp";
 				break;
 
@@ -84,7 +89,8 @@ public class FrontController extends HttpServlet {
 				break;
 
 			case "V201_02_02":
-				page = "V201_01CustomerRegistration.jsp";
+				action = new CustomerRegistPageAction();
+				page = action.execute(request);
 				break;
 
 			case "V201_03_01":
@@ -114,7 +120,8 @@ public class FrontController extends HttpServlet {
 				break;
 
 			case "V202_01_05":
-				action = new CustomerListChangePageAction();
+				request.setAttribute("order", "dft");
+				action = new CustomerListAction();
 				page = action.execute(request);
 				break;
 
@@ -124,11 +131,13 @@ public class FrontController extends HttpServlet {
 				break;
 
 			case "V211_01_01":
-				page = "V202_01CustomerList.jsp";
+				request.setAttribute("order", "dft");
+				action = new CustomerListAction();
+				page = action.execute(request);
 				break;
 
 			case "V211_01_02":
-				action = new CustomerUpdateCheckAction();
+				action = new CustomerUpdatePageAction();
 				page = action.execute(request);
 				break;
 
@@ -148,11 +157,14 @@ public class FrontController extends HttpServlet {
 				break;
 
 			case "V221_01_02":
-				page = "V211_01CustomerDetails.jsp";
+				action = new CustomerDetailAction();
+				page = action.execute(request);
 				break;
 
 			case "V221_02_01":
-				page = "V202_01CustomerList.jsp";
+				request.setAttribute("order", "dft");
+				action = new CustomerListAction();
+				page = action.execute(request);
 				break;
 
 			case "V222_01_01":
@@ -166,11 +178,14 @@ public class FrontController extends HttpServlet {
 				break;
 
 			case "V222_02_02":
-				page = "V222_01CustomerUpdate.jsp";
+				action = new CustomerUpdatePageAction();
+				page = action.execute(request);
 				break;
 
 			case "V222_03_01":
-				page = "V202_01CustomerList.jsp";
+				request.setAttribute("order", "dft");
+				action = new CustomerListAction();
+				page = action.execute(request);
 				break;
 
 			case "V223_01_01":
@@ -179,11 +194,14 @@ public class FrontController extends HttpServlet {
 				break;
 
 			case "V223_01_02":
-				page = "V211_01CustomerDetails.jsp";
+				action = new CustomerDetailAction();
+				page = action.execute(request);
 				break;
 
 			case "V223_02_01":
-				page = "V202_01CustomerList.jsp";
+				request.setAttribute("order", "dft");
+				action = new CustomerListAction();
+				page = action.execute(request);
 				break;
 
 			case "V301_01_01":

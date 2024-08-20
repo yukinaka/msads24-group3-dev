@@ -56,15 +56,27 @@
 		            </tr>
 		            <tr>
 		                <th scope="row">割引率</th>
-		                <td><c:out value="${ requestScope.customer.discountRate }">%</c:out></td>
+		                <td><c:out value="${ requestScope.customer.discountRate }"></c:out>%</td>
 		            </tr>
 		        </tbody>
 		    </table>
 		
 			<form action="/jsys_group3/jsysFC" method="post">
+				<input type="hidden" name="custCode" value="<c:out value="${ customer.custCode }" />">
+                <input type="hidden" name="custName" value="<c:out value="${ customer.custName }" />">
+		 		<input type="hidden" name="telNo1" value="<c:out value="${ customer.telNo1 }" />">
+		 		<input type="hidden" name="telNo2" value="<c:out value="${ customer.telNo2 }" />">
+		 		<input type="hidden" name="telNo3" value="<c:out value="${ customer.telNo3 }" />">
+		 		<input type="hidden" name="postalCode1" value="<c:out value="${ customer.postalCode1 }" />">
+		 		<input type="hidden" name="address1" value="<c:out value="${ customer.address1 }" />">
+		 		<input type="hidden" name="postalCode2" value="<c:out value="${ customer.postalCode2 }" />">
+		 		<input type="hidden" name="address2" value="<c:out value="${ customer.address2 }" />">
+		 		<input type="hidden" name="discountRate" value="<c:out value="${ customer.discountRate }" />">
+		 		<input type="hidden" name="deleteFlag" value="<c:out value="${ customer.deleteFlag }" />">
+		 		<input type="hidden" name="lastUpdateBy" value="<c:out value="${ customer.lastUpdateBy }" />">
 		    	<div class="mt-3">
-		        	<button type="button" class="btn btn-danger mr-2" name="buttonId" value="V221_01_01">はい</button>
-		        	<button type="button" class="btn btn-secondary" name="buttonId" value="V221_01_02">キャンセル</button>
+		        	<button type="submit" class="btn btn-danger mr-2" name="buttonId" value="V221_01_01">はい</button>
+		        	<button type="submit" class="btn btn-secondary" name="buttonId" value="V221_01_02">キャンセル</button>
 		    	</div>
 		    </form>
 		</div>

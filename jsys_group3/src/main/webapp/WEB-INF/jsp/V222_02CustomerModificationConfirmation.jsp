@@ -58,12 +58,13 @@
 		            </tr>
 		            <tr>
 		                <th scope="row">割引率</th>
-					 	<td><c:out value="${ requestScope.customer.discountRate }" /></td>
+					 	<td><c:out value="${ requestScope.customer.discountRate }" />%</td>
 		            </tr>
 		        </tbody>
 		    </table>
 		 
 		 <form action="/jsys_group3/jsysFC" method="post">
+		 		<input type="hidden" name="custCode" value="<c:out value="${ requestScope.customer.custCode }" />">
 		 		<input type="hidden" name="custName" value="<c:out value="${ requestScope.customer.custName }" />">
 		 		<input type="hidden" name="telNo1" value="<c:out value="${ requestScope.customer.telNo1 }" />">
 		 		<input type="hidden" name="telNo2" value="<c:out value="${ requestScope.customer.telNo2 }" />">
@@ -73,10 +74,11 @@
 		 		<input type="hidden" name="postalCode2" value="<c:out value="${ requestScope.customer.postalCode2 }" />">
 		 		<input type="hidden" name="address2" value="<c:out value="${ requestScope.customer.address2 }" />">
 		 		<input type="hidden" name="discountRate" value="<c:out value="${ requestScope.customer.discountRate }" />">
+		 		<input type="hidden" name="deleteFlag" value="<c:out value="${ requestScope.customer.deleteFlag }" />">
 		 		
 	            <div class="mt-3">
-		    		<button class="btn btn-primary" name="buttonId" value="V222_02_01">はい</button>
-		    		<button class="btn btn-secondary" name="buttonId" value="V222_02_02">キャンセル</button>
+		    		<button type="submit" class="btn btn-primary" name="buttonId" value="V222_02_01">はい</button>
+		    		<button type="submit" class="btn btn-secondary" name="buttonId" value="V222_02_02">キャンセル</button>
 				</div>
 				
 	     </form>
