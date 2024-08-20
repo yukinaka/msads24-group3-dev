@@ -13,6 +13,7 @@ import jsys.sales.common.SalesSystemException;
 import jsys.sales.entity.Customer;
 import jsys.sales.entity.Employee;
 import jsys.sales.entity.ProductSummary;
+import jsys.sales.logic.CustomerFindLogic;
 import jsys.sales.logic.CustomerListLogic;
 import jsys.sales.logic.ProductSummaryLogic;
 /**
@@ -52,6 +53,12 @@ public class ProductSummaryAction implements ActionIF{
 
 				String custCode = custCodeName.substring(0, 6);
 				request.setAttribute("custCodeName", custCodeName);
+
+				CustomerFindLogic findLogic = new CustomerFindLogic();
+				ArrayList<Customer> cust = findLogic.findCustomer(custCode);
+				if(cust.get(0).isDeleteFlag()) {
+					throw new SalesBusinessException("選択された得意先の受注情報は存在しません。");
+				}
 
 				ProductSummaryLogic summaryLogic = new ProductSummaryLogic();
 				ArrayList<ProductSummary> productSummaryList = summaryLogic.productOrderSummary(custCode);
