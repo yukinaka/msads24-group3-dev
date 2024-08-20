@@ -37,7 +37,7 @@ public class PeriodSummaryDAO {
 		String sql ="select orders.customer_code, customer.customer_name, SUM(orders.total_price) as total_price "
 				+ "from orders inner join customer on orders.customer_code = customer.customer_code "
 				+ "where orders.order_date between ? and ? "
-				+ "group by customer_code;";
+				+ "group by customer_code order by customer_code asc";
 
 		PreparedStatement stmt = null;
 		ResultSet res = null;

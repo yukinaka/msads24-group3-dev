@@ -47,16 +47,23 @@ public class ProductSummaryAction implements ActionIF{
 			request.setAttribute("custList", custList);
 
 			String custCodeName = request.getParameter("CustomerCodeName");
-			String custCode = custCodeName.substring(0, 6);
-			request.setAttribute("custCodeName", custCodeName);
 
-			ProductSummaryLogic summaryLogic = new ProductSummaryLogic();
-			ArrayList<ProductSummary> productSummaryList = summaryLogic.productOrderSummary(custCode);
-			int total = summaryLogic.productSummaryTotal(productSummaryList);
-			request.setAttribute("productSummaryList", productSummaryList);
-			request.setAttribute("total", total);
+			try {
 
-			if (productSummaryList==null) {
+				String custCode = custCodeName.substring(0, 6);
+				request.setAttribute("custCodeName", custCodeName);
+
+				ProductSummaryLogic summaryLogic = new ProductSummaryLogic();
+				ArrayList<ProductSummary> productSummaryList = summaryLogic.productOrderSummary(custCode);
+				int total = summaryLogic.productSummaryTotal(productSummaryList);
+				request.setAttribute("productSummaryList", productSummaryList);
+				request.setAttribute("total", total);
+
+				if (productSummaryList==null) {
+					throw new SalesBusinessException("選択された得意先の受注情報は存在しません。");
+				}
+
+			}catch(StringIndexOutOfBoundsException e) {
 				throw new SalesBusinessException("選択された得意先の受注情報は存在しません。");
 			}
 
