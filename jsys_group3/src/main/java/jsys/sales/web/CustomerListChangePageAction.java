@@ -35,7 +35,7 @@ public class CustomerListChangePageAction implements ActionIF {
 			} else {
 				Employee loginEmployee = (Employee) session.getAttribute("loginEmployee");
 				if (loginEmployee==null) {
-					throw new SalesBusinessException("ログイン情報が存在しません。");
+					throw new SalesSystemException("ログイン情報が存在しません。");
 				}
 			}
 
