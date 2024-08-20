@@ -57,6 +57,7 @@
 		                    <tr>
 		                        <th>
 		                        	<form action="/jsys_group3/jsysFC" method="post">
+		                        		<input type="hidden" name="checkbox" value="<c:out value="${ requestScope.checkbox }" />">
 		                        		<button type="submit" class="btn btn-link" name="buttonId" value="V202_01_05">得意先コード</button>
 		                        	</form>
 		                        </th>
@@ -66,8 +67,8 @@
 										    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
 										        data-bs-toggle="dropdown" aria-expanded="false">得意先名</button>
 										    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-										      <li><form action="/jsys_group3/jsysFC" method="post"><button class="dropdown-item active" type="submit" name="buttonId" value="V202_01_02">昇順</button></form></li>
-										      <li><form action="/jsys_group3/jsysFC" method="post"><button class="dropdown-item" type="submit" name="buttonId" value="V202_01_03">降順</button></form></li>
+										      <li><form action="/jsys_group3/jsysFC" method="post"><input type="hidden" name="checkbox" value="<c:out value="${ requestScope.checkbox }" />"><button class="dropdown-item active" type="submit" name="buttonId" value="V202_01_02">昇順</button></form></li>
+										      <li><form action="/jsys_group3/jsysFC" method="post"><input type="hidden" name="checkbox" value="<c:out value="${ requestScope.checkbox }" />"><button class="dropdown-item" type="submit" name="buttonId" value="V202_01_03">降順</button></form></li>
 										    </ul>
 										</div>
 									</c:if>
@@ -76,8 +77,8 @@
 										    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
 										        data-bs-toggle="dropdown" aria-expanded="false">得意先名</button>
 										    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-										      <li><form action="/jsys_group3/jsysFC" method="post"><button class="dropdown-item" type="submit" name="buttonId" value="V202_01_02">昇順</button></form></li>
-										      <li><form action="/jsys_group3/jsysFC" method="post"><button class="dropdown-item active" type="submit" name="buttonId" value="V202_01_03">降順</button></form></li>
+										      <li><form action="/jsys_group3/jsysFC" method="post"><input type="hidden" name="checkbox" value="<c:out value="${ requestScope.checkbox }" />"><button class="dropdown-item" type="submit" name="buttonId" value="V202_01_02">昇順</button></form></li>
+										      <li><form action="/jsys_group3/jsysFC" method="post"><input type="hidden" name="checkbox" value="<c:out value="${ requestScope.checkbox }" />"><button class="dropdown-item active" type="submit" name="buttonId" value="V202_01_03">降順</button></form></li>
 										    </ul>
 										</div>
 									</c:if>
@@ -86,8 +87,8 @@
 										    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
 										        data-bs-toggle="dropdown" aria-expanded="false">得意先名</button>
 										    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-										      <li><form action="/jsys_group3/jsysFC" method="post"><button class="dropdown-item" type="submit" name="buttonId" value="V202_01_02">昇順</button></form></li>
-										      <li><form action="/jsys_group3/jsysFC" method="post"><button class="dropdown-item" type="submit" name="buttonId" value="V202_01_03">降順</button></form></li>
+										      <li><form action="/jsys_group3/jsysFC" method="post"><input type="hidden" name="checkbox" value="<c:out value="${ requestScope.checkbox }" />"><button class="dropdown-item" type="submit" name="buttonId" value="V202_01_02">昇順</button></form></li>
+										      <li><form action="/jsys_group3/jsysFC" method="post"><input type="hidden" name="checkbox" value="<c:out value="${ requestScope.checkbox }" />"><button class="dropdown-item" type="submit" name="buttonId" value="V202_01_03">降順</button></form></li>
 										    </ul>
 										</div>
 									</c:if>
@@ -103,31 +104,60 @@
 		                
 	                	<c:forEach var="customer" items="${ requestScope.custListInCurrentPage }">
 			                <tbody>
-			                    <tr>
-			                    	<td>
-				                    	<form action="/jsys_group3/jsysFC" method="post">
-						                    <input type="hidden" name="custCode" value="<c:out value="${ customer.custCode }" />">
-						                    <input type="hidden" name="custName" value="<c:out value="${ customer.custName }" />">
-									 		<input type="hidden" name="telNo1" value="<c:out value="${ customer.telNo1 }" />">
-									 		<input type="hidden" name="telNo2" value="<c:out value="${ customer.telNo2 }" />">
-									 		<input type="hidden" name="telNo3" value="<c:out value="${ customer.telNo3 }" />">
-									 		<input type="hidden" name="postalCode1" value="<c:out value="${ customer.postalCode1 }" />">
-									 		<input type="hidden" name="address1" value="<c:out value="${ customer.address1 }" />">
-									 		<input type="hidden" name="postalCode2" value="<c:out value="${ customer.postalCode2 }" />">
-									 		<input type="hidden" name="address2" value="<c:out value="${ customer.address2 }" />">
-									 		<input type="hidden" name="discountRate" value="<c:out value="${ customer.discountRate }" />">
-									 		<input type="hidden" name="deleteFlag" value="<c:out value="${ customer.deleteFlag }" />">
-									 		<input type="hidden" name="lastUpdateBy" value="<c:out value="${ customer.lastUpdateBy }" />">
-					                        <button type="submit" class="btn btn-light" name="buttonId" value="V202_01_06"><c:out value="${ customer.custCode }" /></button>
-					                    </form>
-			                    	</td>
-			                        <td><c:out value="${ customer.custName }" /></td>
-			                        <td><c:out value="${ customer.telNo1 }" /></td>
-			                        <td><c:out value="${ customer.postalCode1 }" /></td>
-			                        <td><c:out value="${ customer.address1 }" /></td>
-			                        <td style="text-align:right"><c:out value="${ customer.discountRate }" />%</td>
-			                        <td><c:out value="${ customer.lastUpdateBy }" /></td>
-			                    </tr>
+			                	<c:if test="${ customer.deleteFlag == true }">
+				                    <tr class="table-secondary">
+				                    	<td>
+					                    	<form action="/jsys_group3/jsysFC" method="post">
+							                    <input type="hidden" name="custCode" value="<c:out value="${ customer.custCode }" />">
+							                    <input type="hidden" name="custName" value="<c:out value="${ customer.custName }" />">
+										 		<input type="hidden" name="telNo1" value="<c:out value="${ customer.telNo1 }" />">
+										 		<input type="hidden" name="telNo2" value="<c:out value="${ customer.telNo2 }" />">
+										 		<input type="hidden" name="telNo3" value="<c:out value="${ customer.telNo3 }" />">
+										 		<input type="hidden" name="postalCode1" value="<c:out value="${ customer.postalCode1 }" />">
+										 		<input type="hidden" name="address1" value="<c:out value="${ customer.address1 }" />">
+										 		<input type="hidden" name="postalCode2" value="<c:out value="${ customer.postalCode2 }" />">
+										 		<input type="hidden" name="address2" value="<c:out value="${ customer.address2 }" />">
+										 		<input type="hidden" name="discountRate" value="<c:out value="${ customer.discountRate }" />">
+										 		<input type="hidden" name="deleteFlag" value="<c:out value="${ customer.deleteFlag }" />">
+										 		<input type="hidden" name="lastUpdateBy" value="<c:out value="${ customer.lastUpdateBy }" />">
+						                        <button type="submit" class="btn btn-light" name="buttonId" value="V202_01_06"><c:out value="${ customer.custCode }" /></button>
+						                    </form>
+				                    	</td>
+				                        <td><c:out value="${ customer.custName }" /></td>
+				                        <td><c:out value="${ customer.telNo1 }" /></td>
+				                        <td><c:out value="${ customer.postalCode1 }" /></td>
+				                        <td><c:out value="${ customer.address1 }" /></td>
+				                        <td style="text-align:right"><c:out value="${ customer.discountRate }" />%</td>
+				                        <td><c:out value="${ customer.lastUpdateBy }" /></td>
+				                    </tr>
+				                </c:if>
+			                	<c:if test="${ customer.deleteFlag == false }">
+				                    <tr>
+				                    	<td>
+					                    	<form action="/jsys_group3/jsysFC" method="post">
+							                    <input type="hidden" name="custCode" value="<c:out value="${ customer.custCode }" />">
+							                    <input type="hidden" name="custName" value="<c:out value="${ customer.custName }" />">
+										 		<input type="hidden" name="telNo1" value="<c:out value="${ customer.telNo1 }" />">
+										 		<input type="hidden" name="telNo2" value="<c:out value="${ customer.telNo2 }" />">
+										 		<input type="hidden" name="telNo3" value="<c:out value="${ customer.telNo3 }" />">
+										 		<input type="hidden" name="postalCode1" value="<c:out value="${ customer.postalCode1 }" />">
+										 		<input type="hidden" name="address1" value="<c:out value="${ customer.address1 }" />">
+										 		<input type="hidden" name="postalCode2" value="<c:out value="${ customer.postalCode2 }" />">
+										 		<input type="hidden" name="address2" value="<c:out value="${ customer.address2 }" />">
+										 		<input type="hidden" name="discountRate" value="<c:out value="${ customer.discountRate }" />">
+										 		<input type="hidden" name="deleteFlag" value="<c:out value="${ customer.deleteFlag }" />">
+										 		<input type="hidden" name="lastUpdateBy" value="<c:out value="${ customer.lastUpdateBy }" />">
+						                        <button type="submit" class="btn btn-light" name="buttonId" value="V202_01_06"><c:out value="${ customer.custCode }" /></button>
+						                    </form>
+				                    	</td>
+				                        <td><c:out value="${ customer.custName }" /></td>
+				                        <td><c:out value="${ customer.telNo1 }" /></td>
+				                        <td><c:out value="${ customer.postalCode1 }" /></td>
+				                        <td><c:out value="${ customer.address1 }" /></td>
+				                        <td style="text-align:right"><c:out value="${ customer.discountRate }" />%</td>
+				                        <td><c:out value="${ customer.lastUpdateBy }" /></td>
+				                    </tr>
+				                </c:if>
 			                </tbody>
 	                	</c:forEach>
 	               		
@@ -151,25 +181,27 @@
 			      </form>
 			    </li>
 			    
-			    <c:forEach var="page" begin="1" end="${ requestScope.lastPage }">
-			    
-				    <li class="page-item">
-				      <form action="/jsys_group3/jsysFC" method="post">
-				      	<input type="hidden" name="order" value="<c:out value="${ requestScope.order }" />">
-				      	<input type="hidden" name="checkbox" value="<c:out value="${ requestScope.checkbox }" />">
-				      	<input type="hidden" name="custStr" value="<c:out value="${ requestScope.custStr }" />">
-				      	<input type="hidden" name="currentPage" value="<c:out value="${ page }" />">
-				      	<input type="hidden" name="lastPage" value="<c:out value="${ requestScope.lastPage }" />">
-				      	<c:if test="${ requestScope.currentPage == page }">
-					      	<button class="btn btn-primary" type="submit" name="buttonId" value="V202_01_04"><c:out value="${ page }" /></button>
-				      	</c:if>
-				      	<c:if test="${ requestScope.currentPage != page }">
-					      	<button class="btn btn-outline-primary" type="submit" name="buttonId" value="V202_01_04"><c:out value="${ page }" /></button>
-				      	</c:if>
-				      </form>
-			        </li>
-			    
-			    </c:forEach>
+			    <c:if test="${ requestScope.custListInCurrentPage != null }">
+				    <c:forEach var="page" begin="1" end="${ requestScope.lastPage }">
+				    
+					    <li class="page-item">
+					      <form action="/jsys_group3/jsysFC" method="post">
+					      	<input type="hidden" name="order" value="<c:out value="${ requestScope.order }" />">
+					      	<input type="hidden" name="checkbox" value="<c:out value="${ requestScope.checkbox }" />">
+					      	<input type="hidden" name="custStr" value="<c:out value="${ requestScope.custStr }" />">
+					      	<input type="hidden" name="currentPage" value="<c:out value="${ page }" />">
+					      	<input type="hidden" name="lastPage" value="<c:out value="${ requestScope.lastPage }" />">
+					      	<c:if test="${ requestScope.currentPage == page }">
+						      	<button class="btn btn-primary" type="submit" name="buttonId" value="V202_01_04"><c:out value="${ page }" /></button>
+					      	</c:if>
+					      	<c:if test="${ requestScope.currentPage != page }">
+						      	<button class="btn btn-outline-primary" type="submit" name="buttonId" value="V202_01_04"><c:out value="${ page }" /></button>
+					      	</c:if>
+					      </form>
+				        </li>
+				    
+				    </c:forEach>
+				</c:if>    
 			      
 			    <li class="page-item">
 			      <form action="/jsys_group3/jsysFC" method="post">

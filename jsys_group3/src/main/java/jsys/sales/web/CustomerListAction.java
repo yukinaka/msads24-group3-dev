@@ -42,10 +42,12 @@ public class CustomerListAction implements ActionIF {
 			}
 
 			String order = (String)request.getAttribute("order");
+			request.setAttribute("order", order);
+
 			CustomerListLogic logic = new CustomerListLogic();
 			List<Customer> custList = logic.findAllCustomer(order);
 
-			if (request.getAttribute("checkbox")==null) {
+			if (request.getParameter("checkbox")==null) {
 				request.setAttribute("checkbox", false);
 				for (int i=0; i<custList.size(); i++) {
 					Customer cust = custList.get(i);
@@ -58,7 +60,22 @@ public class CustomerListAction implements ActionIF {
 					throw new SalesBusinessException("取引先は存在しません。");
 				}
 
-			} else {
+			} else if(!(boolean)Boolean.parseBoolean(request.getParameter("checkbox"))) {
+
+				request.setAttribute("checkbox", false);
+				for (int i=0; i<custList.size(); i++) {
+					Customer cust = custList.get(i);
+					if (cust.isDeleteFlag()) {
+						custList.remove(cust);
+					}
+				}
+
+				if (custList.isEmpty()) {
+					throw new SalesBusinessException("取引先は存在しません。");
+				}
+			}
+
+			else {
 				request.setAttribute("checkbox", true);
 			}
 

@@ -42,6 +42,8 @@ public class CustomerListChangePageAction implements ActionIF {
 			CustomerListLogic logic = new CustomerListLogic();
 
 			String order = request.getParameter("order");
+			request.setAttribute("order", order);
+
 			List<Customer> custList = logic.findAllCustomer(order);
 
 			if (request.getParameter("checkbox").equals("true")){
