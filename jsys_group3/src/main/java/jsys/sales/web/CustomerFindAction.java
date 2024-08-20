@@ -62,7 +62,8 @@ public class CustomerFindAction implements ActionIF {
 				for (int i=0; i<custList.size(); i++) {
 					Customer cust = custList.get(i);
 					if (cust.isDeleteFlag()) {
-						custList.remove(cust);
+						custList.remove(i);
+						i--;
 					}
 				}
 

@@ -400,7 +400,7 @@ public class CustomerDAO {
 		String sql = "update customer set customer_name = ?,"
 				+ " customer_telno1 = ?, customer_telno2 = ?, customer_telno3 = ?,"
 				+ " customer_postalcode1 = ?, customer_address1 = ?, customer_postalcode2 = ?, customer_address2 = ?,"
-				+ " discount_rate = ?, delete_flag = ?, last_update_by = ?"
+				+ " discount_rate = ?, last_update_by = ?"
 				+ " where customer_code = ?";
 		PreparedStatement stmt = null;
 
@@ -417,9 +417,8 @@ public class CustomerDAO {
 			stmt.setString(7, customer.getPostalCode2());
 			stmt.setString(8, customer.getAddress2());
 			stmt.setInt(9, customer.getDiscountRate());
-			stmt.setBoolean(10, customer.isDeleteFlag());
-			stmt.setString(11, customer.getLastUpdateBy());
-			stmt.setString(12, customer.getCustCode());
+			stmt.setString(10, customer.getLastUpdateBy());
+			stmt.setString(11, customer.getCustCode());
 
 			int count = stmt.executeUpdate();
 
