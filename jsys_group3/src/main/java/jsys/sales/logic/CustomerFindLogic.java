@@ -39,14 +39,22 @@ public class CustomerFindLogic {
 					custList = new ArrayList<>();
 				}
 				for (Customer cust : custListByName) {
-					custList.add(cust);
+					boolean existFlag = false;
+					for (Customer existCust : custList) {
+						if (cust.getCustCode().equals(existCust.getCustCode())) {
+							existFlag = true;
+						}
+					}
+					if (!existFlag) {
+						custList.add(cust);
+					}
 				}
 			}
 
 			if (custList==null) {
 				throw new SalesBusinessException("検索結果が見つかりませんでした。");
 			}
-			
+
 		} catch (SQLException e) {
 			throw new SalesSystemException("システムエラーが発生しました。システム管理者に連絡してください。");
 
@@ -64,5 +72,5 @@ public class CustomerFindLogic {
 		return custList;
 
 	}
-	
+
 }

@@ -54,13 +54,8 @@
 	        <br>
 	        <br>
 	        <br>
-	        <br>
-	        <br>
-	        <br>
-	        <br>
-	        <br>
 	
-	        <table class="table table-bordered table-striped mt-4">
+	        <table class="table table-bordered table-striped mt-4 text-start">
 	            <thead>
 	                <tr>
 	                    <th>得意先コード</th>
@@ -76,11 +71,13 @@
 	                    	<td><c:out value="${periodSummary.totalPricePerCust}"/></td>
 	                	</tr>
 	                </c:forEach>
-	                <tr style="background-color: aqua;">
-	                    <td></td>
-	                    <td>総計</td>
-	                    <td><c:out value="${requestScope.total}"/></td>
-	                </tr>
+	                <c:if test="${ requestScope.periodSummaryList != null }">
+	                	<tr style="background-color: aqua;">
+	                    	<td></td>
+	                    	<td>総計</td>
+	                    	<td><c:out value="${requestScope.total}"/></td>
+	                	</tr>
+	                </c:if>
 	            </tbody>
 	        </table>
 	    </div>

@@ -44,6 +44,23 @@ public class CustomerListChangePageAction implements ActionIF {
 			String order = request.getParameter("order");
 			List<Customer> custList = logic.findAllCustomer(order);
 
+			if (request.getParameter("checkbox").equals("true")){
+				request.setAttribute("checkbox", true);
+
+			} else {
+				request.setAttribute("checkbox", false);
+				for (int i=0; i<custList.size(); i++) {
+					Customer cust = custList.get(i);
+					if (cust.isDeleteFlag()) {
+						custList.remove(cust);
+					}
+				}
+
+				if (custList.isEmpty()) {
+					throw new SalesBusinessException("取引先は存在しません。");
+				}
+			}
+
 			request.setAttribute("custList", custList);
 
 			int size = 20;
@@ -56,8 +73,6 @@ public class CustomerListChangePageAction implements ActionIF {
 			List<Customer> custListInCurrentPage = logic.findCustomerInCurrentPage(custList, size, lastPage, currentPage);
 			request.setAttribute("custListInCurrentPage", custListInCurrentPage);
 
-			request.setAttribute("checkbox", false);
-
 		} catch (SalesBusinessException e) {
 			request.setAttribute("errorMessage", e.getMessage());
 			request.setAttribute("errorMessageList", e.getMessageList());
@@ -66,6 +81,7 @@ public class CustomerListChangePageAction implements ActionIF {
 		} catch (SalesSystemException e) {
 			request.setAttribute("errorMessage", e.getMessage());
 			page = "V901_01SystemErrorPage.jsp";
+
 		}
 
 		return page;
