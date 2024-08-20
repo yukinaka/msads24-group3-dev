@@ -132,7 +132,7 @@ public class CustomerUpdateCheckAction implements ActionIF{
 				request.setAttribute("postalCode2_2", request.getParameter("postalCode2-2"));
 				throw new SalesBusinessException(errorMessageList);
 			}
-			
+
 			CustomerUpdateLogic logic = new CustomerUpdateLogic();
 			logic.checkCustomer(customer);
 
@@ -149,7 +149,11 @@ public class CustomerUpdateCheckAction implements ActionIF{
 			// システムエラー発生時
 			// エラーメッセージの格納
 			request.setAttribute("errorMessage", e.getMessage());
-			page = "V901_01SystemError.jsp";
+			if(e.getMessage().equals("セッションが無効です。") || e.getMessage().equals("ログイン情報が存在しません。")) {
+				page = "V101_99Logout.jsp";
+			}else {
+				page = "V901_01SystemError.jsp";
+			}
 		} finally {
 			request.setAttribute("customer", customer);
 		}

@@ -63,7 +63,7 @@ public class CustomerUpdatePageAction implements ActionIF{
 			customer.setLastUpdateBy(lastUpdateBy);
 
 			request.setAttribute("customer", customer);
-			
+
 			String[] telNo1Parts = telNo1 != "" ? telNo1.split("-") : new String[]{"", "", ""};
 			request.setAttribute("telNo1_1", telNo1Parts[0]);
 			request.setAttribute("telNo1_2", telNo1Parts[1]);
@@ -82,12 +82,16 @@ public class CustomerUpdatePageAction implements ActionIF{
 			String[] postalCode2Parts = postalCode2 != "" ? postalCode2.split("-") : new String[]{"", ""};
 			request.setAttribute("postalCode2_1", postalCode2Parts[0]);
 			request.setAttribute("postalCode2_2", postalCode2Parts[1]);
-			
+
 
 		} catch (SalesSystemException e) {
 			e.printStackTrace();
 			request.setAttribute("errorMessage", e.getMessage());
-			page = "V901_01SystemError.jsp";
+			if(e.getMessage().equals("セッションが無効です。") || e.getMessage().equals("ログイン情報が存在しません。")) {
+				page = "V101_99Logout.jsp";
+			}else {
+				page = "V901_01SystemError.jsp";
+			}
 		}
 		return page;
 	}

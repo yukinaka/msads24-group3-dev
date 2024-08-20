@@ -109,7 +109,7 @@ public class CustomerRegistCheckAction implements ActionIF{
 			customer.setPostalCode2(postalCode2);
 			customer.setAddress2(address2);
 			customer.setDiscountRate(Integer.parseInt(discountRate));
-			
+
 			if (!errorMessageList.isEmpty()) {
 				request.setAttribute("telNo1_1", request.getParameter("telNo1-1"));
 				request.setAttribute("telNo1_2", request.getParameter("telNo1-2"));
@@ -140,7 +140,11 @@ public class CustomerRegistCheckAction implements ActionIF{
 			// システムエラー発生時
 			// エラーメッセージの格納
 			request.setAttribute("errorMessage", e.getMessage());
-			page = "V901_01SystemError.jsp";
+			if(e.getMessage().equals("セッションが無効です。") || e.getMessage().equals("ログイン情報が存在しません。")) {
+				page = "V101_99Logout.jsp";
+			}else {
+				page = "V901_01SystemError.jsp";
+			}
 		} finally {
 			request.setAttribute("customer", customer);
 		}

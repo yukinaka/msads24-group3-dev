@@ -20,6 +20,13 @@
 	
 	    <div class="container text-center mt-5">
 	        <h2 class="my-4">ログアウト</h2>
+	        <%-- エラーメッセージがある場合、出力 --%>
+	     	<h4 class="text-center text-danger mb-3">
+				<c:out value="${requestScope.errorMessage}"/>
+				<c:forEach var="message" items="${requestScope.errorMessageList}">
+					<c:out value="${message}"/><br>
+				</c:forEach>
+	     	</h4> 
 	        <p class="lead">ログアウトしました。</p>
 	        
 	        <form action="/jsys_group3/jsysFC" method="post">
